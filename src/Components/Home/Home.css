@@ -1,0 +1,23 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  
+}
+.home__content {
+  display: flex;
+  justify-content: space-evenly;
+  font-family: "Roboto", sans-serif;
+  
+}
+
+.home__left {
+  padding: 30px;
+}
+
+.home__center {
+  padding-top: 30px;
+}
+
+.home__right {
+  padding: 30px;
+}

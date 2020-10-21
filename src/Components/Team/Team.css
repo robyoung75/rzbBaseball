@@ -1,0 +1,62 @@
+.team {
+  display: flex;
+  flex-direction: column;  
+  width: 300px;
+  background-color: #ffffff;
+  margin-top: 40px;
+  border-radius: 15px;
+  
+  
+}
+
+.team > h1 {
+  text-align: center;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-bottom: 1px solid #eaeaea;
+  margin-bottom: 10px;
+  
+  
+  
+}
+
+
+.team > h1:hover {
+  transform: scale(1.08);
+  cursor: pointer;
+}
+
+
+.team__header {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 10px;
+  margin-bottom: 5px;
+}
+
+
+.team__button {
+  display: flex;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  width: 30%;
+  padding: 10px 0;
+  color: #cdcdcd;
+  background-color: #ffffff;
+}
+
+.team__header > button:hover,
+button:focus,
+button:active,
+button:visited,
+.active {
+  border-bottom: 2.5px solid red;
+  transform: scale(1.07);
+  color: black;
+}
+

@@ -1,0 +1,45 @@
+.schedule {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  height: 500px;
+  background-color:#ffffff;
+  margin-top: 40px;
+  border-radius: 15px;
+  
+}
+
+.schedule > h1 {
+  text-align: center;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-bottom: 1px solid #eaeaea;
+  margin-bottom: 10px;
+  
+}
+
+.schedule__tableText {
+  font-size: 0.75rem;
+}
+
+.schedule__tableCellTime {
+  font-size: 0.6em;
+  color:#d11800;
+}
+
+.schedule__tableCellOpponent {
+  font-size: 0.6em;
+  color:#d11800;
+}
+
+
+
+.schedule__avatar {
+  font-size: 0.6rem;
+}
+
+.schedule__tableCellHeader {
+  color: #cdcdcd;
+}

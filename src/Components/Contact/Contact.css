@@ -1,0 +1,143 @@
+/* Add a background color and some padding around the form */
+.contact {
+  display: flex;
+
+  justify-content: center;
+}
+
+.contact__content {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  background-color: #ffffff;
+  padding: 20px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  justify-content: center;
+}
+
+.contact__content > h1 {
+  text-align: left;
+  padding-left: 20px;
+  padding-bottom: 20px;
+}
+
+.contact__firstName {
+  display: flex;
+  position: relative;
+  width: 400px;
+  height: 50px;
+  font-weight: bold;
+  contain: content;
+  padding: 20px;
+}
+
+/* Style inputs with type="text", select elements and textareas */
+.contact__firstName > input[type="text"],
+select {
+  position: absolute;
+  left: 150px;
+  width: 60%;
+  padding: 12px; /* Some padding */
+  border: 1px solid;
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+
+  resize: vertical; /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+.contact__lastName {
+  display: flex;
+  position: relative;
+  width: 400px;
+  height: 50px;
+  font-weight: bold;
+  contain: content;
+  padding: 20px;
+}
+
+.contact__lastName > input[type="text"],
+select {
+  position: absolute;
+  left: 150px;
+  width: 60%;
+  padding: 12px; /* Some padding */
+  border: 1px solid;
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+
+  resize: vertical; /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+.contact__email {
+  display: flex;
+  position: relative;
+  width: 400px;
+  height: 50px;
+  font-weight: bold;
+  contain: content;
+  padding: 20px;
+}
+
+.contact__email > input[type="text"],
+select {
+  position: absolute;
+  left: 150px;
+  width: 60%;
+  padding: 12px; /* Some padding */
+  border: 1px solid;
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+
+  resize: vertical; /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+.contact__subject {
+  display: flex;
+  position: relative;
+  width: 400px;
+  min-height: 75px;
+  font-weight: bold;
+
+  contain: content;
+  padding: 20px;
+}
+
+.contact__subject textarea {
+  position: absolute;
+  left: 150px;
+  width: 60%;
+  padding: 12px; /* Some padding */
+  border: 1px solid;
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+
+  resize: vertical; /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+/* Style the submit button with a specific background color etc */
+.contact__submit {
+  background-color: #cdcdcd;
+  color: white;
+  padding: 12px 20px;
+  margin-left: 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+.contact__submit:hover {
+  background-color: #45a049;
+  transform: scale(1.07);
+}

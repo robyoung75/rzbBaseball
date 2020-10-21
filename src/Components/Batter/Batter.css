@@ -1,0 +1,44 @@
+.batter {
+  display: flex;
+  background-color: white;
+  
+  align-items: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  margin: 5px 0;
+  border-radius: 5px;
+  contain: content;
+  padding: 5px;
+}
+
+.batter:hover {
+  transform: scale(1.07);
+}
+
+.batter__average {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  height: 80%;
+}
+
+.batter__average > p {
+  color: lightgray;
+  font-size: small;
+}
+
+.batter__position {
+  color: lightgray;
+}
+
+.batter__info {
+  text-align: left;
+  flex: 1;
+  flex-direction: column;
+  padding-left: 10px;
+  width: 20%;
+  min-height: 80%;
+}
+
+.batter__info > p {
+  font-size: small;
+}

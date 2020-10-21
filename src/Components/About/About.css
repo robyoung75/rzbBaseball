@@ -1,0 +1,22 @@
+.about {
+    
+    
+    font-size: 1.25rem;
+   height: 100vh;
+    
+    
+}
+
+.about__content {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.about__content > h1 {
+    margin: 5% 15% 2.5% 15%;
+}
+
+.about__content > p {
+    margin: 0 15%;
+}
