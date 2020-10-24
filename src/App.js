@@ -15,6 +15,7 @@ import Footer from "./Components/Footer/Footer";
 import { auth, db } from "../src/assets/firebase";
 
 import { useStateValue } from "./assets/stateProvider";
+import LandingPage from "./Components/LandingPage/LandingPage";
 
 function App() {
   // getting state
@@ -39,49 +40,54 @@ function App() {
           user: null,
         });
       }
-    });
 
-    db.collection("teamData").onSnapshot((snapshot) => {
-      dispatch({
-        type: "TEAM_DATA",
-        playerData: snapshot.docs.map((doc) => ({
-          playerId: doc.id,
-          playerData: doc.data(),
-        })),
-      });
-    });
-
-    db.collection("coachesData").onSnapshot((snapshot) => {
-      dispatch({
-        type: "COACHES_DATA",
-        coachData: snapshot.docs.map((doc) => ({
-          coachId: doc.id,
-          coachData: doc.data(),
-        })),
-      });
-    });
-
-    db.collection("schedule")
-      .orderBy("timestamp", "desc")
-      .onSnapshot((snapshot) => {
+      db.collection("teamData").onSnapshot((snapshot) => {
         dispatch({
-          type: "SCHEDULE_DATA",
-          schedule: snapshot.docs.map((doc) => ({
-            scheduleId: doc.id,
-            scheduleData: doc.data(),
+          type: "TEAM_DATA",
+          playerData: snapshot.docs.map((doc) => ({
+            playerId: doc.id,
+            playerData: doc.data(),
+          })),
+        });
+      });
+  
+      db.collection("coachesData").onSnapshot((snapshot) => {
+        dispatch({
+          type: "COACHES_DATA",
+          coachData: snapshot.docs.map((doc) => ({
+            coachId: doc.id,
+            coachData: doc.data(),
+          })),
+        });
+      });
+  
+      db.collection("schedule")
+        .orderBy("timestamp", "desc")
+        .onSnapshot((snapshot) => {
+          dispatch({
+            type: "SCHEDULE_DATA",
+            schedule: snapshot.docs.map((doc) => ({
+              scheduleId: doc.id,
+              scheduleData: doc.data(),
+            })),
+          });
+        });
+  
+      db.collection("posts").onSnapshot((snapshot) => {
+        dispatch({
+          type: "POST_DATA",
+          post: snapshot.docs.map((doc) => ({
+            postId: doc.id,
+            postData: doc.data(),
           })),
         });
       });
 
-    db.collection("posts").onSnapshot((snapshot) => {
-      dispatch({
-        type: "POST_DATA",
-        post: snapshot.docs.map((doc) => ({
-          postId: doc.id,
-          postData: doc.data(),
-        })),
-      });
+
+
     });
+
+    
   }, []);
 
   return (
@@ -108,9 +114,8 @@ function App() {
 
           {/* Note: default root always located at the bottom */}
           <Route path="/">
-            
             <Header />
-            {user ? <Home /> : 'testing'}            
+            <Home />
             <Footer />
           </Route>
         </Switch>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Team from "../Team/Team";
 
 import Post from "../Post/Post";
@@ -9,14 +9,8 @@ import GameChanger from "../GameChanger/GameChanger";
 import { useStateValue } from "../../assets/stateProvider";
 
 function Home() {
-  const [{ user }, dispatch] = useStateValue();
-
-  
-
   return (
-    
     <div className="home">
-      
       <div className="home__left">
         <Team />
       </div>
