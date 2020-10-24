@@ -16,7 +16,7 @@
 .pitcher__era {
   display: flex;
   flex-direction: column;
-  padding-left: 10px;
+  padding-left: 15px;
 }
 
 .pitcher__era > p {
@@ -29,12 +29,10 @@
 }
 
 .pitcher__info {
-  text-align: left;
-  flex: 1;
+  text-align: left;  
   flex-direction: column;
   padding-left: 10px;
-  width: 20%;
-  min-height: 80%;
+  width: 100%;
 }
 
 .pitcher__info > p {

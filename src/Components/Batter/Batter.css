@@ -30,8 +30,7 @@
 }
 
 .batter__info {
-  text-align: left;
-  
+  text-align: left;  
   flex-direction: column;
   padding-left: 10px;
   width: 100%;

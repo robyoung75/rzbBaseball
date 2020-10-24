@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import "./Login.css";
 import { useHistory } from "react-router-dom";
 
-
 function Login() {
   const history = useHistory();
 
@@ -42,44 +41,42 @@ function Login() {
 
   return (
     <div className="login">
-      <div className="login">
-        <div className="login__container">
-          <h1>Sign-in</h1>
+      <div className="login__container">
+        <h2>Sign-in</h2>
 
-          <form>
-            <h5>E-mail</h5>
-            <input
-              type="text"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
+        <form>
+          <h5>E-mail</h5>
+          <input
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
 
-            <h5>Password</h5>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
+          <h5>Password</h5>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
 
-            <button
-              className="login__signInButton"
-              type="submit"
-              onClick={signIn}
-            >
-              Sign in
-            </button>
-          </form>
-
-          <p>By signing-in you agree to RZBB Conditions of Use & Sale.</p>
-
-          {/* <button
-            className="login__registerButton"
+          <button
+            className="login__signInButton"
             type="submit"
-            onClick={register}
+            onClick={signIn}
           >
-            Create RazorBack Account
-          </button> */}
-        </div>
+            Sign in
+          </button>
+        </form>
+
+        <p>By signing-in you agree to RZBB Conditions of Use & Sale.</p>
+
+        {/* <button
+    className="login__registerButton"
+    type="submit"
+    onClick={register}
+  >
+    Create RazorBack Account
+  </button> */}
       </div>
     </div>
   );

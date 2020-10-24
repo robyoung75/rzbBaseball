@@ -67,7 +67,7 @@ const Contact = ({ data }) => {
   return (
     <div className="contact">
       <div className="contact__content">
-        <h1>Razorback Contact</h1>
+        <h2>Razorback Contact</h2>
         <form>
           <div className="contact__firstName">
             <label for="firstName"><span role="img" aria-label="baseball">⚾</span> First Name</label>

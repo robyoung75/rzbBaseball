@@ -1,7 +1,6 @@
 /* Add a background color and some padding around the form */
 .contact {
   display: flex;
-
   justify-content: center;
 }
 
@@ -10,7 +9,7 @@
   flex-direction: column;
   width: 30%;
   background-color: #ffffff;
-  padding: 20px;
+  padding-bottom: 20px;
   margin-top: 100px;
   margin-bottom: 100px;
   border-radius: 10px;
@@ -18,10 +17,18 @@
   justify-content: center;
 }
 
-.contact__content > h1 {
-  text-align: left;
-  padding-left: 20px;
-  padding-bottom: 20px;
+.contact__content > h2 {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-bottom: 1px solid #eaeaea;  
+  background-color: #d11800;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  color: #eaeaea;  
 }
 
 .contact__firstName {
@@ -31,7 +38,7 @@
   height: 50px;
   font-weight: bold;
   contain: content;
-  padding: 20px;
+  padding: 10px;
 }
 
 /* Style inputs with type="text", select elements and textareas */
@@ -40,7 +47,7 @@ select {
   position: absolute;
   left: 150px;
   width: 60%;
-  padding: 12px; /* Some padding */
+  padding: 5px; /* Some padding */
   border: 1px solid;
   border-radius: 4px; /* Rounded borders */
   box-sizing: border-box; /* Make sure that padding and width stays in place */
@@ -57,7 +64,7 @@ select {
   height: 50px;
   font-weight: bold;
   contain: content;
-  padding: 20px;
+  padding: 10px;
 }
 
 .contact__lastName > input[type="text"],
@@ -65,7 +72,7 @@ select {
   position: absolute;
   left: 150px;
   width: 60%;
-  padding: 12px; /* Some padding */
+  padding: 5px; /* Some padding */
   border: 1px solid;
   border-radius: 4px; /* Rounded borders */
   box-sizing: border-box; /* Make sure that padding and width stays in place */
@@ -82,7 +89,7 @@ select {
   height: 50px;
   font-weight: bold;
   contain: content;
-  padding: 20px;
+  padding: 10px;
 }
 
 .contact__email > input[type="text"],
@@ -90,7 +97,7 @@ select {
   position: absolute;
   left: 150px;
   width: 60%;
-  padding: 12px; /* Some padding */
+  padding: 5px; /* Some padding */
   border: 1px solid;
   border-radius: 4px; /* Rounded borders */
   box-sizing: border-box; /* Make sure that padding and width stays in place */
@@ -108,14 +115,14 @@ select {
   font-weight: bold;
 
   contain: content;
-  padding: 20px;
+  padding: 10px;
 }
 
 .contact__subject textarea {
   position: absolute;
   left: 150px;
   width: 60%;
-  padding: 12px; /* Some padding */
+  padding: 5px; /* Some padding */
   border: 1px solid;
   border-radius: 4px; /* Rounded borders */
   box-sizing: border-box; /* Make sure that padding and width stays in place */
