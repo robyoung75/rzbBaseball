@@ -1,15 +1,14 @@
 .schedule {
   display: flex;
   flex-direction: column;
-  width: 500px;
-  height: 500px;
-  background-color:#ffffff;
+  width: 100%;  
+  background-color: green;
   margin-top: 40px;
   border-radius: 15px;
   
 }
 
-.schedule > h1 {
+.schedule > h3 {
   text-align: center;
   padding-bottom: 15px;
   padding-top: 15px;
@@ -17,6 +16,11 @@
   padding-right: 15px;
   border-bottom: 1px solid #eaeaea;
   margin-bottom: 10px;
+  background-color: #d11800;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  color: #eaeaea;  
+  
   
 }
 

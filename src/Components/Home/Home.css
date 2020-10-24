@@ -1,6 +1,7 @@
 .home {
   display: flex;
-  flex-direction: column;
+  height: 100vh;
+  /* background-color: seagreen; */
   
 }
 .home__content {
@@ -11,13 +12,29 @@
 }
 
 .home__left {
-  padding: 30px;
+  display: flex;
+  margin-left: .5rem;
+  margin-right: .5rem;
+  /* background-color: salmon; */
+  padding-top: 30px;
+  width: 30%;
+  height: auto;
 }
 
 .home__center {
+  display: flex;
+  flex-direction: column;
+  /* background-color: khaki; */
   padding-top: 30px;
+  
+  overflow-y: scroll;
 }
 
 .home__right {
-  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  margin-left: .5rem;
+  margin-right: .5rem;
+  /* background-color: hotpink; */
+  padding-top: 30px;
 }

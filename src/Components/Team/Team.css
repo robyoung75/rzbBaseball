@@ -1,30 +1,26 @@
-.team {
-  display: flex;
-  flex-direction: column;  
-  width: 300px;
+.team {    
+  width: 100%;
   background-color: #ffffff;
   margin-top: 40px;
-  border-radius: 15px;
-  
+  border-radius: 15px; 
   
 }
 
-.team > h1 {
+.team > h3 {
   text-align: center;
-  padding-bottom: 15px;
-  padding-top: 15px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding: 15px;
   border-bottom: 1px solid #eaeaea;
   margin-bottom: 10px;
-  
-  
+  background-color: #d11800;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  color: #eaeaea;  
   
 }
 
 
-.team > h1:hover {
-  transform: scale(1.08);
+.team > h3:hover {
+  transform: scale(1.07);
   cursor: pointer;
 }
 

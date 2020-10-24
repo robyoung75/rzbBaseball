@@ -93,7 +93,7 @@ function Team() {
 
   return (
     <div className="team">
-      <h1 onClick={handleTeamClick}>2020 Razorbacks</h1>
+      <h3 onClick={handleTeamClick}>2020 Razorbacks</h3>
       
       <div className="team__header">
         <button className="team__button" onClick={handleBattingClick}>

@@ -62,7 +62,7 @@ export default function Schedule() {
 
   return (
     <div className="schedule">
-      <h1>2020 Schedule</h1>
+      <h3>2020 Schedule</h3>
 
       <TableContainer component={Paper}>
         <Table size="small" stickyHeader>

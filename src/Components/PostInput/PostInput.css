@@ -1,62 +1,106 @@
 .postInput {
-    display: flex;
-    margin-top: 40px;
-    flex-direction: column;
-    background-color: #ffffff;
-    border-radius: 15px;
-    box-shadow: 0px 5px 7px -7px rgba(0, 0, 0.75);
-    width: 100%;
+  display: flex;
+  margin-top: 40px;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0px 5px 7px -7px rgba(0, 0, 0.75);
+  
 }
 
-.postInput__top {
-    display: flex;
-    border-bottom: 1px solid #eff2f5;    
-    padding: 15px;
+.postInput__top {  
+  display: flex;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-bottom: 1px solid #eaeaea;  
+  background-color: #d11800;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  color: #eaeaea;
+  
 }
 
-.postInput__top > form {
-    flex: 1;
-    display: flex;
+.postInput__top > form {  
+  display: flex;  
 }
 
-.postInput__top > form > input {
-    
+.postInput__topLabel {  
+  font-size: .7rem;
+  color:#eaeaea;  
+  padding: 0;
+  
+}
+
+.postInput__messageInput {
+  outline-width: 0;
+  border: none;
+  height: .75rem;
+  padding: 5px 20px;
+  margin: 0 10px;
+  border-radius: 999px;
+  display: flex;
+  background-color: #f5f5f5;
+  font-size: .65rem;
+  
+}
+
+.postInput__imageInput {
     outline-width: 0;
     border: none;
+    height: .75rem;
     padding: 5px 20px;
     margin: 0 10px;
     border-radius: 999px;
+    display: flex;
     background-color: #f5f5f5;
+    font-size: .65rem;
+  
 }
 
-.postInput__top > form > button {
-    display: none;
+.postInput__preview > p {
+  font-size: .7rem;
+  
+  color: #eaeaea;
+  /* background-color: yellow; */
+  
+  margin-top: 10px;
 }
 
-.postInput__input {
-    flex: 1;
+.postInput__btn > button {
+  border: none;
+  background-color: #d11800;
+  color: #eaeaea;
+  cursor: pointer;
+  
+  font-weight: bolder;
+  outline-width: 0;
 }
+
+.postInput__btn > button:hover {
+    transform: scale(1.07);
+  }
 
 .postInput__bottom {
-    display: flex;
-    justify-content: space-evenly;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .postInput__option {
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    color: gray;
-    margin: 5px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  color: gray;
+  margin: 5px;
 }
 
 .postInput__option > h3 {
-    font-size: medium;
-    margin-left: 10px;
-    cursor: pointer;
+  font-size: medium;
+  margin-left: 10px;
 }
 
 .postInput__option:hover {
-    background-color: #eff2f5;
-    border-radius: 20px;
+  background-color: #eff2f5;
+  border-radius: 20px;
 }
