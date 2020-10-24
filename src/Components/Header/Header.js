@@ -34,7 +34,7 @@ export default function Header() {
 
     <div className="header__center">
     <Link to="/" className="header__image">
-        <img src={razorbackFace} />
+        <img src={razorbackFace} alt="Razorback Image" />
       </Link>
 
     </div>     

@@ -8,36 +8,31 @@ import "./Home.css";
 import GameChanger from "../GameChanger/GameChanger";
 import { useStateValue } from "../../assets/stateProvider";
 
-
 function Home() {
   const [{ user }, dispatch] = useStateValue();
 
- 
+  
 
   return (
+    
     <div className="home">
-      <div className="home__content">
-        <div className="home__left">
-          <Team />
+      
+      <div className="home__left">
+        <Team />
+      </div>
+      <div className="home__center">
+        <div className="home__centerUser">
+          <div className="home__centerUserTop">
+            <PostInput />
+          </div>
+          <div className="home__centerUserBottom">
+            <Post />
+          </div>
         </div>
-        <div className="home__center">
-          {!user ? (
-            <>
-              <Post />
-             
-            </>
-          ) : (
-            <div>
-              <PostInput />
-              <Post />
-              
-            </div>
-          )}
-        </div>
-        <div className="home__right">
-          <Schedule />
-          <GameChanger />
-        </div>
+      </div>
+      <div className="home__right">
+        <Schedule />
+        <GameChanger />
       </div>
     </div>
   );

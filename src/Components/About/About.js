@@ -5,7 +5,7 @@ function About() {
   return (
     <div className="about">
       <div className="about__content">
-        <h1>About 🇺🇸 </h1>
+        <h1>About RZBBaseball </h1>
         <p>
           Razorback Baseball (RZBB) is a competitive Club based in Riverton, UT.
           Following our Mission Statement of “Providing a Foundational

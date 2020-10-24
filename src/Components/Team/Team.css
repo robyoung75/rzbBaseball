@@ -1,19 +1,21 @@
-.team {    
-  width: 100%;
-  background-color: #ffffff;
+.team { 
+  display: flex;  
+  flex-direction: column;   
+  /* background-color: green; */
   margin-top: 40px;
-  border-radius: 15px; 
+  border-radius: 10px; 
+  
   
 }
 
 .team > h3 {
-  text-align: center;
+  display: flex;
+  justify-content: center;
   padding: 15px;
-  border-bottom: 1px solid #eaeaea;
-  margin-bottom: 10px;
+  border-bottom: 1px solid #eaeaea;  
   background-color: #d11800;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   color: #eaeaea;  
   
 }
@@ -30,7 +32,9 @@
   justify-content: space-around;
   border-bottom: 1px solid #eaeaea;
   padding-bottom: 10px;
+  padding-top: 10px;
   margin-bottom: 5px;
+  background-color: #ffffff;
 }
 
 
@@ -44,6 +48,7 @@
   padding: 10px 0;
   color: #cdcdcd;
   background-color: #ffffff;
+  font-size: .75rem;
 }
 
 .team__header > button:hover,

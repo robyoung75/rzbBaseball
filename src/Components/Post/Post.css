@@ -1,6 +1,8 @@
-.post { 
-  margin-top: 40px;
-  border-radius: 15px;
+.post {
+  display: flex; 
+  flex-direction: column;
+  margin-top: 20px;
+  border-radius: 10px;
   background-color: #ffffff;
   box-shadow: 0px 5px 7px -7px rgba(0, 0, 0.75);
   
@@ -9,16 +11,16 @@
 
 .post__top {
   display: flex;  
-  align-items: center;
   padding: 15px;
   border-bottom: 1px solid #eaeaea;
   background-color: #d11800;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   color: #eaeaea;
 }
 
 .post__avatar {
+  
   margin-right: 10px;
 }
 
@@ -34,16 +36,19 @@
 }
 
 .post__bottom {
+  display: flex;
   margin-top: 10px;
   margin-bottom: 10px;
   padding: 15px 25px;
 }
 
 .post__image > img {
+  display: flex;
   width: 100%;
 }
 
 .post__options {
+  display: flex;
   padding-top: 10px;
   border-top: 1px solid lightgray;
   display: flex;

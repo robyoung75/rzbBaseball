@@ -74,15 +74,17 @@ function PostInput() {
   return (
     <div className="postInput">
       <div className="postInput__top">
-        <Avatar src={playersImage[0]} />
         <form onSubmit={onSubmit}>
+          <Avatar src={playersImage[0]} style={{position: "absolute"}} />
           <input
             // value={input}
             onChange={(e) => setInput(e.target.value)}
             className="postInput__messageInput"
             placeholder={`What's on your mind?`}
           />
-          <label htmlFor="image_uploads" className="postInput__topLabel">upload an image</label>
+          <label htmlFor="image_uploads" className="postInput__topLabel">
+            <p>Upload Image</p>
+          </label>
           <input
             className="postInput__imageInput"
             type="file"
@@ -90,26 +92,24 @@ function PostInput() {
             name="image_uploads"
             accept=".jpg, .jpeg, .png"
             multiple
-            
             value={imageURL}
             onChange={handleInputChange}
           />
-
-          <div className="postInput__preview">
-            <p>
-              {!input
-                ? "No files currently selected for upload"
-                : `upload file NAME: ${fileName}__TYPE${fileType}__SIZE${returnFileSize(
-                    fileSize
-                  )}`}
-            </p>
-          </div>
           <div className="postInput__btn">
             <button onClick={handlePostSubmit} type="submit">
               Submit
             </button>
           </div>
         </form>
+        <div className="postInput__preview">
+          <p>
+            {!input
+              ? "No files currently selected for upload"
+              : `upload file NAME: ${fileName}__TYPE${fileType}__SIZE${returnFileSize(
+                  fileSize
+                )}`}
+          </p>
+        </div>
       </div>
 
       <div className="postInput__bottom">

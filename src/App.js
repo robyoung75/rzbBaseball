@@ -108,8 +108,9 @@ function App() {
 
           {/* Note: default root always located at the bottom */}
           <Route path="/">
+            
             <Header />
-            <Home />
+            {user ? <Home /> : 'testing'}            
             <Footer />
           </Route>
         </Switch>
