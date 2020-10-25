@@ -11,12 +11,20 @@ import { auth } from "../../assets/firebase";
 
 
 export default function Header() {
-  const [{ user }, dispatch] = useStateValue();
-  
+  const [{ userData, user }, dispatch] = useStateValue();
+  //  console.log('I AM USER_DATA STATE', userData)
+  // const email = userData.map(obj => obj.email)
+  //  console.log('EMAIL', email)
+
+
   const handleAuthentication = () => {
     if (user) {
-      auth.signOut();
+      auth.signOut()
     }
+    dispatch({
+      type: "SET_USER",
+      userData: []
+    })
   };
   
   return (

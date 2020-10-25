@@ -9,15 +9,27 @@ import { db, storage } from "../../assets/firebase";
 import firebase from "firebase";
 
 function PostInput() {
-  const [{ playerData, user }, dispatch] = useStateValue();
+  const [{ playerData, user, userData }, dispatch] = useStateValue();
   const [input, setInput] = useState("");
-  const [imageURL, setImageURL] = useState("");
+  const [imageURL, setImageURL] = useState(null);
   const [fileSize, setFileSize] = useState(null);
   const [fileName, setFileName] = useState("");
   const [fileType, setFileType] = useState("");
+  const [fileURL, setFileURL] = useState([]);
 
   let playersImage = playerData.map((player) => player.image);
   let playersName = playerData.map((player) => player.name);
+
+  let userEmail;
+  let userUID;
+  let userDisplayName;
+  
+  userData.map(obj => {
+    userEmail = obj.email;
+    userUID = obj.uid;
+    userDisplayName = obj.displayName;
+
+  })
 
   const returnFileSize = (number) => {
     if (number < 1024) {
@@ -29,20 +41,19 @@ function PostInput() {
     }
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange =  async (e) => {
     e.preventDefault();
     setFileSize(e.target.files[0].size);
     setFileName(e.target.files[0].name);
     setFileType(e.target.files[0].type);
-    setInput(e.target.value);
+    // setImageURL(e.target.value);
 
     const file = e.target.files[0];
     const storageRef = storage.ref();
     const fileRef = storageRef.child(file.name);
 
-    fileRef.put(file).then(() => {
-      console.log("UPLOADED_FILE >>> ", file.name);
-    });
+    await fileRef.put(file);
+    setImageURL(await fileRef.getDownloadURL());
   };
   const handlePostSubmit = (e) => {
     e.preventDefault();
@@ -50,20 +61,15 @@ function PostInput() {
     db.collection("posts").add({
       message: input,
       image: imageURL,
+      email: userEmail,
+      uid: userUID,
+      displayName: userDisplayName,
       timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
     });
 
+    setImageURL("");
     setInput("");
   };
-
-  // const onFileChange = (e) => {
-  //   const file = e.target.files[0];
-  //   const storageRef = storage.ref();
-  //   const fileRef = storageRef.child(file.name);
-  //   fileRef.put(file).then(() => {
-  //     console.log("UPLOADED_FILE >>> ", file.name);
-  //   });
-  // };
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -74,13 +80,13 @@ function PostInput() {
   return (
     <div className="postInput">
       <div className="postInput__top">
-        <form onSubmit={onSubmit}>
-          <Avatar src={playersImage[0]} style={{position: "absolute"}} />
+        <form >
+          <Avatar src={playersImage[0]} style={{ position: "absolute" }} />
           <input
-            // value={input}
+            value={input}
             onChange={(e) => setInput(e.target.value)}
             className="postInput__messageInput"
-            placeholder={`What's on your mind?`}
+            placeholder={user ? 'Whats on you mind?' : 'LOGIN REQUIRED'}
           />
           <label htmlFor="image_uploads" className="postInput__topLabel">
             <p>Upload Image</p>
@@ -92,7 +98,7 @@ function PostInput() {
             name="image_uploads"
             accept=".jpg, .jpeg, .png"
             multiple
-            value={imageURL}
+            // value={imageURL}
             onChange={handleInputChange}
           />
           <div className="postInput__btn">
@@ -103,7 +109,7 @@ function PostInput() {
         </form>
         <div className="postInput__preview">
           <p>
-            {!input
+            {!imageURL
               ? "No files currently selected for upload"
               : `upload file NAME: ${fileName}__TYPE${fileType}__SIZE${returnFileSize(
                   fileSize

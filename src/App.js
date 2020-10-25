@@ -19,25 +19,34 @@ import LandingPage from "./Components/LandingPage/LandingPage";
 
 function App() {
   // getting state
-  const [{ user }, dispatch] = useStateValue();
+  const [{ userData }, dispatch] = useStateValue();
 
   useEffect(() => {
     // will only run once when the app component loads...
     // a listener for auth change
     auth.onAuthStateChanged((authUser) => {
-      // console.log('THE USER IS >>>', authUser);
+      // console.log('THE USER IS >>>', authUser.providerData);
 
       if (authUser) {
+        let displayName = authUser.displayName;
+        let email = authUser.email;
+        let emailVerified = authUser.emailVerified;
+        let photoURL = authUser.photoURL;
+        let isAnonymous = authUser.isAnonymous;
+        let uid = authUser.uid;
+        let providerData = authUser.providerData;
         // the user just logged in / the user was logged in
         dispatch({
           type: "SET_USER",
-          user: authUser.email,
+          user: authUser.providerData,
+          userData: authUser.email,
         });
       } else {
         // the user is logged out
         dispatch({
           type: "SET_USER",
-          user: null,
+          user: [],
+          
         });
       }
 

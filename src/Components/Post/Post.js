@@ -13,7 +13,9 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 
 
 function Post() {
-  const [{ user, posts }, dispatch] = useStateValue();
+  const [{ user, userData, posts }, dispatch] = useStateValue();
+
+  let email = userData.map(obj => obj.email)
 
   let sortedPosts = posts.sort(function (a, b) {
     const aTimestamp = a.postData.timestamp;
@@ -37,7 +39,7 @@ function Post() {
         <div className="post__top">
           <Avatar src="" className="post__avatar" />
           <div className="post__topInfo">
-            <h3>{user}</h3>
+            <h3>{email}</h3>
             {/* <p>{new Date(timestamp?.toDate()).toUTCString()}</p> */}
           </div>
         </div>

@@ -4,7 +4,8 @@ export const initialState = {
   playerData: [],
   coachesData: [],
   schedule: [],
-  posts: [],
+  posts: [], 
+  userData: [],
   user: null,
 };
 
@@ -51,7 +52,9 @@ const reducer = (state, action) => {
     case "SET_USER":
       return {
         ...state,
-        user: action.user,
+        
+        userData: action.user,
+        user: action.userData
       };
 
     case "TEAM_DATA":

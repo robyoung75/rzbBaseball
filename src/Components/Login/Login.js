@@ -70,13 +70,6 @@ function Login() {
 
         <p>By signing-in you agree to RZBB Conditions of Use & Sale.</p>
 
-        {/* <button
-    className="login__registerButton"
-    type="submit"
-    onClick={register}
-  >
-    Create RazorBack Account
-  </button> */}
       </div>
     </div>
   );
