@@ -70,7 +70,7 @@ const Contact = ({ data }) => {
         <h2>Razorback Contact</h2>
         <form>
           <div className="contact__firstName">
-            <label for="firstName"><span role="img" aria-label="baseball">⚾</span> First Name</label>
+            <label htmlFor="firstName"><span role="img" aria-label="baseball">⚾</span> First Name</label>
             <input
               type="text"
               id="name"
@@ -79,7 +79,7 @@ const Contact = ({ data }) => {
             ></input>
           </div>
           <div className="contact__lastName">
-            <label for="lastName"><span role="img" aria-label="baseball">⚾</span> Last Name</label>
+            <label htmlFor="lastName"><span role="img" aria-label="baseball">⚾</span> Last Name</label>
             <input
               type="text"
               id="name"
@@ -88,7 +88,7 @@ const Contact = ({ data }) => {
             ></input>
           </div>
           <div className="contact__email">
-            <label for="country"><span role="img" aria-label="baseball">⚾</span> Email</label>
+            <label htmlFor="country"><span role="img" aria-label="baseball">⚾</span> Email</label>
             <input
               type="text"
               id="email"
@@ -97,7 +97,7 @@ const Contact = ({ data }) => {
             ></input>
           </div>
           <div className="contact__subject">
-            <label for="subject"><span role="img" aria-label="baseball">⚾</span> Subject</label>
+            <label htmlFor="subject"><span role="img" aria-label="baseball">⚾</span> Subject</label>
             <textarea
               id="subject"
               name="subject"

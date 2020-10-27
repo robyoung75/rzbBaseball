@@ -24,12 +24,12 @@ function PostInput() {
   let userUID;
   let userDisplayName;
   
-  userData.map(obj => {
+  if(userData){userData.map(obj => {
     userEmail = obj.email;
     userUID = obj.uid;
     userDisplayName = obj.displayName;
 
-  })
+  })}
 
   const returnFileSize = (number) => {
     if (number < 1024) {
@@ -55,6 +55,8 @@ function PostInput() {
     await fileRef.put(file);
     setImageURL(await fileRef.getDownloadURL());
   };
+
+
   const handlePostSubmit = (e) => {
     e.preventDefault();
 
@@ -71,11 +73,7 @@ function PostInput() {
     setInput("");
   };
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    setInput("");
-    setImageURL("");
-  };
+
 
   return (
     <div className="postInput">

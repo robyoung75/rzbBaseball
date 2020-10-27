@@ -11,11 +11,10 @@ import NearMeIcon from "@material-ui/icons/NearMe";
 import { ExpandMoreOutlined } from "@material-ui/icons";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 
-
 function Post() {
-  const [{ user, userData, posts }, dispatch] = useStateValue();
+  const [{ user, posts }, dispatch] = useStateValue();
 
-  let email = userData.map(obj => obj.email)
+ 
 
   let sortedPosts = posts.sort(function (a, b) {
     const aTimestamp = a.postData.timestamp;
@@ -28,9 +27,7 @@ function Post() {
     } else if (aTimestamp < bTimestamp) {
       postComparison = -1;
     }
-    ;
     return postComparison;
-    
   });
 
   let postList = sortedPosts.map((post) => {
@@ -39,7 +36,7 @@ function Post() {
         <div className="post__top">
           <Avatar src="" className="post__avatar" />
           <div className="post__topInfo">
-            <h3>{email}</h3>
+            <h3>{user ? user : "you are not logged in"}</h3>
             {/* <p>{new Date(timestamp?.toDate()).toUTCString()}</p> */}
           </div>
         </div>
