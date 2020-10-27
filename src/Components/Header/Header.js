@@ -13,7 +13,8 @@ export default function Header() {
   // const email = userData.map(obj => obj.email)
   //  console.log('EMAIL', email)
 
-  const handleAuthentication = () => {
+  const handleAuthentication = (e) => {
+   
     if (user) {
       auth
         .signOut()
@@ -21,7 +22,7 @@ export default function Header() {
           dispatch({
             type: "SET_USER",
             user: [],
-            userData: null
+            userData: null,
           });
         })
         .catch((error) => {
@@ -55,13 +56,13 @@ export default function Header() {
           <p className="header__p">RZB Nation</p>
         </Link>
         <div className="header__links">
-          <Link to={!user && "Login"}>
+          <Link to={!user ? "/login" : "/"} style={{ textDecoration: "none" }}>
             <div onClick={handleAuthentication} className="header__option">
               <span className="header__optionLineOne">
                 Hello, {!user ? "Guest" : user}
               </span>
               <span className="header__optionLineTwo">
-                {user ? "Sign Out" : "Sign In"}
+                {!user ? "Sign In" : "Sign Out"}
               </span>
             </div>
           </Link>

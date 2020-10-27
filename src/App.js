@@ -21,6 +21,63 @@ function App() {
   // getting state
   const [{ userData }, dispatch] = useStateValue();
 
+
+
+  const teamData = () => {
+    let teamDataRef = db.collection("teamData");
+    let allTeamData = teamDataRef.get().then((snapshot) => {
+      dispatch({
+        type: "TEAM_DATA",
+        playerData: snapshot.docs.map((doc) => ({
+          playerId: doc.id,
+          playerData: doc.data(),
+        })),
+      });
+    });
+  };
+
+  const coachesData = () => {
+    let coachDataRef = db.collection("coachesData");
+    let allCoachData = coachDataRef.get().then((snapshot) => {
+      dispatch({
+        type: "COACHES_DATA",
+        coachData: snapshot.docs.map((doc) => ({
+          coachId: doc.id,
+          coachData: doc.data(),
+        })),
+      });
+    });
+  };
+
+  const scheduleData = () => {
+    let scheduleDataRef = db.collection("schedule");
+    let allScheduleData = scheduleDataRef
+      .orderBy("timestamp", "desc")
+      .get()
+      .then((snapshot) => {
+        dispatch({
+          type: "SCHEDULE_DATA",
+          schedule: snapshot.docs.map((doc) => ({
+            scheduleId: doc.id,
+            scheduleData: doc.data(),
+          })),
+        });
+      });
+  };
+
+  const postData = () => {
+    let postDataRef = db.collection("posts");
+    let allPostData = postDataRef.get().then((snapshot) => {
+      dispatch({
+        type: "POST_DATA",
+        post: snapshot.docs.map((doc) => ({
+          postId: doc.id,
+          postData: doc.data(),
+        })),
+      });
+    });
+  };
+
   useEffect(() => {
     // will only run once when the app component loads...
     // a listener for auth change
@@ -42,97 +99,27 @@ function App() {
           userData: authUser.email,
         });
 
-        console.log(authUser);
+        // console.log(authUser);
 
-        db.collection("teamData").onSnapshot((snapshot) => {
-          dispatch({
-            type: "TEAM_DATA",
-            playerData: snapshot.docs.map((doc) => ({
-              playerId: doc.id,
-              playerData: doc.data(),
-            })),
-          });
-        });
+        teamData();
 
-        db.collection("coachesData").onSnapshot((snapshot) => {
-          dispatch({
-            type: "COACHES_DATA",
-            coachData: snapshot.docs.map((doc) => ({
-              coachId: doc.id,
-              coachData: doc.data(),
-            })),
-          });
-        });
+        coachesData();
 
-        db.collection("schedule")
-          .orderBy("timestamp", "desc")
-          .onSnapshot((snapshot) => {
-            dispatch({
-              type: "SCHEDULE_DATA",
-              schedule: snapshot.docs.map((doc) => ({
-                scheduleId: doc.id,
-                scheduleData: doc.data(),
-              })),
-            });
-          });
+        scheduleData();
 
-        db.collection("posts").onSnapshot((snapshot) => {
-          dispatch({
-            type: "POST_DATA",
-            post: snapshot.docs.map((doc) => ({
-              postId: doc.id,
-              postData: doc.data(),
-            })),
-          });
-        });
+        postData();
       } else {
-        // the user is logged out
         dispatch({
           type: "SET_USER",
           user: null,
         });
+        teamData();
 
-        db.collection("teamData").onSnapshot((snapshot) => {
-          dispatch({
-            type: "TEAM_DATA",
-            playerData: snapshot.docs.map((doc) => ({
-              playerId: doc.id,
-              playerData: doc.data(),
-            })),
-          });
-        });
+        coachesData();
 
-        db.collection("coachesData").onSnapshot((snapshot) => {
-          dispatch({
-            type: "COACHES_DATA",
-            coachData: snapshot.docs.map((doc) => ({
-              coachId: doc.id,
-              coachData: doc.data(),
-            })),
-          });
-        });
+        scheduleData();
 
-        db.collection("schedule")
-          .orderBy("timestamp", "desc")
-          .onSnapshot((snapshot) => {
-            dispatch({
-              type: "SCHEDULE_DATA",
-              schedule: snapshot.docs.map((doc) => ({
-                scheduleId: doc.id,
-                scheduleData: doc.data(),
-              })),
-            });
-          });
-
-        db.collection("posts").onSnapshot((snapshot) => {
-          dispatch({
-            type: "POST_DATA",
-            post: snapshot.docs.map((doc) => ({
-              postId: doc.id,
-              postData: doc.data(),
-            })),
-          });
-        });
+        postData();
       }
     });
   }, []);
@@ -172,45 +159,3 @@ function App() {
 }
 
 export default App;
-
-// db.collection("teamData").onSnapshot((snapshot) => {
-//   dispatch({
-//     type: "TEAM_DATA",
-//     playerData: snapshot.docs.map((doc) => ({
-//       playerId: doc.id,
-//       playerData: doc.data(),
-//     })),
-//   });
-// });
-
-// db.collection("coachesData").onSnapshot((snapshot) => {
-//   dispatch({
-//     type: "COACHES_DATA",
-//     coachData: snapshot.docs.map((doc) => ({
-//       coachId: doc.id,
-//       coachData: doc.data(),
-//     })),
-//   });
-// });
-
-// db.collection("schedule")
-//   .orderBy("timestamp", "desc")
-//   .onSnapshot((snapshot) => {
-//     dispatch({
-//       type: "SCHEDULE_DATA",
-//       schedule: snapshot.docs.map((doc) => ({
-//         scheduleId: doc.id,
-//         scheduleData: doc.data(),
-//       })),
-//     });
-//   });
-
-// db.collection("posts").onSnapshot((snapshot) => {
-//   dispatch({
-//     type: "POST_DATA",
-//     post: snapshot.docs.map((doc) => ({
-//       postId: doc.id,
-//       postData: doc.data(),
-//     })),
-//   });
-// });

@@ -75,7 +75,7 @@ function Team() {
       <div className="batter" key={player.playerId}>
         <Avatar
           className={classes.large}
-          src={player.image}
+          src={player.playerData.image}
           alt="player image"
         />
         <div className="batter__info">
