@@ -5,7 +5,6 @@ import { useStateValue } from "../../assets/stateProvider";
 import { makeStyles } from "@material-ui/core/styles";
 import { Avatar } from "@material-ui/core";
 
-
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",

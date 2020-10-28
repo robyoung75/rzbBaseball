@@ -21,8 +21,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
-
 function Coaches() {
   const classes = useStyles();
   const [{ coachesData }, dispatch] = useStateValue();

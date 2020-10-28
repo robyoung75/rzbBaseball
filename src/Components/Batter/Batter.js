@@ -24,7 +24,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
 function Batter() {
   const [{ playerData }, dispatch] = useStateValue();
   const classes = useStyles();

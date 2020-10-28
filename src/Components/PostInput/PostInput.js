@@ -19,17 +19,27 @@ function PostInput() {
 
   let playersImage = playerData.map((player) => player.image);
   let playersName = playerData.map((player) => player.name);
+  
+  let userProfilePic;
+
+  if(userData) {
+    userData.map(user => {
+       userProfilePic = user.photoURL;
+    })
+  }
+
+
 
   let userEmail;
   let userUID;
   let userDisplayName;
   
-  if(userData){userData.map(obj => {
-    userEmail = obj.email;
-    userUID = obj.uid;
-    userDisplayName = obj.displayName;
+  // if(userData){userData.map(obj => {
+  //   userEmail = obj.email;
+  //   userUID = obj.uid;
+  //   userDisplayName = obj.displayName;
 
-  })}
+  // })}
 
   const returnFileSize = (number) => {
     if (number < 1024) {
@@ -79,7 +89,7 @@ function PostInput() {
     <div className="postInput">
       <div className="postInput__top">
         <form >
-          <Avatar src={playersImage[0]} style={{ position: "absolute" }} />
+          <Avatar src={userProfilePic ? userProfilePic : ""} style={{ position: "absolute" }} />
           <input
             value={input}
             onChange={(e) => setInput(e.target.value)}

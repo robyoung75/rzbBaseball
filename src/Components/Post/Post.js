@@ -14,8 +14,6 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 function Post() {
   const [{ user, posts }, dispatch] = useStateValue();
 
- 
-
   let sortedPosts = posts.sort(function (a, b) {
     const aTimestamp = a.postData.timestamp;
     const bTimestamp = b.postData.timestamp;

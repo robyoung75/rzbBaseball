@@ -13,6 +13,7 @@ import "./App.css";
 import Footer from "./Components/Footer/Footer";
 
 import { auth, db } from "../src/assets/firebase";
+import { updateProfilePic } from '../src/assets/firebase';
 
 import { useStateValue } from "./assets/stateProvider";
 import LandingPage from "./Components/LandingPage/LandingPage";
@@ -20,8 +21,6 @@ import LandingPage from "./Components/LandingPage/LandingPage";
 function App() {
   // getting state
   const [{ userData }, dispatch] = useStateValue();
-
-
 
   const teamData = () => {
     let teamDataRef = db.collection("teamData");
@@ -100,6 +99,9 @@ function App() {
         });
 
         // console.log(authUser);
+
+        // updateProfilePic("https://firebasestorage.googleapis.com/v0/b/rzbbaseball-ddb27.appspot.com/o/players%2FbrightonWhite.jpg?alt=media")
+
 
         teamData();
 
