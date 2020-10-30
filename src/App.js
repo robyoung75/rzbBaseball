@@ -12,7 +12,7 @@ import Login from "./Components/Login/Login";
 import "./App.css";
 import Footer from "./Components/Footer/Footer";
 
-import { auth, db } from "../src/assets/firebase";
+import { auth, db, updateDisplayName } from "../src/assets/firebase";
 import { updateProfilePic } from '../src/assets/firebase';
 
 import { useStateValue } from "./assets/stateProvider";
@@ -65,7 +65,7 @@ function App() {
   };
 
   const postData = () => {
-    let postDataRef = db.collection("posts");
+    let postDataRef = db.collection("posts")
     let allPostData = postDataRef.get().then((snapshot) => {
       dispatch({
         type: "POST_DATA",
@@ -75,7 +75,9 @@ function App() {
         })),
       });
     });
-  };
+  };  
+
+  
 
   useEffect(() => {
     // will only run once when the app component loads...
@@ -101,7 +103,7 @@ function App() {
         // console.log(authUser);
 
         // updateProfilePic("https://firebasestorage.googleapis.com/v0/b/rzbbaseball-ddb27.appspot.com/o/players%2FbrightonWhite.jpg?alt=media")
-
+        // updateDisplayName('CoachY');
 
         teamData();
 
@@ -109,7 +111,19 @@ function App() {
 
         scheduleData();
 
-        postData();
+
+        db.collection('posts').orderBy('timestamp', 'desc').onSnapshot(snapshot => {
+          dispatch({
+            type: "POST_DATA",
+            post: snapshot.docs.map((doc) => ({
+              postId: doc.id,              
+              postData: doc.data(),
+            })),
+
+          })
+        })
+
+        // postData();
       } else {
         dispatch({
           type: "SET_USER",
@@ -121,7 +135,9 @@ function App() {
 
         scheduleData();
 
-        postData();
+        // postData();
+
+       
       }
     });
   }, []);

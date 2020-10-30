@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import "./Post.css";
 
@@ -10,13 +10,19 @@ import ChatBubbleOutlineIcon from "@material-ui/icons/ChatBubbleOutline";
 import NearMeIcon from "@material-ui/icons/NearMe";
 import { ExpandMoreOutlined } from "@material-ui/icons";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import { db } from "../../assets/firebase";
 
 function Post() {
   const [{ user, posts }, dispatch] = useStateValue();
 
+
+
+
   let sortedPosts = posts.sort(function (a, b) {
     const aTimestamp = a.postData.timestamp;
     const bTimestamp = b.postData.timestamp;
+
+    
 
     let postComparison = 0;
 
@@ -28,13 +34,15 @@ function Post() {
     return postComparison;
   });
 
-  let postList = sortedPosts.map((post) => {
+  
+
+  let postList = posts.map((post) => {
     return (
       <div className="post" key={post.postId}>
         <div className="post__top">
-          <Avatar src="" className="post__avatar" />
+          <Avatar src={post.postData.photoURL} className="post__avatar" />
           <div className="post__topInfo">
-            <h3>{user ? user : "you are not logged in"}</h3>
+            <h3>{post.postData.displayName}</h3>
             {/* <p>{new Date(timestamp?.toDate()).toUTCString()}</p> */}
           </div>
         </div>

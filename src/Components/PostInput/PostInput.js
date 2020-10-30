@@ -15,31 +15,27 @@ function PostInput() {
   const [fileSize, setFileSize] = useState(null);
   const [fileName, setFileName] = useState("");
   const [fileType, setFileType] = useState("");
-  const [fileURL, setFileURL] = useState([]);
+  
 
   let playersImage = playerData.map((player) => player.image);
   let playersName = playerData.map((player) => player.name);
   
   let userProfilePic;
+  let userEmail;
+  let userUID;
+  let userDisplayName;
 
   if(userData) {
     userData.map(user => {
        userProfilePic = user.photoURL;
+       userEmail = user.email;
+       userUID = user.uid;
+       userDisplayName = user.displayName;
     })
   }
 
-
-
-  let userEmail;
-  let userUID;
-  let userDisplayName;
   
-  // if(userData){userData.map(obj => {
-  //   userEmail = obj.email;
-  //   userUID = obj.uid;
-  //   userDisplayName = obj.displayName;
-
-  // })}
+ 
 
   const returnFileSize = (number) => {
     if (number < 1024) {
@@ -76,7 +72,8 @@ function PostInput() {
       email: userEmail,
       uid: userUID,
       displayName: userDisplayName,
-      timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
+      photoURL: userProfilePic,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp()
     });
 
     setImageURL("");

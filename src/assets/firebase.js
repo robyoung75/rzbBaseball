@@ -19,6 +19,21 @@ export { db, auth, storage };
 
 let bYoungProfilePic = "https://firebasestorage.googleapis.com/v0/b/rzbbaseball-ddb27.appspot.com/o/players%2FbrightonWhite.jpg?alt=media"
 
+const updateDisplayName = (newDisplayName) => {
+  let user = auth.currentUser;
+
+  user
+    .updateProfile({
+      displayName: newDisplayName
+    })
+    .then(function() {
+      console.log('DISPLAY_NAME UPDATED')
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+}
+
 
 const updateProfilePic = (imageURL) => {
     let user = auth.currentUser;
@@ -41,7 +56,7 @@ const updateProfilePic = (imageURL) => {
 
 //updateProfilePic(bYoungProfilePic);
 
-export { updateProfilePic}
+export { updateProfilePic, updateDisplayName }
 
 
 
