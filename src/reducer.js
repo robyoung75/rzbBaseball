@@ -1,9 +1,9 @@
-import teamData, { coachesData, schedule } from "./assets/teamData";
+import { coachesData, teamData, schedule } from "./assets/teamData";
 
 export const initialState = {
-  playerData: [],
-  coachesData: [],
-  schedule: [],
+  playerData: teamData,
+  coachesData: coachesData,
+  schedule: schedule,
   posts: [], 
   userData: [],
   user: null,

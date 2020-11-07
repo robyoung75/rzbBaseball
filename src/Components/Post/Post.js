@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import "./Post.css";
 
@@ -10,29 +10,12 @@ import ChatBubbleOutlineIcon from "@material-ui/icons/ChatBubbleOutline";
 import NearMeIcon from "@material-ui/icons/NearMe";
 import { ExpandMoreOutlined } from "@material-ui/icons";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-import { db } from "../../assets/firebase";
+
 
 function Post() {
-  const [{ user, posts }, dispatch] = useStateValue();
+  const [{ posts }, dispatch] = useStateValue();
 
 
-
-
-  let sortedPosts = posts.sort(function (a, b) {
-    const aTimestamp = a.postData.timestamp;
-    const bTimestamp = b.postData.timestamp;
-
-    
-
-    let postComparison = 0;
-
-    if (aTimestamp > bTimestamp) {
-      postComparison = 1;
-    } else if (aTimestamp < bTimestamp) {
-      postComparison = -1;
-    }
-    return postComparison;
-  });
 
   
 

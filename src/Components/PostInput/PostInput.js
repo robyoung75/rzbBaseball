@@ -9,7 +9,7 @@ import { db, storage } from "../../assets/firebase";
 import firebase from "firebase";
 
 function PostInput() {
-  const [{ playerData, user, userData }, dispatch] = useStateValue();
+  const [{ user, userData }, dispatch] = useStateValue();
   const [input, setInput] = useState("");
   const [imageURL, setImageURL] = useState(null);
   const [fileSize, setFileSize] = useState(null);
@@ -17,8 +17,7 @@ function PostInput() {
   const [fileType, setFileType] = useState("");
   
 
-  let playersImage = playerData.map((player) => player.image);
-  let playersName = playerData.map((player) => player.name);
+  
   
   let userProfilePic;
   let userEmail;
@@ -60,10 +59,11 @@ function PostInput() {
 
     await fileRef.put(file);
     setImageURL(await fileRef.getDownloadURL());
+    console.log('THE IMAGE_URL IS', imageURL)
   };
 
 
-  const handlePostSubmit = (e) => {
+  const handlePostSubmit = async (e) => {
     e.preventDefault();
 
     db.collection("posts").add({
@@ -74,10 +74,12 @@ function PostInput() {
       displayName: userDisplayName,
       photoURL: userProfilePic,
       timestamp: firebase.firestore.FieldValue.serverTimestamp()
-    });
-
+    }).catch(error => console.log(error));
+    
     setImageURL("");
     setInput("");
+
+    console.log('POST_UPLOAD SUCCESSFUL');
   };
 
 
@@ -91,7 +93,7 @@ function PostInput() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             className="postInput__messageInput"
-            placeholder={user ? 'Whats on you mind?' : 'LOGIN REQUIRED'}
+            placeholder={user ? `What's up ${userDisplayName}?` : 'LOGIN REQUIRED'}
           />
           <label htmlFor="image_uploads" className="postInput__topLabel">
             <p>Upload Image</p>

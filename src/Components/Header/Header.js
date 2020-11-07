@@ -8,13 +8,9 @@ import { useStateValue } from "../../assets/stateProvider";
 import { auth } from "../../assets/firebase";
 
 export default function Header() {
-  const [{ userData, user }, dispatch] = useStateValue();
-  //  console.log('I AM USER_DATA STATE', userData)
-  // const email = userData.map(obj => obj.email)
-  //  console.log('EMAIL', email)
+  const [{ user }, dispatch] = useStateValue();
 
   const handleAuthentication = (e) => {
-   
     if (user) {
       auth
         .signOut()

@@ -41,28 +41,11 @@ export default function Schedule() {
   const classes = useStyles();
   const [{ schedule }, dispatch] = useStateValue();
 
-  let sortedSchedule = schedule.sort(function (a, b) {
-    const aTimestamp = a.scheduleData.timestamp;
-    const bTimestamp = b.scheduleData.timestamp;
-
-    let scheduleComparison = 0;
-
-    if (aTimestamp > bTimestamp) {
-      scheduleComparison = 1;
-    } else if (aTimestamp < bTimestamp) {
-      scheduleComparison = -1;
-    }
-    ;
-    return scheduleComparison;
-    
-  });
-
-  
-  
+  const newLocal = <h3>2020 Schedule</h3>;
 
   return (
     <div className="schedule">
-      <h3>2020 Schedule</h3>
+      {newLocal}
 
       <TableContainer component={Paper}>
         <Table size="small" stickyHeader>
@@ -86,43 +69,43 @@ export default function Schedule() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {sortedSchedule.map((row) => (
-              <TableRow key={row.scheduleId}>
+            {schedule.map((row) => (
+              <TableRow key={row.id}>
                 <TableCell component="th" scope="row">
                   <p>{row.opponent}</p>
                   <p className="schedule__tableCellOpponent">
-                    {row.scheduleData.team}
+                    {row.team}
                   </p>
                 </TableCell>
                 <TableCell align="left">
-                  <p className="schedule__tableText">{row.scheduleData.date}</p>
+                  <p className="schedule__tableText">{row.date}</p>
                 </TableCell>
                 <TableCell align="left">
-                  <p className="schedule__tableText">{row.scheduleData.time}</p>
+                  <p className="schedule__tableText">{row.time}</p>
                   <p className="schedule__tableCellTime">Game Time</p>
                   <p className="schedule__tableText">
-                    {row.scheduleData.arrival}
+                    {row.arrival}
                   </p>
                   <p className="schedule__tableCellTime">Arrival Time</p>
                 </TableCell>
 
                 <TableCell align="left">
                   <p className="schedule__tableText">
-                    {row.scheduleData.address}
+                    {row.address}
                   </p>
-                  <p className="schedule__tableText">{row.scheduleData.city}</p>
+                  <p className="schedule__tableText">{row.city}</p>
                 </TableCell>
 
                 <TableCell align="left">
                   <Avatar
                     className={
-                      row.scheduleData.uniform === "grey"
+                      row.uniform === "grey"
                         ? classes.grey
                         : classes.red
                     }
                   >
                     <p className="schedule__avatar">
-                      {row.scheduleData.uniform}
+                      {row.uniform}
                     </p>
                   </Avatar>
                 </TableCell>

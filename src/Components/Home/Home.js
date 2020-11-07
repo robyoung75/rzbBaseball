@@ -6,7 +6,7 @@ import PostInput from "../PostInput/PostInput";
 import Schedule from "../Schedule/Schedule";
 import "./Home.css";
 import GameChanger from "../GameChanger/GameChanger";
-import { useStateValue } from "../../assets/stateProvider";
+
 
 function Home() {
   return (

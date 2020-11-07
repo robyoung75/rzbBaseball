@@ -31,7 +31,7 @@ function Team() {
 
   
   // Global State
-  const [{playerData, coachData}, dispatch] = useStateValue()
+  const [{playerData }, dispatch] = useStateValue()
 
 // state that holds the value of the clicked buttons.
   const [battingBtnClick, setBattingBtnClick] = useState(false);
@@ -72,19 +72,19 @@ function Team() {
 
   let team = playerData.map((player) => {
     return (
-      <div className="batter" key={player.playerId}>
+      <div className="batter" key={player.id}>
         <Avatar
           className={classes.large}
-          src={player.playerData.image}
+          src={player.image}
           alt="player image"
         />
         <div className="batter__info">
           <p>Batting Average</p>
-          <h4>{player.playerData.name}</h4>
-          <p className="batter__position">{player.playerData.position}</p>
+          <h4>{player.name}</h4>
+          <p className="batter__position">{player.position}</p>
         </div>
         <div className="batter__average">
-          <h3>{player.playerData.average}</h3>
+          <h3>{player.average}</h3>
           <p>AVG</p>
         </div>
       </div>
