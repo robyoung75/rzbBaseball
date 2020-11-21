@@ -3,7 +3,7 @@
   justify-content: space-evenly;
   align-items: center;
   position: sticky; /* keeps the header in the same position */
-  background-color: #d11800;
+  background-color: #c62033;
   top: 0;
   z-index: 3;
 }
@@ -45,12 +45,12 @@
 
 .header__links {
   text-decoration: none;
-  color: #eaeaea;
+  
 }
 
 .header__p {  
   cursor: pointer;  
-  color: #eaeaea;  
+  color: #a1aaad;  
   font-size: 1.5rem;
   font-weight: bold;
   padding-left: 10px;
@@ -66,7 +66,7 @@
   flex-direction: column;
   margin-left: 10px;
   margin-right: 10px;
-  color: #eaeaea;
+  color: #a1aaad;
 }
 
 .header__optionLineOne {

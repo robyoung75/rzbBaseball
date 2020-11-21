@@ -3,6 +3,9 @@
   flex-direction: column;   
   background-color: green;  
   border-radius: 10px; 
+  height: 100vh;
+  contain: content;
+  overflow-y: scroll;
   
   
 }
@@ -12,10 +15,10 @@
   justify-content: center;
   padding: 15px;
   border-bottom: 1px solid #eaeaea;  
-  background-color: #d11800;
+  background-color: #c62033;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  color: #eaeaea;  
+  color: #a1aaad;  
   
 }
 
@@ -55,7 +58,7 @@ button:focus,
 button:active,
 button:visited,
 .active {
-  border-bottom: 2.5px solid red;
+  border-bottom: 2.5px solid #c62033;
   transform: scale(1.07);
   color: black;
 }

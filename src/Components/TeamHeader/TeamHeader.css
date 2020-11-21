@@ -1,0 +1,56 @@
+
+  
+  .teamHeader > h3 {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    border-bottom: 1px solid #eaeaea;  
+    background-color: #c62033;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    color: #a1aaad;  
+    
+  }
+  
+  
+  .teamHeader > h3:hover {
+    transform: scale(1.07);
+    cursor: pointer;
+  }
+  
+  
+  .teamHeader__buttons {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-bottom: 5px;
+    background-color: #ffffff;
+  }
+  
+  
+  .teamHeader__button {
+    display: flex;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    width: 30%;
+    padding: 10px 0;
+    color: #cdcdcd;
+    background-color: #ffffff;
+    font-size: .75rem;
+  }
+  
+  .teamHeader__buttons > button:hover,
+  button:focus,
+  button:active,
+  button:visited,
+  .active {
+    border-bottom: 2.5px solid #c62033;
+    transform: scale(1.07);
+    color: black;
+  }
+  
+  

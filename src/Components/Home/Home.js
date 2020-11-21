@@ -6,18 +6,20 @@ import "./Home.css";
 import GameChanger from "../GameChanger/GameChanger";
 import PostsFeed from "../PostsFeed/PostsFeed";
 import PostInput from "../PostInput/PostInput";
+import TeamHeader from "../TeamHeader/TeamHeader";
 
 function Home() {
   return (
     <div className="home">
       <div className="home__left">
+        <TeamHeader />
         <Team />
       </div>
       <div className="home__center">
         <PostInput />
 
         <div className="home__centerBottom">
-          <PostsFeed />
+          {/* <PostsFeed /> */}
         </div>
       </div>
 

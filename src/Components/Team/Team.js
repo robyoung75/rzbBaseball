@@ -39,36 +39,7 @@ function Team() {
   const [pitcherBtnClick, setPitcherBtnClick] = useState(false);
   const [teamComponent, setTeamComponent] = useState(true);
 
-  const handleBattingClick = () => {
-    dispatch({type: 'BATTING_AVE', playerData})
-    setCoachesBtnClick(false);
-    setPitcherBtnClick(false);
-    setTeamComponent(false);
-    setBattingBtnClick(true);
-  };
 
-  const handleCoachesClick = () => {
-    setBattingBtnClick(false);
-    setPitcherBtnClick(false);
-    setTeamComponent(false);
-    setCoachesBtnClick(true);
-  };
-
-  const handlePitchingClick = () => {
-    dispatch({type: 'PITCHING_ERA', playerData})
-    setBattingBtnClick(false);
-    setCoachesBtnClick(false);
-    setTeamComponent(false);
-    setPitcherBtnClick(true);
-
-  };
-
-  const handleTeamClick = () => {
-    setBattingBtnClick(false);
-    setCoachesBtnClick(false);
-    setTeamComponent(true);
-    setPitcherBtnClick(false);
-  }
 
   let team = playerData.map((player) => {
     return (
@@ -93,19 +64,7 @@ function Team() {
 
   return (
     <div className="team">
-      <h3 onClick={handleTeamClick}>2020 Razorbacks</h3>
-      
-      <div className="team__header">
-        <button className="team__button" onClick={handleBattingClick}>
-          BATTING
-        </button>
-        <button className="team__button" onClick={handlePitchingClick}>
-          PITCHING
-        </button>
-        <button className="team__button" onClick={handleCoachesClick}>
-          COACHES
-        </button>
-      </div>
+
 
       
     

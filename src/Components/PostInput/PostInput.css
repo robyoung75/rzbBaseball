@@ -8,13 +8,13 @@
 
 .postInput__top {
   display: flex;  
-  background-color: #d11800;
+  background-color: #c62033;
   padding-top: 10px;
   padding-left: 20px;
   padding-right: 20px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  color: #eaeaea;
+  color: #a1aaad;
   border-bottom: 1px solid #eaeaea;
   flex-direction: column;
   
@@ -30,7 +30,7 @@
 .postInput__topLabel {
   display: flex;
   font-size: 0.7rem;
-  color: #eaeaea;
+  color:  #a1aaad;
   padding: 0;
   position: relative;
   left: 6rem;
@@ -41,7 +41,7 @@
 .postInput__topLabel > p {
   display: flex;
   font-size: 0.7rem;
-  color: #eaeaea;
+  color:  #a1aaad;
   align-items: center;
   position: relative;
   left: 5.5rem;
@@ -69,7 +69,7 @@
   
 }
 .postInput__messageInput::placeholder {
-  color: #cdcdcd;
+  color: #a1aaad;
  }
 
 .postInput__imageInput {
@@ -88,12 +88,9 @@
   right: 20px;
 }
 
-
-
-
 .postInput__preview > p {
   font-size: 0.7rem;
-  color: #eaeaea;
+  color:  #a1aaad;
   padding: 10px 0;
   /* background-color: yellow; */
   position: relative;
@@ -104,8 +101,8 @@
 .postInput__btn > button {
   
   border: none;
-  background-color: #d11800;
-  color: #eaeaea;
+  background-color:#c62033;
+  color:  #a1aaad;
   cursor: pointer;
   font-size: .7rem;
   font-weight: bolder;
