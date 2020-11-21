@@ -63,7 +63,7 @@ function PostInput() {
   };
 
 
-  const handlePostSubmit = async (e) => {
+  const handlePostSubmit = (e) => {
     e.preventDefault();
 
     db.collection("posts").add({

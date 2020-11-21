@@ -1,6 +1,5 @@
 .postInput {
-  display: flex;  
-  margin-top: 40px;
+  display: flex;    
   flex-direction: column;
   background-color: #ffffff;
   border-radius: 15px;

@@ -148,7 +148,6 @@ let coachesData = [
   {
     id: 2,
     number: "50",
-
     name: "Tyler B",
     position: "Head Coach",
     image: "",
@@ -157,7 +156,6 @@ let coachesData = [
   {
     id: 1,
     number: "24",
-
     name: "Rob Y",
     position: "Hitting Coach",
     image: "",
@@ -166,7 +164,6 @@ let coachesData = [
   {
     id: 3,
     number: "75",
-
     name: "Jerod L",
     position: "Pitching Coach",
     image: "",
@@ -175,7 +172,6 @@ let coachesData = [
   {
     id: 4,
     number: "45",
-
     name: "Mike K",
     position: "Skills Coach",
     image: "",

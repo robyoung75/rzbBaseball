@@ -1,8 +1,7 @@
 .team { 
   display: flex;  
   flex-direction: column;   
-  /* background-color: green; */
-  margin-top: 40px;
+  background-color: green;  
   border-radius: 10px; 
   
   

@@ -27,12 +27,12 @@ function Coaches() {
 
   let coaches = coachesData.map((coach) => {
     return (
-      <div className="coach" key={coach.coachId}>
+      <div className="coach" key={coach.id}>
         <Avatar className={classes.large} src={coach.image} alt="coach image" />
         <div className="coach__info">
           <p>Coach</p>
-          <h4>{coach.coachData.name}</h4>
-          <p className="coach__position">{coach.coachData.position}</p>
+          <h4>{coach.name}</h4>
+          <p className="coach__position">{coach.position}</p>
         </div>
       </div>
     );

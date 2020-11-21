@@ -14,8 +14,8 @@ const reducer = (state, action) => {
   switch (action.type) {
     case "BATTING_AVE":
       let battingAverageSort = state.playerData.sort(function (a, b) {
-        const aAverage = a.playerData.average;
-        const bAverage = b.playerData.average;
+        const aAverage = a.average;
+        const bAverage = b.average;
 
         let batComparison = 0;
 
@@ -32,8 +32,8 @@ const reducer = (state, action) => {
 
     case "PITCHING_ERA":
       let eraSort = state.playerData.sort(function (a, b) {
-        const aEra = a.playerData.era;
-        const bEra = b.playerData.era;
+        const aEra = a.era;
+        const bEra = b.era;
 
         let eraComparison = 0;
 

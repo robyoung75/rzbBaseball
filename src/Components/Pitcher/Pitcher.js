@@ -27,22 +27,22 @@ function Pitcher() {
   const classes = useStyles();
 
   let pitcher = playerData.map((player) => {
-    if (player.playerData.era) {
+    if (player.era) {
       return (
-        <div className="pitcher" key={player.playerId}>
+        <div className="pitcher" key={player.id}>
           <Avatar
             className={classes.large}
-            src={player.playerData.image}
+            src={player.image}
             alt="player image"
           />
           <div className="pitcher__info">
-            <p>Games Pitched {player.playerData.gamesPitched}</p>
-            <h4>{player.playerData.name}</h4>
-            <p className="pitcher__winSave">Wins {player.playerData.wins}</p>
-            <p className="pitcher__winSave">Saves {player.playerData.saves}</p>
+            <p>Games Pitched {player.gamesPitched}</p>
+            <h4>{player.name}</h4>
+            <p className="pitcher__winSave">Wins {player.wins}</p>
+            <p className="pitcher__winSave">Saves {player.saves}</p>
           </div>
           <div className="pitcher__era">
-            <h3>{player.playerData.era}</h3>
+            <h3>{player.era}</h3>
             <p>ERA</p>
           </div>
         </div>
