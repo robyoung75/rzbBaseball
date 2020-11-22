@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import PostInput from "../PostInput/PostInput";
 import Post from "../Post/Post";
 import { db } from "../../assets/firebase";
@@ -24,9 +24,11 @@ function PostsFeed() {
 
   return (
     <div className="postsFeed">
+      
       {posts.map((post) => (
         <Post
           key={post.id}
+        
           profilePic={post.postData.profilePic}
           message={post.postData.message}
           timestamp={post.postData.timestamp}

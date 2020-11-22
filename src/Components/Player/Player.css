@@ -1,4 +1,4 @@
-.pitcher {
+.player {
   display: flex;
   background-color: white;
   align-items: center;
@@ -7,35 +7,38 @@
   border-radius: 5px;
   contain: content;
   padding: 10px;
-  
 }
 
-.pitcher:hover {
+.player:hover {
   transform: scale(1.07);
 }
 
-.pitcher__era {
+.player__info {
+    text-align: left;
+    flex-direction: column;
+    padding-left: 10px;
+    width: 100%;
+  }
+  
+  .player__info > p {
+    font-size: small;
+  }
+  
+  .player__position {
+    color: lightgray;
+  }
+
+.player__average {
   display: flex;
   flex-direction: column;
   padding-left: 15px;
 }
 
-.pitcher__era > p {
+.player__average > p {
   color: lightgray;
   font-size: small;
 }
 
-.pitcher__winSave {
-  color: lightgray;
-}
 
-.pitcher__info {
-  text-align: left;  
-  flex-direction: column;
-  padding-left: 10px;
-  width: 100%;
-}
 
-.pitcher__info > p {
-  font-size: small;
-}
+

@@ -22,35 +22,24 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Pitcher() {
-  const [{ playerData }, dispatch] = useStateValue();
+function Pitcher({id, image, gamesPitched, name, wins, saves, era}) {
   const classes = useStyles();
 
-  let pitcher = playerData.map((player) => {
-    if (player.era) {
-      return (
-        <div className="pitcher" key={player.id}>
-          <Avatar
-            className={classes.large}
-            src={player.image}
-            alt="player image"
-          />
-          <div className="pitcher__info">
-            <p>Games Pitched {player.gamesPitched}</p>
-            <h4>{player.name}</h4>
-            <p className="pitcher__winSave">Wins {player.wins}</p>
-            <p className="pitcher__winSave">Saves {player.saves}</p>
-          </div>
-          <div className="pitcher__era">
-            <h3>{player.era}</h3>
-            <p>ERA</p>
-          </div>
-        </div>
-      );
-    }
-  });
-
-  return <>{pitcher}</>;
+  return (
+    <div className="pitcher" key={id}>
+      <Avatar className={classes.large} src={image} alt="player image" />
+      <div className="pitcher__info">
+        <p>Games Pitched {gamesPitched}</p>
+        <h4>{name}</h4>
+        <p className="pitcher__winSave">Wins {wins}</p>
+        <p className="pitcher__winSave">Saves {saves}</p>
+      </div>
+      <div className="pitcher__era">
+        <h3>{era}</h3>
+        <p>ERA</p>
+      </div>
+    </div>
+  );
 }
 
 export default Pitcher;

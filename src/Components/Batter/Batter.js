@@ -1,7 +1,5 @@
 import React from "react";
 import "./Batter.css";
-import { useStateValue } from "../../assets/stateProvider";
-
 import { makeStyles } from "@material-ui/core/styles";
 import { Avatar } from "@material-ui/core";
 
@@ -24,32 +22,22 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Batter() {
-  const [{ playerData }, dispatch] = useStateValue();
+function Batter({ id, image, name, position, average }) {
   const classes = useStyles();
 
-  let batter = playerData.map((player) => {
-    return (
-      <div className="batter" key={player.id}>
-        <Avatar
-          className={classes.large}
-          src={player.image}
-          alt="player image"
-        />
-        <div className="batter__info">
-          <p>Batting Average</p>
-          <h4>{player.name}</h4>
-          <p className="batter__position">{player.position}</p>
-        </div>
-        <div className="batter__average">
-          <h3>{player.average}</h3>
-          <p>AVG</p>
-        </div>
+  return (
+    <div className="batter" key={id}>
+      <Avatar className={classes.large} src={image} alt="player image" />
+      <div className="batter__info">
+        <p>Batting Average</p>
+        <h4>{name}</h4>
+        <p className="batter__position">{position}</p>
       </div>
-    );
-  });
-
-  return <>{batter}</>;
+      <div className="batter__average">
+        <h3>{average}</h3>
+        <p>AVG</p>
+      </div>
+    </div>
+  );
 }
-
 export default Batter;

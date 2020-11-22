@@ -64,9 +64,12 @@ const reducer = (state, action) => {
       };
 
     case "COACHES_DATA":
+      
       return {
+        
         ...state,
         coachesData: action.coachData,
+        
       };
 
     case "SCHEDULE_DATA":

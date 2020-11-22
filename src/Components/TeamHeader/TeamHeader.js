@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useStateValue } from "../../assets/stateProvider";
-import Team from "../Team/Team";
+import Team from "../TeamList/TeamList";
 import "./TeamHeader.css";
 function TeamHeader() {
       // Global State
@@ -21,6 +21,7 @@ function TeamHeader() {
   };
 
   const handleCoachesClick = () => {
+    console.log('coaches click')
     dispatch({ type: "COACHES_DATA", coachesData });
     setBattingBtnClick(false);
     setPitcherBtnClick(false);

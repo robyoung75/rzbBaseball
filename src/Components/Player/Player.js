@@ -1,7 +1,6 @@
 import { Avatar, makeStyles } from "@material-ui/core";
 import React from "react";
-
-import "./Coaches.css";
+import "./Player.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,23 +19,23 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Coaches({id, image, name, position}) {
+function Player({image, name, id, position, average}) {
   const classes = useStyles();
 
   return (
-    <div className="coaches" key={id}>
+    <div className="player" key={id}>
       <Avatar className={classes.large} src={image} alt="List image" />
-      <div className="coaches__info">
+      <div className="player__info">
         <p>Batting Average</p>
         <h4>{name}</h4>
-        <p className="coaches__position">{position}</p>
+        <p className="player__position">{position}</p>
       </div>
-      <div className="coahes__number">
-        <h3>Fuck You</h3>
+      <div className="player__average">
+        <h3>{average}</h3>
         <p>AVG</p>
       </div>
     </div>
   );
 }
 
-export default Coaches;
+export default Player;
