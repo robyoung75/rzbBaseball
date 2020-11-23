@@ -1,14 +1,15 @@
-import React, { useState } from "react";
-import Player from "../Player/Player";
-import "./TeamList.css";
+import React from "react";
 import { useStateValue } from "../../assets/stateProvider";
-function TeamList() {
+import Batter from "../Batter/Batter";
+import "./BatterList.css";
+
+function BatterList() {
   const [{ playerData, coachesData }, dispatch] = useStateValue();
 
   return (
-    <div className="teamList">
+    <div className="batterList">
       {playerData.map((player) => (
-        <Player
+        <Batter
           key={player.id}
           id={player.id}
           number={player.number}
@@ -26,4 +27,4 @@ function TeamList() {
   );
 }
 
-export default TeamList;
+export default BatterList;

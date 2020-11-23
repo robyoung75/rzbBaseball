@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Coaches({id, image, name, position}) {
+function Coaches({ id, image, name, position }) {
   const classes = useStyles();
 
   return (

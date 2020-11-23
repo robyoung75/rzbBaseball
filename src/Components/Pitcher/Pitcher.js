@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Pitcher({id, image, gamesPitched, name, wins, saves, era}) {
+function Pitcher({ id, image, gamesPitched, name, wins, saves, era }) {
   const classes = useStyles();
 
   return (

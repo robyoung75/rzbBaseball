@@ -1,4 +1,4 @@
-.coach {
+.coaches {
   display: flex;
   background-color: white;
   align-items: center;
@@ -9,32 +9,32 @@
   padding: 10px;
 }
 
-.coach:hover {
+.coaches:hover {
   transform: scale(1.07);
 }
 
-.coach__average {
+.coaches__average {
   display: flex;
   flex-direction: column;
   padding-left: 15px;
 }
 
-.coach__average > p {
+.coaches__average > p {
   color: lightgray;
   font-size: small;
 }
 
-.coach__position {
+.coaches__position {
   color: lightgray;
 }
 
-.coach__info {
+.coaches__info {
   text-align: left;  
   flex-direction: column;
   padding-left: 10px;
   width: 100%;
 }
 
-.coach__info > p {
+.coaches__info > p {
   font-size: small;
 }
