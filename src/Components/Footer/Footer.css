@@ -1,7 +1,6 @@
 .footer {
   display: flex;
   flex-direction: column;
-  background-color: #f1f1f1;
   margin-top: 40px;
   padding: 30px;
   align-items: center;
@@ -9,19 +8,16 @@
 }
 
 .footer > p {
-    color: #cdcdcd;
+  color: #cdcdcd;
 }
 
 .footer__links {
-    display: flex;
-    justify-content: space-evenly;
-    width: 50%;
+  display: flex;
+  justify-content: space-evenly;
+  width: 50%;
 }
 
 .footer__links > p {
-  
-  
-
   color: #cdcdcd;
   font-size: 0.75rem;
 }
@@ -32,11 +28,8 @@
 }
 
 .footer__social {
-    padding: 20px;
-    width: 20%;
-    display: flex;
-    justify-content: space-evenly;
-
+  padding: 20px;
+  width: 20%;
+  display: flex;
+  justify-content: space-evenly;
 }
-
-

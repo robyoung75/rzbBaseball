@@ -50,7 +50,7 @@ function Home() {
     setCoachesBtnClick(false);
     setTeamBtnClick(true);
     setPitcherBtnClick(false);
-    console.log("team click", playerData);;
+    console.log("team click", playerData);
   };
 
   return (
@@ -78,7 +78,9 @@ function Home() {
       <div className="home__center">
         <PostInput />
 
-        <div className="home__centerBottom">{/* <PostsFeed /> */}</div>
+        <div className="home__centerBottom">
+          <PostsFeed />
+        </div>
       </div>
       <div className="home__right">
         <Schedule />

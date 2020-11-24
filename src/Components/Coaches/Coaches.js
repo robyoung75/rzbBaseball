@@ -1,5 +1,6 @@
 import { Avatar, makeStyles } from "@material-ui/core";
 import React from "react";
+import rzbFace from "../../Images/razorbackLogoFace.jpg"
 
 import "./Coaches.css";
 
@@ -27,13 +28,12 @@ function Coaches({ id, image, name, position }) {
     <div className="coaches" key={id}>
       <Avatar className={classes.large} src={image} alt="List image" />
       <div className="coaches__info">
-        <p>Batting Average</p>
+        
         <h4>{name}</h4>
         <p className="coaches__position">{position}</p>
       </div>
-      <div className="coahes__number">
-        <h3>Fuck You</h3>
-        <p>AVG</p>
+      <div className="coahes__rzbLogo">
+        <img src={rzbFace} alt="champslogo"  />
       </div>
     </div>
   );

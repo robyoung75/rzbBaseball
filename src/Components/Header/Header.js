@@ -51,18 +51,16 @@ export default function Header() {
         <Link to="/Login" className="header__links">
           <p className="header__p">RZB Nation</p>
         </Link>
-        <div className="header__links">
-          <Link to={!user ? "/login" : "/"} style={{ textDecoration: "none" }}>
-            <div onClick={handleAuthentication} className="header__option">
-              <span className="header__optionLineOne">
-                Hello, {!user ? "Guest" : user}
-              </span>
-              <span className="header__optionLineTwo">
-                {!user ? "Sign In" : "Sign Out"}
-              </span>
-            </div>
-          </Link>
-        </div>
+        <Link to={!user ? "/login" : "/"} className="header__links">
+          <div onClick={handleAuthentication} className="header__option">
+            <span className="header__optionLineOne">
+              Hello, {!user ? "Guest" : user}
+            </span>
+            <span className="header__optionLineTwo">
+              {!user ? "Sign In" : "Sign Out"}
+            </span>
+          </div>
+        </Link>
       </div>
     </div>
   );

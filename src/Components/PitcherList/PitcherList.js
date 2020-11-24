@@ -1,6 +1,7 @@
 import React from "react";
 import { useStateValue } from "../../assets/stateProvider";
 import Pitcher from "../Pitcher/Pitcher";
+import "./PitcherList.css";
 
 function PitcherList() {
   const [{ playerData, coachesData }, dispatch] = useStateValue();
