@@ -15,26 +15,20 @@ function PostInput() {
   const [fileSize, setFileSize] = useState(null);
   const [fileName, setFileName] = useState("");
   const [fileType, setFileType] = useState("");
-  
 
-  
-  
   let userProfilePic;
   let userEmail;
   let userUID;
   let userDisplayName;
 
-  if(userData) {
-    userData.map(user => {
-       userProfilePic = user.photoURL;
-       userEmail = user.email;
-       userUID = user.uid;
-       userDisplayName = user.displayName;
-    })
+  if (userData) {
+    userData.map((user) => {
+      userProfilePic = user.photoURL;
+      userEmail = user.email;
+      userUID = user.uid;
+      userDisplayName = user.displayName;
+    });
   }
-
-  
- 
 
   const returnFileSize = (number) => {
     if (number < 1024) {
@@ -46,7 +40,7 @@ function PostInput() {
     }
   };
 
-  const handleInputChange =  async (e) => {
+  const handleInputChange = async (e) => {
     e.preventDefault();
     setFileSize(e.target.files[0].size);
     setFileName(e.target.files[0].name);
@@ -59,47 +53,56 @@ function PostInput() {
 
     await fileRef.put(file);
     setImageURL(await fileRef.getDownloadURL());
-    console.log('THE IMAGE_URL IS', imageURL)
+    console.log("THE IMAGE_URL IS", imageURL);
   };
-
 
   const handlePostSubmit = (e) => {
     e.preventDefault();
 
-    db.collection("posts").add({
-      message: input,
-      image: imageURL,
-      email: userEmail,
-      uid: userUID,
-      displayName: userDisplayName,
-      photoURL: userProfilePic,
-      timestamp: firebase.firestore.FieldValue.serverTimestamp()
-    }).catch(error => console.log(error));
-    
+    db.collection("posts")
+      .add({
+        message: input,
+        image: imageURL,
+        email: userEmail,
+        uid: userUID,
+        displayName: userDisplayName,
+        photoURL: userProfilePic,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      })
+      .catch((error) => console.log(error));
+
     setImageURL("");
     setInput("");
 
-    console.log('POST_UPLOAD SUCCESSFUL');
+    console.log("POST_UPLOAD SUCCESSFUL");
   };
-
-
 
   return (
     <div className="postInput">
-      <div className="postInput__top">
-        <form >
-          <Avatar src={userProfilePic ? userProfilePic : ""} style={{ position: "absolute" }} />
+      <div className="postInput__left">
+        <Avatar
+          src={userProfilePic ? userProfilePic : ""}
+          
+        />
+      </div>
+      <div className="postInput__center">
+        <form>
           <input
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            className="postInput__messageInput"
-            placeholder={user ? `What's up ${userDisplayName}?` : 'LOGIN REQUIRED'}
+            className="postInput__centerMessageInput"
+            placeholder={
+              user ? `What's up ${userDisplayName}?` : "LOGIN REQUIRED"
+            }
           />
-          <label htmlFor="image_uploads" className="postInput__topLabel">
+          <label
+            htmlFor="image_uploads"
+            className="postInput__centerTopLabel"
+          >
             <p>Upload Image</p>
           </label>
           <input
-            className="postInput__imageInput"
+            className="postInput__centerImageInput"
             type="file"
             id="image_uploads"
             name="image_uploads"
@@ -108,24 +111,24 @@ function PostInput() {
             // value={imageURL}
             onChange={handleInputChange}
           />
-          <div className="postInput__btn">
-            <button onClick={handlePostSubmit} type="submit">
-              Submit
-            </button>
-          </div>
-        </form>
-        <div className="postInput__preview">
-          <p>
+          <p className="postInput__centerPreview">
             {!imageURL
               ? "No files currently selected for upload"
               : `upload file NAME: ${fileName}__TYPE${fileType}__SIZE${returnFileSize(
                   fileSize
                 )}`}
           </p>
+        </form>
+      </div>
+      <div className="postInput__right">
+        <div className="postInput__btn">
+          <button onClick={handlePostSubmit} type="submit">
+            Submit
+          </button>
         </div>
       </div>
 
-      <div className="postInput__bottom">
+      {/* <div className="postInput__bottom">
         <div className="postInput__option">
           <VideocamIcon style={{ color: "red" }} />
           <h3>Live Video</h3>
@@ -140,7 +143,7 @@ function PostInput() {
           <InsertEmoticonIcon style={{ color: "orange" }} />
           <h3>Feeling/Activity</h3>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

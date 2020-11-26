@@ -7,30 +7,27 @@
 .contact__content {
   display: flex;
   flex-direction: column;
-  width: 30%;
-  
+  width: 30%;  
   padding-bottom: 1rem;
-  margin-top: 5rem;
-  
+  margin-top: 5rem;  
   border-radius: .5rem;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   justify-content: center;
 }
 
-.contact__content > h2 {
-  display: flex;
-  justify-content: center;
+.contact__content > h2 {  
+  text-align: center;
   padding: 1rem;
   border-bottom: 1px solid #eaeaea;  
   background-color: #c62033;
   border-top-left-radius: .5rem;
   border-top-right-radius: .5rem;
-  color: #eaeaea;  
+  color:#a1aaad;  
 }
 
 .contact__firstName {
   display: flex;
-  position: relative;
+  
   width: 25rem;
   height: 2rem;
   font-weight: bold;

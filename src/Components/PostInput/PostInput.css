@@ -1,112 +1,96 @@
 .postInput {
-  display: flex;    
-  flex-direction: column;
-  background-color: #ffffff;
-  border-radius: 15px;
+  display: flex;;
+  justify-content: space-between;  
+  background-color: #c62033;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
   box-shadow: 0px 5px 7px -7px rgba(0, 0, 0.75);
 }
 
-.postInput__top {
-  display: flex;  
-  background-color: #c62033;
-  padding-top: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  color: #a1aaad;
-  border-bottom: 1px solid #eaeaea;
-  flex-direction: column;
-  
-}
-
-.postInput__top > form {
+.postInput__left {
   display: flex;
-  justify-content: flex-start;
-
-  
-}
-
-.postInput__topLabel {
-  display: flex;
-  font-size: 0.7rem;
-  color:  #a1aaad;
-  padding: 0;
-  position: relative;
-  left: 6rem;
-  width: 100px;
-  
-}
-
-.postInput__topLabel > p {
-  display: flex;
-  font-size: 0.7rem;
-  color:  #a1aaad;
+  /* background-color: limegreen; */
   align-items: center;
-  position: relative;
-  left: 5.5rem;
-  width: 75px;  
-  cursor: pointer;  
-  font-weight: bolder; 
-  font-size: .7rem;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  padding: 0.5rem 0.5rem;
+}
+
+.postInput__center {
+  display: flex;
+  /* background-color: limegreen; */
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
   
 }
 
+.postInput__center > form {
+  display: flex;
+  align-items: center;  
+}
 
-.postInput__messageInput {
+.postInput__centerMessageInput {
   outline-width: 0;
   border: none;
   height: 0.75rem;
-  padding: 5px 20px;
-  margin: 0 10px;
+  padding: 0.5rem 0;
   border-radius: 999px;
   display: flex;
   background-color: #f5f5f5;
   font-size: 0.65rem;
-  width: 8rem;
-  position: relative;
+  width: 33%;
   left: 2.5rem;
-  
 }
-.postInput__messageInput::placeholder {
+.postInput__centerMessageInput::placeholder {
   color: #a1aaad;
- }
-
-.postInput__imageInput {
-  outline-width: 0;
-  border: none;
-  height: 0.75rem;
-  padding: 5px 20px; 
-  border-radius: 999px;
+  text-align: center;
+}
+.postInput__centerTopLabel {
   display: flex;
-  background-color:blue;
-  font-size: 0.65rem;
-  width: 8rem;
-  opacity: 0;
-  cursor: pointer;
-  position: relative;
-  right: 20px;
+  font-size: 0.7rem;
+  color: #a1aaad;
+  padding-left: 2rem;
+  width: 30%;
 }
 
-.postInput__preview > p {
+.postInput__centerTopLabel > p {
   font-size: 0.7rem;
   color:  #a1aaad;
-  padding: 10px 0;
-  /* background-color: yellow; */
-  position: relative;
-  left: 3.5rem;
-
+  cursor: pointer;
+  font-weight: bolder;
+  font-size: 0.7rem;
 }
 
-.postInput__btn > button {
-  
-  border: none;
-  background-color:#c62033;
-  color:  #a1aaad;
+.postInput__centerImageInput {
+  font-size: 0.65rem;
+  opacity: 0;
   cursor: pointer;
-  font-size: .7rem;
+}
+.postInput__centerPreview {
+  font-size: 0.7rem;
+  color: #a1aaad;
+}
+
+.postInput__right {
+  display: flex;
+  /* background-color: limegreen; */
+  padding: 0.5rem 0.5rem;
+  align-items: center;
+  justify-items: center;
+}
+
+
+
+.postInput__btn > button {
+  border: none;
+  background-color: #c62033;
+  color: #a1aaad;
+  cursor: pointer;
+  font-size: 0.7rem;
   font-weight: bolder;
   outline-width: 0;
+  
 }
 
 .postInput__btn > button:hover {
