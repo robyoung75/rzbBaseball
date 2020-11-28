@@ -1,27 +1,17 @@
 .schedule {
   display: flex;
   flex-direction: column;
-  width: 100%;  
-  /* background-color: green; */  
-  border-radius: 15px;
-  
 }
 
 .schedule > h3 {
   display: flex;
   justify-content: center;
-  padding-bottom: 15px;
-  padding-top: 15px;
-  padding-left: 15px;
-  padding-right: 15px;
-  border-bottom: 1px solid #eaeaea;
-  
-  background-color:#c62033;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  color:  #a1aaad;  
-  
-  
+  padding: 1.25rem;
+  border-bottom: 1px solid #a1aaad;
+  background-color: #c62033;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  color: #a1aaad;
 }
 
 .schedule__tableText {
@@ -30,15 +20,13 @@
 
 .schedule__tableCellTime {
   font-size: 0.6em;
-  color:#d11800;
+  color: #A1AAAD;
 }
 
 .schedule__tableCellOpponent {
   font-size: 0.6em;
-  color:#d11800;
+  color: #A1AAAD;
 }
-
-
 
 .schedule__avatar {
   font-size: 0.6rem;

@@ -6,7 +6,8 @@ import { useStateValue } from "../../assets/stateProvider";
 import "./PostsFeed.css";
 
 function PostsFeed() {
-  const [{ posts, user }, dispatch] = useStateValue();
+  const [{ posts, userData }, dispatch] = useStateValue();
+ 
 
   useEffect(() => {
     db.collection("posts")
