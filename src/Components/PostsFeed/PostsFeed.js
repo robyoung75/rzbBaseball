@@ -7,7 +7,6 @@ import "./PostsFeed.css";
 
 function PostsFeed() {
   const [{ posts, userData }, dispatch] = useStateValue();
- 
 
   useEffect(() => {
     db.collection("posts")
@@ -25,17 +24,14 @@ function PostsFeed() {
 
   return (
     <div className="postsFeed">
-      
       {posts.map((post) => (
-        <Post
-          key={post.id}
-        
-          profilePic={post.postData.profilePic}
-          message={post.postData.message}
-          timestamp={post.postData.timestamp}
-          username={post.postData.username}
-          image={post.postData.image}
-        />
+        <div key={post.postId}>
+          <Post
+            message={post.postData.message}
+            timestamp={post.postData.timestamp}
+            image={post.postData.image}
+          />
+        </div>
       ))}
     </div>
   );

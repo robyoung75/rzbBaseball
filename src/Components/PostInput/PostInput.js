@@ -1,20 +1,18 @@
 import { Avatar } from "@material-ui/core";
-import VideocamIcon from "@material-ui/icons/Videocam";
-import PhotoLibraryIcon from "@material-ui/icons/PhotoLibrary";
-import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
+
 import "./PostInput.css";
 import React, { useState } from "react";
 import { useStateValue } from "../../assets/stateProvider";
 import { db, storage } from "../../assets/firebase";
 import firebase from "firebase";
 
+import imageCompression from "browser-image-compression";
+
 function PostInput() {
   const [{ user, userData }, dispatch] = useStateValue();
   const [input, setInput] = useState("");
   const [imageURL, setImageURL] = useState(null);
-  const [fileSize, setFileSize] = useState(null);
-  const [fileName, setFileName] = useState("");
-  const [fileType, setFileType] = useState("");
+  const [newImage, setNewImage] = useState(null);
 
   let userProfilePic;
   let userEmail;
@@ -30,60 +28,66 @@ function PostInput() {
     });
   }
 
-  const returnFileSize = (number) => {
-    if (number < 1024) {
-      return number + "bytes";
-    } else if (number >= 1024 && number < 1048576) {
-      return (number / 1024).toFixed(1) + "KB";
-    } else if (number >= 1048576) {
-      return (number / 1048576).toFixed(1) + "MB";
-    }
-  };
-
   const handleInputChange = async (e) => {
     e.preventDefault();
-    setFileSize(e.target.files[0].size);
-    setFileName(e.target.files[0].name);
-    setFileType(e.target.files[0].type);
-    // setImageURL(e.target.value);
+    const imageFile = e.target.files[0];
+    const options = {
+      maxSizeMB: 6,
+      maxWidthOrHeight: 1920,
+      useWebWorker: true,
+      initialQuality: 0.5,
+    };
+    await imageCompression(imageFile, options)
+      .then(async function (compressedFile) {
+        // firebase storage bucket setup
+        const storageRef = storage.ref();
+        const fileRef = storageRef.child(compressedFile.name);
 
-    const file = e.target.files[0];
-    const storageRef = storage.ref();
-    const fileRef = storageRef.child(file.name);
-
-    await fileRef.put(file);
-    setImageURL(await fileRef.getDownloadURL());
-    console.log("THE IMAGE_URL IS", imageURL);
+        setNewImage(compressedFile);
+        // firebase put for the compressed file
+        await fileRef.put(compressedFile);
+        setImageURL(await fileRef.getDownloadURL());
+      })
+      .catch(function (error) {
+        console.log(error.message);
+      });
   };
 
   const handlePostSubmit = (e) => {
     e.preventDefault();
+    if (newImage) {
+      db.collection("posts")
+        .add({
+          message: input,
+          image: imageURL,
+          email: userEmail,
+          uid: userUID,
+          displayName: userDisplayName,
+          photoURL: userProfilePic,
+          timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        })
+        .catch((error) => console.log(error));
+      setNewImage(null);
+      setImageURL(null);
+      setInput("");
 
-    db.collection("posts")
-      .add({
-        message: input,
-        image: imageURL,
-        email: userEmail,
-        uid: userUID,
-        displayName: userDisplayName,
-        photoURL: userProfilePic,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-      })
-      .catch((error) => console.log(error));
+      console.log("POST_UPLOAD SUCCESSFUL");
+    } else {
+      alert("no image selected");
+    }
+  };
 
-    setImageURL("");
+  const handleCancel = (e) => {
+    e.preventDefault();
     setInput("");
-
-    console.log("POST_UPLOAD SUCCESSFUL");
+    setImageURL(null);
+    setNewImage(null);
   };
 
   return (
     <div className="postInput">
       <div className="postInput__left">
-        <Avatar
-          src={userProfilePic ? userProfilePic : ""}
-          
-        />
+        <Avatar src={userProfilePic ? userProfilePic : ""} />
       </div>
       <div className="postInput__center">
         <form>
@@ -95,11 +99,12 @@ function PostInput() {
               user ? `What's up ${userDisplayName}?` : "LOGIN REQUIRED"
             }
           />
-          <label
-            htmlFor="image_uploads"
-            className="postInput__centerTopLabel"
-          >
-            <p>Upload Image</p>
+          <label htmlFor="image_uploads" className="postInput__centerTopLabel">
+            {!newImage ? (
+              <p>Upload Image</p>
+            ) : (
+              <p onClick={handleCancel}>Cancel Upload</p>
+            )}
           </label>
           <input
             className="postInput__centerImageInput"
@@ -112,12 +117,13 @@ function PostInput() {
             onChange={handleInputChange}
           />
           <p className="postInput__centerPreview">
-            {!imageURL
+            {!newImage
               ? "No files currently selected for upload"
-              : `upload file NAME: ${fileName}__TYPE${fileType}__SIZE${returnFileSize(
-                  fileSize
-                )}`}
+              : `upload file NAME: ${newImage.name}__TYPE${
+                  newImage.type
+                }__SIZE${(newImage.size / 1024).toFixed()} kb`}
           </p>
+          <img src={imageURL} className="postInput__imagePreview"></img>
         </form>
       </div>
       <div className="postInput__right">
@@ -127,23 +133,6 @@ function PostInput() {
           </button>
         </div>
       </div>
-
-      {/* <div className="postInput__bottom">
-        <div className="postInput__option">
-          <VideocamIcon style={{ color: "red" }} />
-          <h3>Live Video</h3>
-        </div>
-
-        <div className="postInput__option">
-          <PhotoLibraryIcon style={{ color: "green" }} />
-          <h3>Photo/Video</h3>
-        </div>
-
-        <div className="postInput__option">
-          <InsertEmoticonIcon style={{ color: "orange" }} />
-          <h3>Feeling/Activity</h3>
-        </div>
-      </div> */}
     </div>
   );
 }
