@@ -1,7 +1,7 @@
 import { auth } from "../../assets/firebase";
 import React, { useState } from "react";
 
-import "./Login.css";
+import "./LoginMobile.css";
 import { useHistory } from "react-router-dom";
 
 function Login() {
@@ -23,39 +23,53 @@ function Login() {
       .catch((error) => alert(error.message));
   };
 
-
   return (
     <div className="login">
-      <div className="login__container">
-        <h2>Sign-in</h2>
-
-        <form>
-          <h5>E-mail</h5>
+      <h2>Razorback Sign in</h2>
+      <form id="login">
+        <div className="login__input">
+          <label id="login__label" htmlFor="email">
+            <span role="img" aria-label="baseball">
+              ⚾
+            </span>{" "}
+            <p>Email</p>
+          </label>
           <input
             type="text"
+            id="login"
+            name="email"
             value={email}
+            placeholder="Your email.."
             onChange={(e) => setEmail(e.target.value)}
-          />
-
-          <h5>Password</h5>
+          ></input>
+        </div>
+        <div className="login__input">
+          <label id="login__label" htmlFor="submit">
+            <span role="img" aria-label="baseball">
+              ⚾
+            </span>{" "}
+            <p>Password</p>
+          </label>
           <input
             type="password"
             value={password}
+            id="login"
+            name="lastname"
+            placeholder="Your password.."
             onChange={(e) => setPassword(e.target.value)}
-          />
+          ></input>
+        </div>
 
-          <button
-            className="login__signInButton"
-            type="submit"
-            onClick={signIn}
-          >
-            Sign in
-          </button>
-        </form>
+        <input
+          id="contact_submit"
+          type="submit"
+          value="Submit"
+          className="login__submit"
+          onClick={signIn}
+        ></input>
+      </form>
 
-        <p>By signing-in you agree to RZBB Conditions of Use & Sale.</p>
-
-      </div>
+      <p className="login__terms">By signing-in you agree to RZBB Conditions of Use & Sale.</p>
     </div>
   );
 }

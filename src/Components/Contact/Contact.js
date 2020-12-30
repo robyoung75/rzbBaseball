@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Contact.css";
+import "./ContactMobile.css";
 //import emailjs from "emailjs-com";
 
 const Contact = ({ data }) => {
@@ -66,38 +66,38 @@ const Contact = ({ data }) => {
 
   return (
     <div className="contact">
-      <div className="contact__content">
+      
         <h2>Razorback Contact</h2>
-        <form>
-          <div className="contact__firstName">
-            <label htmlFor="firstName"><span role="img" aria-label="baseball">⚾</span> First Name</label>
+        <form id="contact">
+          <div className="contact__input">
+            <label id="contact__label" htmlFor="firstName"><span role="img" aria-label="baseball">⚾</span> <p>First Name</p></label>
             <input
               type="text"
-              id="name"
+              id="contact"
               name="firstname"
               placeholder="Your first name.."
             ></input>
           </div>
-          <div className="contact__lastName">
-            <label htmlFor="lastName"><span role="img" aria-label="baseball">⚾</span> Last Name</label>
+          <div className="contact__input">
+            <label id="contact__label" htmlFor="lastName"><span role="img" aria-label="baseball">⚾</span> <p>Last Name</p></label>
             <input
               type="text"
-              id="name"
+              id="contact"
               name="lastname"
               placeholder="Your last name.."
             ></input>
           </div>
-          <div className="contact__email">
-            <label htmlFor="country"><span role="img" aria-label="baseball">⚾</span> Email</label>
+          <div className="contact__input">
+            <label  id="contact__label" htmlFor="country"><span role="img" aria-label="baseball">⚾</span> <p>Email</p></label>
             <input
               type="text"
-              id="email"
-              name="emal"
+              id="contact"
+              name="email"
               placeholder="Your email address.."
             ></input>
           </div>
-          <div className="contact__subject">
-            <label htmlFor="subject"><span role="img" aria-label="baseball">⚾</span> Subject</label>
+          <div className="contact__input">
+            <label id="contact__label" htmlFor="subject"><span role="img" aria-label="baseball">⚾</span> <p>Subject</p></label>
             <textarea
               id="subject"
               name="subject"
@@ -105,9 +105,9 @@ const Contact = ({ data }) => {
             ></textarea>
           </div>
 
-          <input type="submit" value="Submit" className="contact__submit"></input>
+          <input id="contact_submit" type="submit" value="Submit" className="contact__submit"></input>
         </form>
-      </div>
+     
     </div>
   );
 };

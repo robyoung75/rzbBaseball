@@ -17,12 +17,12 @@
   
 }
 
-form {
+form[id="postInput"] {
   display: flex;
   align-items: center;
 }
 
-input[type="text"] {
+input[id="postInput"] {
   border: none;
   outline-width: 0;
   background-color: #ffffff;
@@ -40,7 +40,7 @@ input[type="text"]::placeholder {
   text-align: center;
 }
 
-input[type="file"] {
+input[id="image_uploads"] {
   opacity: 0;
   z-index: -1;
   position: absolute;

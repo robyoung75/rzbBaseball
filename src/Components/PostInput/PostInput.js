@@ -90,7 +90,7 @@ function PostInput() {
         <Avatar src={userProfilePic ? userProfilePic : ""} />
       </div>
 
-      <form>
+      <form id="postInput">
         <input
           value={input}
           onChange={(e) => setInput(e.target.value)}
@@ -99,6 +99,7 @@ function PostInput() {
             user ? `What's up ${userDisplayName}?` : "LOGIN REQUIRED"
           }
           type="text"
+          id="postInput"
         />
         <label htmlFor="image_uploads" className="postInput__centerTopLabel">
           {!newImage ? (
