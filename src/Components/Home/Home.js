@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import Schedule from "../Schedule/Schedule";
-import "./Home.css";
+import "./HomeMobile.css";
 import GameChanger from "../GameChanger/GameChanger";
 import PostsFeed from "../PostsFeed/PostsFeed";
 import PostInput from "../PostInput/PostInput";
@@ -55,37 +55,31 @@ function Home() {
 
   return (
     <div className="home">
-      <div className="home__left">
-        <TeamHeader
-          handleBattingClick={handleBattingClick}
-          handlePitchingClick={handlePitchingClick}
-          handleTeamClick={handleTeamClick}
-          handleCoachesClick={handleCoachesClick}
-        />
+      
+      {/* <GameChanger /> */}
 
-        {teamBtnClick ? (
-          <TeamList />
-        ) : coachesBtnClick ? (
-          <CoachesList />
-        ) : pitcherBtnClick ? (
-          <PitcherList />
-        ) : battingBtnClick ? (
-          <BatterList />
-        ) : (
-          <TeamList />
-        )}
-      </div>
-      <div className="home__center">
-        <PostInput />
+      <PostInput />
 
-        <div className="home__centerBottom">
-          <PostsFeed />
-        </div>
-      </div>
-      <div className="home__right">
-        <Schedule />
-        <GameChanger />
-      </div>
+      <PostsFeed />
+      <Schedule />
+      <TeamHeader
+        handleBattingClick={handleBattingClick}
+        handlePitchingClick={handlePitchingClick}
+        handleTeamClick={handleTeamClick}
+        handleCoachesClick={handleCoachesClick}
+      />
+
+      {teamBtnClick ? (
+        <TeamList />
+      ) : coachesBtnClick ? (
+        <CoachesList />
+      ) : pitcherBtnClick ? (
+        <PitcherList />
+      ) : battingBtnClick ? (
+        <BatterList />
+      ) : (
+        <TeamList />
+      )}
     </div>
   );
 }

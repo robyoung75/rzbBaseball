@@ -1,4 +1,4 @@
-import "./Header.css";
+import "./HeaderMobile.css";
 
 import razorbackFace from "../../Images/razorbackLogoFace.png";
 
@@ -29,37 +29,37 @@ export default function Header() {
 
   return (
     <div className="header">
-      <div className="header__left">
-        <Link to="/" className="header__links">
+      <div className="header__top">
+        <Link className="header__links" to="/">
           <p className="header__p">HOME</p>
         </Link>
         <Link to="/About" className="header__links">
           <p className="header__p">ABOUT</p>
         </Link>
-      </div>
 
-      <div className="header__center">
-        <Link to="/" className="header__image">
-          <img src={razorbackFace} alt="Razorback Image" />
-        </Link>
-      </div>
-
-      <div className="header__right">
         <Link to="/Contact" className="header__links">
           <p className="header__p">CONTACT</p>
         </Link>
-        <Link to="/Login" className="header__links">
-          <p className="header__p">RZB Nation</p>
-        </Link>
-        <Link to={!user ? "/login" : "/"} className="header__links">
-          <div onClick={handleAuthentication} className="header__option">
-            <span className="header__optionLineOne">
-              Hello, {!user ? "Guest" : user}
-            </span>
-            <span className="header__optionLineTwo">
-              {!user ? "Sign In" : "Sign Out"}
-            </span>
-          </div>
+        <div>
+        
+          <Link to="/Login" className="header__links">
+            <p className="header__p">RZB Nation</p>
+          </Link>
+          <Link to={!user ? "/login" : "/"} className="header__links">
+            <div onClick={handleAuthentication} className="header__option">
+              <p className="header__optionLineOne">
+                Hello, {!user ? "Guest" : user}
+              </p>
+              <p className="header__optionLineTwo">
+                {!user ? "Sign In" : "Sign Out"}
+              </p>
+            </div>
+          </Link>
+        </div>
+      </div>
+      <div className="header__bottom">
+        <Link to="/" className="header__image">
+          <img src={razorbackFace} alt="Razorback Image" />
         </Link>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import "./Post.css";
+import "./PostMobile.css";
 import { Avatar } from "@material-ui/core";
 import ThumbsUpIcon from "@material-ui/icons/ThumbUp";
 import ChatBubbleOutlineIcon from "@material-ui/icons/ChatBubbleOutline";
@@ -33,15 +33,16 @@ function Post({ key, profilePic, message, timestamp, username, image }) {
           <p>{new Date(timestamp?.toDate()).toUTCString()}</p>
         </div>
       </div>
-      <div className="post__headerBottom">
-        <p>{message}</p>
-      </div>
+      
 
       <div className="post__image">
         <img src={image} alt="user posted image" />
       </div>
+      <div className="post__headerBottom">
+        <p>{message}</p>
+      </div>
 
-      <div className="post__bottomOptions">
+      {/* <div className="post__bottomOptions">
         <div className="post__bottomOption">
           <ThumbsUpIcon />
           <p>Like</p>
@@ -61,7 +62,7 @@ function Post({ key, profilePic, message, timestamp, username, image }) {
           <AccountCircleIcon />
           <ExpandMoreOutlined />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

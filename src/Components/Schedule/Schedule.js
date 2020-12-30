@@ -1,5 +1,5 @@
 import React from "react";
-import "./Schedule.css";
+import "./ScheduleMobile.css";
 import { useStateValue } from "../../assets/stateProvider";
 
 import Table from "@material-ui/core/Table";
@@ -45,75 +45,59 @@ export default function Schedule() {
 
   return (
     <div className="schedule">
-      {newLocal}
-
-      <TableContainer component={Paper}>
-        <Table size="small" stickyHeader>
-          <TableHead>
-            <TableRow>
-              <TableCell>
-                <p className="schedule__tableCellHeader">Game</p>
-              </TableCell>
-              <TableCell align="left">
-                <p className="schedule__tableCellHeader">Date</p>
-              </TableCell>
-              <TableCell align="left">
-                <p className="schedule__tableCellHeader">Time</p>
-              </TableCell>
-              <TableCell align="left">
-                <p className="schedule__tableCellHeader">Address</p>
-              </TableCell>
-              <TableCell align="left">
-                <p className="schedule__tableCellHeader">Uniform</p>
-              </TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
+      <h3>2020 Schedule</h3>
+      <div className="schedule__table">
+        <table>
+        
+          <thead>
+            <tr>
+              <th>Game</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Address</th>
+              <th>Uniform</th>
+            </tr>
+          </thead>
+          <tbody>
+         
             {schedule.map((row) => (
-              <TableRow key={row.id}>
-                <TableCell component="th" scope="row">
-                  <p>{row.opponent}</p>
-                  <p className="schedule__tableCellOpponent">
-                    {row.team}
+              <tr key={row.id}>
+                <td>
+                  <h5>{row.opponent}</h5>
+                  <p>{row.team}</p>
+                </td>
+                <td>
+                  <p>{row.date}</p>
+                </td>
+                <td>
+                  <p>
+                    <strong>Game Time</strong>
                   </p>
-                </TableCell>
-                <TableCell align="left">
-                  <p className="schedule__tableText">{row.date}</p>
-                </TableCell>
-                <TableCell align="left">
-                  <p className="schedule__tableText">{row.time}</p>
-                  <p className="schedule__tableCellTime">Game Time</p>
-                  <p className="schedule__tableText">
-                    {row.arrival}
+                  <p>{row.time}</p>
+                  <p>
+                    <strong>Arrival Time</strong>
                   </p>
-                  <p className="schedule__tableCellTime">Arrival Time</p>
-                </TableCell>
+                  <p>{row.arrival}</p>
+                </td>
+                <td>
+                  <p>{row.address}</p>
 
-                <TableCell align="left">
-                  <p className="schedule__tableText">
-                    {row.address}
-                  </p>
-                  <p className="schedule__tableText">{row.city}</p>
-                </TableCell>
-
-                <TableCell align="left">
+                  <p>{row.city}</p>
+                </td>
+                <td>
                   <Avatar
                     className={
-                      row.uniform === "grey"
-                        ? classes.grey
-                        : classes.red
+                      row.uniform === "grey" ? classes.grey : classes.red
                     }
                   >
-                    <p className="schedule__avatar">
-                      {row.uniform}
-                    </p>
+                    <p className="schedule__avatar">{row.uniform}</p>
                   </Avatar>
-                </TableCell>
-              </TableRow>
+                </td>
+              </tr>
             ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

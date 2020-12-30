@@ -1,6 +1,6 @@
 import { Avatar } from "@material-ui/core";
 
-import "./PostInput.css";
+import "./PostInputMobile.css";
 import React, { useState } from "react";
 import { useStateValue } from "../../assets/stateProvider";
 import { db, storage } from "../../assets/firebase";
@@ -89,50 +89,49 @@ function PostInput() {
       <div className="postInput__left">
         <Avatar src={userProfilePic ? userProfilePic : ""} />
       </div>
-      <div className="postInput__center">
-        <form>
-          <input
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            className="postInput__centerMessageInput"
-            placeholder={
-              user ? `What's up ${userDisplayName}?` : "LOGIN REQUIRED"
-            }
-          />
-          <label htmlFor="image_uploads" className="postInput__centerTopLabel">
-            {!newImage ? (
-              <p>Upload Image</p>
-            ) : (
-              <p onClick={handleCancel}>Cancel Upload</p>
-            )}
-          </label>
-          <input
-            className="postInput__centerImageInput"
-            type="file"
-            id="image_uploads"
-            name="image_uploads"
-            accept=".jpg, .jpeg, .png"
-            multiple
-            // value={imageURL}
-            onChange={handleInputChange}
-          />
-          <p className="postInput__centerPreview">
-            {!newImage
-              ? "No files currently selected for upload"
-              : `upload file NAME: ${newImage.name}__TYPE${
-                  newImage.type
-                }__SIZE${(newImage.size / 1024).toFixed()} kb`}
-          </p>
+
+      <form>
+        <input
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          className="postInput__centerMessageInput"
+          placeholder={
+            user ? `What's up ${userDisplayName}?` : "LOGIN REQUIRED"
+          }
+          type="text"
+        />
+        <label htmlFor="image_uploads" className="postInput__centerTopLabel">
+          {!newImage ? (
+            <p>Upload Image</p>
+          ) : (
+            <p onClick={handleCancel}>Cancel Upload</p>
+          )}
+        </label>
+        <input
+          // className="postInput__centerImageInput"
+          type="file"
+          id="image_uploads"
+          name="image_uploads"
+          accept=".jpg, .jpeg, .png"
+          multiple
+          // value={imageURL}
+          onChange={handleInputChange}
+        />
+
+        <p className="postInput__centerPreview">
+          {!newImage
+            ? null
+            : `upload file NAME: ${newImage.name}__TYPE${newImage.type}__SIZE${(
+                newImage.size / 1024
+              ).toFixed()} kb`}
+        </p>
+        {newImage ? (
           <img src={imageURL} className="postInput__imagePreview"></img>
-        </form>
-      </div>
-      <div className="postInput__right">
-        <div className="postInput__btn">
-          <button onClick={handlePostSubmit} type="submit">
-            Submit
-          </button>
-        </div>
-      </div>
+        ) : null}
+        <p onClick={handlePostSubmit} className="postInput__submit">
+          Submit
+        </p>
+      </form>
     </div>
   );
 }

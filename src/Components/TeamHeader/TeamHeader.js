@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useStateValue } from "../../assets/stateProvider";
 import Team from "../TeamList/TeamList";
-import "./TeamHeader.css";
+import "./TeamHeaderMobile.css";
 function TeamHeader({
   handleBattingClick,
   handleCoachesClick,
@@ -10,9 +10,11 @@ function TeamHeader({
 }) {
   return (
     <div className="teamHeader">
-      <h3 onClick={handleTeamClick}>2020 Razorbacks</h3>
+      <div className="teamHeader__top">
+        <h3 onClick={handleTeamClick}>2020 Razorbacks</h3>
+      </div>
 
-      <div className="teamHeader__buttons">
+      <div className="teamHeader__bottom">
         <button className="teamHeader__button" onClick={handleBattingClick}>
           BATTING
         </button>

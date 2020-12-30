@@ -3,7 +3,7 @@ import PostInput from "../PostInput/PostInput";
 import Post from "../Post/Post";
 import { db } from "../../assets/firebase";
 import { useStateValue } from "../../assets/stateProvider";
-import "./PostsFeed.css";
+import "./PostsFeedMobile.css";
 
 function PostsFeed() {
   const [{ posts, userData }, dispatch] = useStateValue();

@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.schedule {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  
+}
+
+.schedule > h3 {
+  border-bottom: 1px solid #a1aaad;
+  background-color: #c62033;
+  color: #a1aaad;
+  padding: 10px;
+  
+}
+
+.schedule__table {
+  overflow-y: auto;
+  max-height: 650;
+  width: 100%;
+}
+
+.schedule__table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #ffffff;
+  color: #a1aaad;
+  border-bottom: 1px solid #a1aaad;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  padding: 2px 5px;
+  text-align: left;
+}
+
+tr {
+  background-color: #ffffff;
+}
+
+td {
+  border-bottom: 1px solid #a1aaad;
+  padding: 2px 5px;
+}
+
+p {
+  font-size: 0.5rem;
+  color: #a1aaad;
+}
+
+h5 {
+  color: #a1aaad;
+}
+
+.schedule__avatar {
+  font-size: 0.6rem;
+}

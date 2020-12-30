@@ -1,13 +1,24 @@
-.teamHeader > h3 {
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.teamHeader {
+  display: flex;
+  flex-direction: column;
+}
+
+.teamHeader__top {
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 1.25rem 0;
   border-bottom: 1px solid #eaeaea;
   background-color: #c62033;
-  border-top-left-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
+  height: 60px;
   color: #a1aaad;
-  height: 20px;
+  
 }
 
 .teamHeader > h3:hover {

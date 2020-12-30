@@ -17,9 +17,7 @@ function Footer() {
         <Link className="footer__link" to="/About">
           <p>ABOUT</p>
         </Link>
-        {/* <Link className="footer__link" to="/" className="footer__image">
-        <img src={razorbackFace} />
-      </Link> */}
+
         <Link className="footer__link" to="/Contact">
           <p>CONTACT</p>
         </Link>
