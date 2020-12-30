@@ -1,14 +1,29 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .home {
-
-
-    display: flex;
-    flex-direction: column;   
-    
-    
+  display: flex;
+  flex-direction: column;
 }
+
+@media (min-width: 1024px) {
+  .home {
+    flex-direction: row;
+    margin-top: 20px;
+  }
+
+  .home__left {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .home__right {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+

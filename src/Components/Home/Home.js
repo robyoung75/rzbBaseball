@@ -12,13 +12,24 @@ import PitcherList from "../PitcherList/PitcherList";
 import BatterList from "../BatterList/BatterList";
 import CoachesList from "../CoachesList/CoachesLlist";
 import { useStateValue } from "../../assets/stateProvider";
+import { useMediaQuery } from "react-responsive";
 
 function Home() {
+  const isMobile = useMediaQuery({
+    query: "(max-width: 1024px)",
+  });
+
+  const isIpadLsOrDesktop = useMediaQuery({
+    query: "(min-width: 1024px)",
+  });
+
   const [{ playerData, coachesData }, dispatch] = useStateValue();
   const [battingBtnClick, setBattingBtnClick] = useState();
   const [coachesBtnClick, setCoachesBtnClick] = useState();
   const [pitcherBtnClick, setPitcherBtnClick] = useState();
   const [teamBtnClick, setTeamBtnClick] = useState();
+  const [mobile, setMobile] = useState(isMobile);
+  const [iPadOrDeskTop, setIpadOrDeskTop] = useState(isIpadLsOrDesktop);
 
   const handleBattingClick = () => {
     setCoachesBtnClick(false);
@@ -55,31 +66,49 @@ function Home() {
 
   return (
     <div className="home">
-      
-      {/* <GameChanger /> */}
-
-      <PostInput />
-
-      <PostsFeed />
-      <Schedule />
-      <TeamHeader
-        handleBattingClick={handleBattingClick}
-        handlePitchingClick={handlePitchingClick}
-        handleTeamClick={handleTeamClick}
-        handleCoachesClick={handleCoachesClick}
-      />
-
-      {teamBtnClick ? (
-        <TeamList />
-      ) : coachesBtnClick ? (
-        <CoachesList />
-      ) : pitcherBtnClick ? (
-        <PitcherList />
-      ) : battingBtnClick ? (
-        <BatterList />
-      ) : (
-        <TeamList />
-      )}
+      {iPadOrDeskTop ? (
+        <>
+          <div className="home__left">
+            {" "}
+            <TeamHeader
+              handleBattingClick={handleBattingClick}
+              handlePitchingClick={handlePitchingClick}
+              handleTeamClick={handleTeamClick}
+              handleCoachesClick={handleCoachesClick}
+            />
+            {teamBtnClick ? (
+              <TeamList />
+            ) : coachesBtnClick ? (
+              <CoachesList />
+            ) : pitcherBtnClick ? (
+              <PitcherList />
+            ) : battingBtnClick ? (
+              <BatterList />
+            ) : (
+              <TeamList />
+            )}
+          </div>
+          <div className="home__center">
+            <PostInput />
+            <PostsFeed />
+          </div>
+          <div className="home__right">
+            <Schedule />
+          </div>
+        </>
+      ) : mobile ? (
+        <>
+          <PostInput />
+          <PostsFeed />
+          <Schedule />
+          <TeamHeader
+            handleBattingClick={handleBattingClick}
+            handlePitchingClick={handlePitchingClick}
+            handleTeamClick={handleTeamClick}
+            handleCoachesClick={handleCoachesClick}
+          />
+        </>
+      ) : null}
     </div>
   );
 }
