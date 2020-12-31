@@ -1,0 +1,50 @@
+@font-face {
+    font-family: "Red Sox";
+    src: local('Red Sox'), url(../../fonts/Beantown.ttf) format('truetype')
+}
+
+.dropdown {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #c62033;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    transform: translateY(-100%);
+    transition: all 0.3s;
+  }
+  
+  .dropdown__active {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to bottom right, #c62033,#a1aaad);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 30;
+    transition: all 0.5s;
+  }
+  
+  .dropdown__active h1 {
+    color: #ffffff;
+    padding: 75px 0;
+    font-family: "Red Sox", serif;
+    letter-spacing: 3px;
+  }
+
+  .dropdown__active img {
+    cursor: pointer;
+    width: 200px;
+    height: auto;
+
+  }
+  
+  .dropdown__active img:hover {
+    
+    transform: scale(1.05);
+  }
+  

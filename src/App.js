@@ -11,7 +11,7 @@ import Contact from "./Components/Contact/Contact";
 import Login from "./Components/Login/Login";
 import "./App.css";
 import Footer from "./Components/Footer/Footer";
-
+import Dropdown from './Components/Dropdown/Dropdown'
 import { auth, db } from "../src/assets/firebase";
 
 import { useStateValue } from "./assets/stateProvider";
@@ -86,6 +86,7 @@ function App() {
 
           {/* Note: default root always located at the bottom */}
           <Route path="/">
+            <Dropdown/>
             <Header />
             <Home />
             <Footer />

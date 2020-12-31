@@ -30,7 +30,7 @@ function Home() {
   const [teamBtnClick, setTeamBtnClick] = useState();
   const [mobile, setMobile] = useState(isMobile);
   const [iPadOrDeskTop, setIpadOrDeskTop] = useState(isIpadLsOrDesktop);
-  const [isCancelled, setIsCancelled] = useState(false)
+  const [isCancelled, setIsCancelled] = useState(false);
 
   const handleBattingClick = () => {
     setCoachesBtnClick(false);
@@ -79,12 +79,11 @@ function Home() {
   };
 
   useEffect(() => {
-    
     window.addEventListener("resize", windowSize);
 
     return () => {
       setIsCancelled(true);
-    }
+    };
   }, []);
 
   return (

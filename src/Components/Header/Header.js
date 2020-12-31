@@ -2,13 +2,14 @@ import "./HeaderMobile.css";
 
 import razorbackFace from "../../Images/razorbackLogoFace.png";
 
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useStateValue } from "../../assets/stateProvider";
 import { auth } from "../../assets/firebase";
 
 export default function Header() {
   const [{ user }, dispatch] = useStateValue();
+  const [isActive, setActive] = useState(true)
 
   const handleAuthentication = (e) => {
     if (user) {
@@ -28,6 +29,7 @@ export default function Header() {
   };
 
   return (
+    
     <div className="header">
       <div className="header__top">
         <Link className="header__links" to="/">

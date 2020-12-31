@@ -5,6 +5,8 @@
   box-sizing: border-box;
 }
 
+
+
 .header {
   background-color: #c62033;
   display: flex;
@@ -13,11 +15,14 @@
   position: sticky; /* keeps the header in the same position */
   background-color: #c62033;
   top: 0;
-  z-index: 30;
+  z-index: 25;
   box-shadow: 0 3px 8px #a1aaad;
   padding: 10px 20px;
   
+  
 }
+
+
 
 .header__top {
   display: flex;
