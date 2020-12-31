@@ -29,7 +29,7 @@ function Post({ key, profilePic, message, timestamp, username, image }) {
       <div className="post__header">
         <Avatar src={userProfilePic} />
         <div className="post__headerInfo">
-          <h3>{userDisplayName}</h3>
+          <h5>{userDisplayName}</h5>
           <p>{new Date(timestamp?.toDate()).toUTCString()}</p>
         </div>
       </div>

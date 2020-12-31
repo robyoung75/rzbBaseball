@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Schedule from "../Schedule/Schedule";
 import "./HomeMobile.css";
@@ -30,6 +30,7 @@ function Home() {
   const [teamBtnClick, setTeamBtnClick] = useState();
   const [mobile, setMobile] = useState(isMobile);
   const [iPadOrDeskTop, setIpadOrDeskTop] = useState(isIpadLsOrDesktop);
+  const [isCancelled, setIsCancelled] = useState(false)
 
   const handleBattingClick = () => {
     setCoachesBtnClick(false);
@@ -63,6 +64,28 @@ function Home() {
     setPitcherBtnClick(false);
     console.log("team click", playerData);
   };
+
+  const windowSize = () => {
+    let height = window.innerHeight;
+    let width = window.innerWidth;
+    if (width >= 1024) {
+      setMobile(!isMobile);
+      setIpadOrDeskTop(isIpadLsOrDesktop);
+    } else if (width < 1024) {
+      setIpadOrDeskTop(!isIpadLsOrDesktop);
+      setMobile(isMobile);
+    }
+    console.log(height, width);
+  };
+
+  useEffect(() => {
+    
+    window.addEventListener("resize", windowSize);
+
+    return () => {
+      setIsCancelled(true);
+    }
+  }, []);
 
   return (
     <div className="home">
@@ -107,6 +130,18 @@ function Home() {
             handleTeamClick={handleTeamClick}
             handleCoachesClick={handleCoachesClick}
           />
+
+          {teamBtnClick ? (
+            <TeamList />
+          ) : coachesBtnClick ? (
+            <CoachesList />
+          ) : pitcherBtnClick ? (
+            <PitcherList />
+          ) : battingBtnClick ? (
+            <BatterList />
+          ) : (
+            <TeamList />
+          )}
         </>
       ) : null}
     </div>
