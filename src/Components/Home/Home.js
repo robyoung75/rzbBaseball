@@ -13,9 +13,6 @@ import BatterList from "../BatterList/BatterList";
 import CoachesList from "../CoachesList/CoachesLlist";
 import { useStateValue } from "../../assets/stateProvider";
 
-import MediaQuery from "react-responsive";
-import { DesktopWindowsOutlined } from "@material-ui/icons";
-
 function Home() {
   const [{ playerData, coachesData }, dispatch] = useStateValue();
   const [battingBtnClick, setBattingBtnClick] = useState();
@@ -25,7 +22,7 @@ function Home() {
   // const [width, setWidth] = useState(window.innerWidth);
   // const [height, setheight] = useState(window.innerHeight);
   const [mobile, setMobile] = useState(window.innerWidth < 1224);
-  const [desktop, setDesktop] = useState(window.innerWidth > 1224);
+  // const [desktop, setDesktop] = useState(window.innerWidth > 1224);
 
   const handleBattingClick = () => {
     setCoachesBtnClick(false);
@@ -62,13 +59,7 @@ function Home() {
 
   useEffect(() => {
     const handleWindowResize = () => {
-      if (window.innerWidth < 1224) {
-        setMobile(true);
-        setDesktop(false);
-      } else {
-        setMobile(false);
-        setDesktop(true);
-      }
+      setMobile(window.innerWidth < 500);
     };
 
     window.addEventListener("resize", handleWindowResize);
@@ -79,34 +70,38 @@ function Home() {
     <div className="home">
       {mobile ? (
         <>
-          <PostInput />
-          <PostsFeed />
-          <Schedule />
-          <TeamHeader
-            handleBattingClick={handleBattingClick}
-            handlePitchingClick={handlePitchingClick}
-            handleTeamClick={handleTeamClick}
-            handleCoachesClick={handleCoachesClick}
-          />
+          <div className="home__center">
+            <PostInput />
+            <PostsFeed />
+          </div>
+          <div className="home__right">
+            <Schedule />
+          </div>
 
-          {teamBtnClick ? (
-            <TeamList />
-          ) : coachesBtnClick ? (
-            <CoachesList />
-          ) : pitcherBtnClick ? (
-            <PitcherList />
-          ) : battingBtnClick ? (
-            <BatterList />
-          ) : (
-            <TeamList />
-          )}
+          <div className="home__left">
+            <TeamHeader
+              handleBattingClick={handleBattingClick}
+              handlePitchingClick={handlePitchingClick}
+              handleTeamClick={handleTeamClick}
+              handleCoachesClick={handleCoachesClick}
+            />
+
+            {teamBtnClick ? (
+              <TeamList />
+            ) : coachesBtnClick ? (
+              <CoachesList />
+            ) : pitcherBtnClick ? (
+              <PitcherList />
+            ) : battingBtnClick ? (
+              <BatterList />
+            ) : (
+              <TeamList />
+            )}
+          </div>
         </>
-      ) : null}
-
-      {desktop ? (
+      ) : (
         <>
           <div className="home__left">
-            {" "}
             <TeamHeader
               handleBattingClick={handleBattingClick}
               handlePitchingClick={handlePitchingClick}
@@ -133,7 +128,7 @@ function Home() {
             <Schedule />
           </div>
         </>
-      ) : null}
+      )}
     </div>
   );
 }

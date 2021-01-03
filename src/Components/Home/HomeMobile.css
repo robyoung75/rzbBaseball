@@ -9,15 +9,35 @@
   flex-direction: column;
 }
 
+.home__left {
+  display: flex;
+  flex-direction: column;
+}
+
+.home__right {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.home__center {
+  display: flex;
+  flex-direction: column;
+
+}
+
 @media (min-width: 1024px) {
   .home {
     flex-direction: row;
     margin-top: 20px;
+
   }
 
   .home__left {
+   
     margin-left: 10px;
     margin-right: 10px;
+    
   }
 
   .home__right {
