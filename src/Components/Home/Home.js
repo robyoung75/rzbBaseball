@@ -12,25 +12,20 @@ import PitcherList from "../PitcherList/PitcherList";
 import BatterList from "../BatterList/BatterList";
 import CoachesList from "../CoachesList/CoachesLlist";
 import { useStateValue } from "../../assets/stateProvider";
-import { useMediaQuery } from "react-responsive";
+
+import MediaQuery from "react-responsive";
+import { DesktopWindowsOutlined } from "@material-ui/icons";
 
 function Home() {
-  const isMobile = useMediaQuery({
-    query: "(max-width: 1024px)",
-  });
-
-  const isIpadLsOrDesktop = useMediaQuery({
-    query: "(min-width: 1024px)",
-  });
-
   const [{ playerData, coachesData }, dispatch] = useStateValue();
   const [battingBtnClick, setBattingBtnClick] = useState();
   const [coachesBtnClick, setCoachesBtnClick] = useState();
   const [pitcherBtnClick, setPitcherBtnClick] = useState();
   const [teamBtnClick, setTeamBtnClick] = useState();
-  const [mobile, setMobile] = useState(isMobile);
-  const [iPadOrDeskTop, setIpadOrDeskTop] = useState(isIpadLsOrDesktop);
-  const [isCancelled, setIsCancelled] = useState(false);
+  // const [width, setWidth] = useState(window.innerWidth);
+  // const [height, setheight] = useState(window.innerHeight);
+  const [mobile, setMobile] = useState(window.innerWidth < 1224);
+  const [desktop, setDesktop] = useState(window.innerWidth > 1224);
 
   const handleBattingClick = () => {
     setCoachesBtnClick(false);
@@ -65,30 +60,50 @@ function Home() {
     console.log("team click", playerData);
   };
 
-  const windowSize = () => {
-    let height = window.innerHeight;
-    let width = window.innerWidth;
-    if (width >= 1024) {
-      setMobile(!isMobile);
-      setIpadOrDeskTop(isIpadLsOrDesktop);
-    } else if (width < 1024) {
-      setIpadOrDeskTop(!isIpadLsOrDesktop);
-      setMobile(isMobile);
-    }
-    console.log(height, width);
-  };
-
   useEffect(() => {
-    window.addEventListener("resize", windowSize);
-
-    return () => {
-      setIsCancelled(true);
+    const handleWindowResize = () => {
+      if (window.innerWidth < 1224) {
+        setMobile(true);
+        setDesktop(false);
+      } else {
+        setMobile(false);
+        setDesktop(true);
+      }
     };
+
+    window.addEventListener("resize", handleWindowResize);
+    return () => window.removeEventListener("resize", handleWindowResize);
   }, []);
 
   return (
     <div className="home">
-      {iPadOrDeskTop ? (
+      {mobile ? (
+        <>
+          <PostInput />
+          <PostsFeed />
+          <Schedule />
+          <TeamHeader
+            handleBattingClick={handleBattingClick}
+            handlePitchingClick={handlePitchingClick}
+            handleTeamClick={handleTeamClick}
+            handleCoachesClick={handleCoachesClick}
+          />
+
+          {teamBtnClick ? (
+            <TeamList />
+          ) : coachesBtnClick ? (
+            <CoachesList />
+          ) : pitcherBtnClick ? (
+            <PitcherList />
+          ) : battingBtnClick ? (
+            <BatterList />
+          ) : (
+            <TeamList />
+          )}
+        </>
+      ) : null}
+
+      {desktop ? (
         <>
           <div className="home__left">
             {" "}
@@ -117,30 +132,6 @@ function Home() {
           <div className="home__right">
             <Schedule />
           </div>
-        </>
-      ) : mobile ? (
-        <>
-          <PostInput />
-          <PostsFeed />
-          <Schedule />
-          <TeamHeader
-            handleBattingClick={handleBattingClick}
-            handlePitchingClick={handlePitchingClick}
-            handleTeamClick={handleTeamClick}
-            handleCoachesClick={handleCoachesClick}
-          />
-
-          {teamBtnClick ? (
-            <TeamList />
-          ) : coachesBtnClick ? (
-            <CoachesList />
-          ) : pitcherBtnClick ? (
-            <PitcherList />
-          ) : battingBtnClick ? (
-            <BatterList />
-          ) : (
-            <TeamList />
-          )}
         </>
       ) : null}
     </div>

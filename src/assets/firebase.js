@@ -17,7 +17,7 @@ export { db, auth, storage };
 
 
 
-let bYoungProfilePic = "https://firebasestorage.googleapis.com/v0/b/rzbbaseball-ddb27.appspot.com/o/players%2FbrightonWhite.jpg?alt=media"
+// let bYoungProfilePic = "https://firebasestorage.googleapis.com/v0/b/rzbbaseball-ddb27.appspot.com/o/players%2FbrightonWhite.jpg?alt=media"
 
 const updateDisplayName = (newDisplayName) => {
   let user = auth.currentUser;

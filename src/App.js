@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
@@ -11,34 +11,19 @@ import Contact from "./Components/Contact/Contact";
 import Login from "./Components/Login/Login";
 import "./App.css";
 import Footer from "./Components/Footer/Footer";
-import Dropdown from './Components/Dropdown/Dropdown'
+import Dropdown from "./Components/Dropdown/Dropdown";
 import { auth, db } from "../src/assets/firebase";
-
+import { updateProfilePic, updateDisplayName } from "./assets/firebase";
 import { useStateValue } from "./assets/stateProvider";
 
 function App() {
   // getting state
   const [{ posts, user }, dispatch] = useStateValue();
 
-  // const postData = () => {
-  //   let postDataRef = db.collection("posts");
-  //   postDataRef
-  //     .orderBy("timestamp", "desc")
-  //     .get()
-  //     .then((snapshot) => {
-  //       dispatch({
-  //         type: "POST_DATA",
-  //         post: snapshot.docs.map((doc) => ({
-  //           postId: doc.id,
-  //           postData: doc.data(),
-  //         })),
-  //       });
-  //     });
-  // };
-
   useEffect(() => {
     // will only run once when the app component loads...
     // a listener for auth change
+
     auth.onAuthStateChanged((authUser) => {
       if (authUser) {
         dispatch({
@@ -46,21 +31,17 @@ function App() {
           user: authUser.providerData,
           userData: authUser.email,
         });
-        // updateProfilePic("https://firebasestorage.googleapis.com/v0/b/rzbbaseball-ddb27.appspot.com/o/players%2FtysonWhite.jpg?alt=media")
-        // updateDisplayName('CoachY');
-        // postData();
+        // updateProfilePic(brightonURL)
+
+        // updateDisplayName('BYoung#8');
       } else {
         dispatch({
           type: "SET_USER",
           user: null,
         });
-
-        // postData();
       }
     });
   }, []);
-
-  
 
   return (
     <Router>
@@ -86,7 +67,7 @@ function App() {
 
           {/* Note: default root always located at the bottom */}
           <Route path="/">
-            <Dropdown/>
+            <Dropdown />
             <Header />
             <Home />
             <Footer />
