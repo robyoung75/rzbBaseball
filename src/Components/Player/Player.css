@@ -40,3 +40,7 @@
   color: #a1aaad;
   font-size: 0.75rem;
 }
+
+.player img {
+  border-radius: 50%;
+}

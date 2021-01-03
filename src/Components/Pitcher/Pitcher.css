@@ -40,3 +40,7 @@
   color: #a1aaad;
   font-size: .55rem;
 }
+
+.pitcher img {
+  border-radius: 50%;
+}

@@ -1,32 +1,16 @@
-import { Avatar, makeStyles } from "@material-ui/core";
+
 import React from "react";
 import rzbFace from "../../Images/razorbackLogoFace.jpg"
 
 import "./Coaches.css";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: "flex",
-    "& > *": {
-      margin: theme.spacing(1),
-    },
-  },
-  small: {
-    width: theme.spacing(3),
-    height: theme.spacing(3),
-  },
-  large: {
-    width: theme.spacing(7),
-    height: theme.spacing(7),
-  },
-}));
-
 function Coaches({ id, image, name, position }) {
-  const classes = useStyles();
+ 
 
   return (
     <div className="coaches" key={id}>
-      <Avatar className={classes.large} src={image} alt="List image" />
+      <img src={image} alt="List image"></img>
+     
       <div className="coaches__info">
         
         <h4>{name}</h4>

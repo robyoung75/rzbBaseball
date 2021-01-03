@@ -40,3 +40,7 @@
   color: #a1aaad;
   font-size: .75rem;
 }
+
+.batter img {
+  border-radius: 50%;
+}

@@ -152,7 +152,7 @@ let coachesData = [
     number: "50",
     name: "Tyler B",
     position: "Head Coach",
-    image: "",
+    image: kalen,
   },
 
   {
@@ -160,7 +160,7 @@ let coachesData = [
     number: "24",
     name: "Rob Y",
     position: "Hitting Coach",
-    image: "",
+    image: kalen,
   },
 
   {
@@ -168,7 +168,7 @@ let coachesData = [
     number: "75",
     name: "Jerod L",
     position: "Pitching Coach",
-    image: "",
+    image: kalen,
   },
 
   {
@@ -176,7 +176,7 @@ let coachesData = [
     number: "45",
     name: "Mike K",
     position: "Skills Coach",
-    image: "",
+    image: kalen,
   },
 ];
 
