@@ -58,19 +58,18 @@ function Home() {
   };
 
   useEffect(() => {
-
     // screen size changes can fire as every pixel changes resulting is a huge
-    // rerender filled with problems. Including the set time out debounce
-    // mechanism on the window resizes allows for resize with a 500 ms delay
+    // rerender filled with problems. Including the set timeout debounce
+    // mechanism on the window resize allows for resize with a 1000 ms delay
     // before the rerender ensuring the complex data or component is ready prior
     // to the rerender.
-    let timeoutId = null;    
+    let timeoutId = null;  
+      
     const handleWindowResize = () => {
       clearTimeout(timeoutId);
       timeoutId = setTimeout(() => {
-        setMobile(window.innerWidth < 500);
-      }, 300)
-      
+        setMobile(window.innerWidth < 1000);
+      }, 1000)      
     };
 
     window.addEventListener("resize", handleWindowResize);
