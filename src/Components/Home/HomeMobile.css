@@ -6,31 +6,31 @@
 
 .home {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  /* flex-direction: column; */
   overflow-anchor: none;
+  justify-content: center;
 }
 
 .home__left {
-  display: flex;
-  flex-direction: column;
+  
 }
 
 .home__right {
-  display: flex;
-  flex-direction: column;
+  
 
 }
 
 .home__center {
-  display: flex;
-  flex-direction: column;
-
+  
+  /* background-color: greenyellow; */
 }
 
 @media (min-width: 1024px) {
   .home {
-    flex-direction: row;
+    flex-wrap: nowrap;
     margin-top: 20px;
+    justify-content: space-between;
 
   }
 

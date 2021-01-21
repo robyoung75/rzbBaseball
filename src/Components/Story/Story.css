@@ -1,0 +1,72 @@
+.story {
+  display: flex;
+  background-color: green;
+  justify-content: center;
+  align-items: center;  
+  margin-bottom: 20px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.story__card {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  /* min-height: 200px;
+  min-width: 125px; */
+  border: 18px#c62033 solid;
+  /* bottom: -1px; */
+  padding: 2px;
+  background-color:#a1aaad;
+}
+
+.story__card:before,
+.story__card:after {
+  content: "";
+}
+
+.story__card:before {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  z-index: 7;
+  border-top: 30px solid #c62033;
+  border-right: 30px solid transparent;
+}
+
+.story__cardLogo {
+  position: absolute;
+  left: -5px;
+  top: 0;
+  z-index: 8;
+  height: 50px;
+  width: auto;
+}
+
+.story__cardPlayer {
+  z-index: 1;
+  height: auto;
+  width: auto;
+}
+
+figcaption {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  padding: 2px 5px;
+  bottom: -5px;
+  right: -5px;
+  width: 66%;
+  height: 40px;
+  border-radius: 5px;
+  background: #a1aaad;
+  border: 1.5px rgb(0, 0, 0) solid;
+  z-index: 5;
+}
+
+figcaption > p {
+  
+  color: #000000;
+}

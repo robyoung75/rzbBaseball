@@ -7,6 +7,7 @@ import PostsFeed from "../PostsFeed/PostsFeed";
 import PostInput from "../PostInput/PostInput";
 import TeamHeader from "../TeamHeader/TeamHeader";
 import TeamList from "../TeamList/TeamList";
+import StoryReel from "../StoryReel/StoryReel";
 
 import PitcherList from "../PitcherList/PitcherList";
 import BatterList from "../BatterList/BatterList";
@@ -81,6 +82,7 @@ function Home() {
       {mobile ? (
         <>
           <div className="home__center">
+            <StoryReel />
             <PostInput />
             <PostsFeed />
           </div>
@@ -131,6 +133,7 @@ function Home() {
             )}
           </div>
           <div className="home__center">
+            <StoryReel />
             <PostInput />
             <PostsFeed />
           </div>

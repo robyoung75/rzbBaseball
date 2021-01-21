@@ -1,0 +1,33 @@
+
+.storyReel__story {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;  
+  /* background-color: greenyellow; */
+    
+}
+
+.storyReel > h3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #eaeaea;
+  background-color: #c62033;
+  height: 50px;
+  color: #a1aaad;
+  border-top-right-radius: .25rem;
+  border-top-left-radius: .25rem;
+  margin: 20px 0;
+}
+
+
+ @media (min-width: 1024px) {
+    .storyReel {
+      flex-wrap: nowrap;      
+    }
+
+    .storyReel > h3 {
+      margin: 0 0 20px 0 ;
+    }
+  } 

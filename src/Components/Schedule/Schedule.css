@@ -1,6 +1,5 @@
 .schedule {
-  display: flex;
-  flex-direction: column;
+
 }
 
 .schedule > h3 {
