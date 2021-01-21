@@ -7,6 +7,7 @@
 .teamHeader {
   display: flex;
   flex-direction: column;
+  width: 100vw;
 }
 
 .teamHeader__top > h3:hover {
@@ -23,6 +24,7 @@
   background-color: #c62033;
   height: 50px;
   color: #a1aaad;
+  
 }
 
 .teamHeader__bottom {
@@ -58,6 +60,11 @@ button:visited,
 }
 
 @media (min-width: 1024px) {
+
+  .teamHeader {
+    
+    width: auto;
+  }
   .teamHeader__top {   
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;

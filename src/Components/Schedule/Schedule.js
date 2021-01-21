@@ -45,7 +45,7 @@ export default function Schedule() {
 
   return (
     <div className="schedule">
-      <h3>{newLocal}</h3>
+      {newLocal}
       <div className="schedule__table">
         <table>
         

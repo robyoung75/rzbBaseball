@@ -69,7 +69,7 @@ function Home() {
     const handleWindowResize = () => {
       clearTimeout(timeoutId);
       timeoutId = setTimeout(() => {
-        setMobile(window.innerWidth < 1000);
+        setMobile(window.innerWidth < 1300);
       }, 1000)      
     };
 
@@ -133,7 +133,7 @@ function Home() {
             )}
           </div>
           <div className="home__center">
-            <StoryReel />
+            <StoryReel mobile={mobile} />
             <PostInput />
             <PostsFeed />
           </div>
