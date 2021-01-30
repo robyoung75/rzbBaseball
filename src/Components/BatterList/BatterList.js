@@ -15,11 +15,7 @@ function BatterList() {
           number={player.number}
           average={player.battingAve}
           name={player.firstName}
-          // position={player.position}
-          era={player.era ? player.era : null}
-          gamesPitched={player.gamesPitched ? player.gamesPitched : null}
-          gameWins={player.wins ? player.wins : null}
-          gameSaves={player.saves ? player.saves : null}
+          position={player.position}          
           image={player.image}
         />
       ))}

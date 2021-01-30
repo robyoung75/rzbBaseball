@@ -1,23 +1,22 @@
-import { coachesData, teamData, schedule } from "./assets/teamData";
+import { coachesData, schedule } from "./assets/teamData";
 import { myPlayerData } from "./assets/gcData";
 
 export const initialState = {
-  playerData: teamData,
   coachesData: coachesData,
   schedule: schedule,
   posts: [],
   userData: [],
   user: null,
-  myPlayerData: myPlayerData
+  myPlayerData: myPlayerData,
 };
 
 // Create a reducer that takes a state and action.
 const reducer = (state, action) => {
   switch (action.type) {
     case "BATTING_AVE":
-      let battingAverageSort = state.playerData.sort(function (a, b) {
-        const aAverage = parseFloat(a.average);
-        const bAverage = parseFloat(b.average);
+      let battingAverageSort = state.myPlayerData.sort(function (a, b) {
+        const aAverage = parseFloat(a.battingAve);
+        const bAverage = parseFloat(b.battingAve);
 
         let batComparison = 0;
 
@@ -30,13 +29,12 @@ const reducer = (state, action) => {
       });
 
       console.log("BATTING_AVERAGE >>>>", battingAverageSort);
-      return { ...state, playerData: battingAverageSort };
+      return { ...state, myPlayerData: battingAverageSort };
 
     case "PITCHING_ERA":
-      let eraSort = state.playerData.sort(function (a, b) {
+      let eraSort = state.myPlayerData.sort(function (a, b) {
         const aEra = parseInt(a.era);
         const bEra = parseInt(b.era);
-
         let eraComparison = 0;
 
         if (aEra > bEra) {
@@ -49,7 +47,7 @@ const reducer = (state, action) => {
 
       console.log("ERA_SORT >>>> ", eraSort);
 
-      return { ...state, playerData: eraSort };
+      return { ...state, myPlayerData: eraSort };
 
     case "SET_USER":
       return {
@@ -59,17 +57,11 @@ const reducer = (state, action) => {
         user: action.userData,
       };
 
-    case "TEAM_DATA":
+    case "MYTEAM_DATA":
       return {
         ...state,
-        playerData: action.playerData,
+        myPlayerData: action.myPlayerData,
       };
-
-      case "MYTEAM_DATA":
-        return {
-          ...state,
-          myTeamData: action.myTeamData,
-        };
 
     case "COACHES_DATA":
       return {

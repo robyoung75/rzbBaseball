@@ -2,10 +2,6 @@ import React from "react";
 import "./Batter.css";
 
 
-// import brighton from "../../Images/brightonWhite.jpg";
-
-
-
 function Batter({ id, image, name, position, average }) {
 
 

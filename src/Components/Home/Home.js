@@ -13,10 +13,10 @@ import PitcherList from "../PitcherList/PitcherList";
 import BatterList from "../BatterList/BatterList";
 import CoachesList from "../CoachesList/CoachesLlist";
 import { useStateValue } from "../../assets/stateProvider";
-import Prac from '../../assets/prac'
+
 
 function Home() {
-  const [{ playerData, coachesData }, dispatch] = useStateValue();
+  const [{ myPlayerData, coachesData }, dispatch] = useStateValue();
   const [battingBtnClick, setBattingBtnClick] = useState();
   const [coachesBtnClick, setCoachesBtnClick] = useState();
   const [pitcherBtnClick, setPitcherBtnClick] = useState();
@@ -31,7 +31,7 @@ function Home() {
     setPitcherBtnClick(false);
     setTeamBtnClick(false);
     setBattingBtnClick(true);
-    dispatch({ type: "BATTING_AVE", playerData });
+    dispatch({ type: "BATTING_AVE", myPlayerData });
   };
 
   const handleCoachesClick = () => {
@@ -40,11 +40,11 @@ function Home() {
     setPitcherBtnClick(false);
     setTeamBtnClick(false);
     dispatch({ type: "COACHES_DATA", coachesData });
-    console.log("coaches click", coachesData);
+    // console.log("coaches click", coachesData);
   };
 
   const handlePitchingClick = () => {
-    dispatch({ type: "PITCHING_ERA", playerData });
+    dispatch({ type: "PITCHING_ERA", myPlayerData });
     setBattingBtnClick(false);
     setCoachesBtnClick(false);
     setTeamBtnClick(false);
@@ -56,7 +56,8 @@ function Home() {
     setCoachesBtnClick(false);
     setTeamBtnClick(true);
     setPitcherBtnClick(false);
-    console.log("team click", playerData);
+    dispatch({type: "MYTEAM_DATA", myPlayerData})
+    // console.log("team click", myPlayerData);
   };
 
   useEffect(() => {
@@ -80,7 +81,7 @@ function Home() {
 
   return (
     <div className="home">
-      {/* <Prac /> */}
+    
       {mobile ? (
         <>
           <div className="home__center">

@@ -1,3 +1,16 @@
+import brighton from "../Images/brightonWhite.jpg";
+import tyson from "../Images/tysonWhite.jpg";
+import blakec from "../Images/blakecWhite.jpg";
+import blakey from "../Images/blakeyWhite.jpg";
+import bowen from "../Images/bowenWhite.jpg";
+import carson from "../Images/CarsonWhite.jpg";
+import kalen from "../Images/KalenWhite.jpg";
+import kamden from "../Images/kamdenWhite.jpg";
+import ryker from "../Images/RykerWhite.jpg";
+import spencer from "../Images/SpencerWhite.jpg";
+import austin from "../Images/AustinWhite.jpg";
+import razorbackface from "../Images/razorbackLogoFace.jpg";
+
 let gameChangerData = [
   {
     FIELD1: "Number",
@@ -2424,40 +2437,109 @@ let gameChangerData = [
   },
 ];
 
+let localTeamData = [
+  {
+    id: "8",
+    position: "1B, SS, P, OF",
+    image: brighton,
+  },
+  {
+    id: "23",
+    position: "1B, 2B, OF",
+    image: tyson,
+  },
+  {
+    id: "5",
+    position: "3B, P, OF",
+    image: blakec,
+  },
+  {
+    id: "3",
+    position: "3B, SS, P",
+    image: ryker,
+  },
+  {
+    id: "10",
+    position: "SS, OF, P",
+    image: carson,
+  },
+  {
+    id: "26",
+    position: "1B, OF, P",
+    image: kamden,
+  },
+  {
+    id: "7",
+    position: "3B, SS, P, OF",
+    image: razorbackface,
+  },
+  {
+    id: "47",
+    position: "C, 2B, OF",
+    image: bowen,
+  },
+  {
+    id: "21",
+    position: "3B, P",
+    image: austin,
+  },
+  {
+    id: "80",
+    position: "OF",
+    image: spencer,
+  },
+  {
+    id: "12",
+    position: "2B, SS, OF, C",
+    image: blakey,
+  },
+  {
+    id: "42",
+    position: "2B, 3B, OF",
+    image: kalen,
+  },
+];
+
 let myPlayerData = [];
 
 for (let i = 0; i < gameChangerData.length; i++) {
-  if (
-    gameChangerData[i].FIELD1 !== "" &&
-    gameChangerData[i].FIELD1 !== "Glossary:" &&
-    gameChangerData[i].FIELD1 !== "Number"
-  ) {
-    let playerObj = {
-      number: gameChangerData[i].FIELD1,
-      lastName: gameChangerData[i].FIELD2,
-      firstName: gameChangerData[i].FIELD3,
-      gamesPlayed: gameChangerData[i]["Offensive Stats"],
-      plateAppearances: gameChangerData[i].FIELD5,
-      atBats: gameChangerData[i].FIELD6,
-      hits: gameChangerData[i].FIELD7,
-      homeruns: gameChangerData[i].FIELD11,
-      rbi: gameChangerData[i].FIELD12,
-      runs: gameChangerData[i].FIELD13,
-      baseOnBalls: gameChangerData[i].FIELD18,
-      strikeouts: gameChangerData[i].FIELD19,
-      battingAve: gameChangerData[i].FIELD20,
-      onBasePercent: gameChangerData[i].FIELD21,
-      inningsPitched: gameChangerData[i]["Defensive Stats"],
-      gamesPitched: gameChangerData[i].FIELD55,
-      gameSaves: gameChangerData[i].FIELD56,
-      gameWins: gameChangerData[i].FIELD57,
-      hitsAllowed: gameChangerData[i].FIELD63,
-      runsAllowed: gameChangerData[i].FIELD64,
-      walksAllowed: gameChangerData[i].FIELD66,
-      ks: gameChangerData[i].FIELD67,
-      era: gameChangerData[i].FIELD69,
-    };
-    myPlayerData.push(playerObj);
+  for (let j = 0; j < localTeamData.length; j++) {
+    if (
+      gameChangerData[i].FIELD1 === localTeamData[j].id &&
+      gameChangerData[i].FIELD1 !== "" &&
+      gameChangerData[i].FIELD1 !== "Glossary:" &&
+      gameChangerData[i].FIELD1 !== "Number"
+    ) {
+      let playerObj = {
+        number: gameChangerData[i].FIELD1,
+        lastName: gameChangerData[i].FIELD2,
+        firstName: gameChangerData[i].FIELD3,
+        gamesPlayed: gameChangerData[i]["Offensive Stats"],
+        plateAppearances: gameChangerData[i].FIELD5,
+        atBats: gameChangerData[i].FIELD6,
+        hits: gameChangerData[i].FIELD7,
+        homeruns: gameChangerData[i].FIELD11,
+        rbi: gameChangerData[i].FIELD12,
+        runs: gameChangerData[i].FIELD13,
+        baseOnBalls: gameChangerData[i].FIELD18,
+        strikeouts: gameChangerData[i].FIELD19,
+        battingAve: gameChangerData[i].FIELD20,
+        onBasePercent: gameChangerData[i].FIELD21,
+        inningsPitched: gameChangerData[i]["Defensive Stats"],
+        gamesPitched: gameChangerData[i].FIELD55,
+        gameSaves: gameChangerData[i].FIELD56,
+        gameWins: gameChangerData[i].FIELD57,
+        hitsAllowed: gameChangerData[i].FIELD63,
+        runsAllowed: gameChangerData[i].FIELD64,
+        walksAllowed: gameChangerData[i].FIELD66,
+        ks: gameChangerData[i].FIELD67,
+        era: gameChangerData[i].FIELD69 !== ".000" ? gameChangerData[i].FIELD69 : null,
+        position: localTeamData[j].position,
+        id: localTeamData[j].id,
+        image: localTeamData[j].image,
+      };
+      myPlayerData.push(playerObj);
+    }
   }
 }
 
