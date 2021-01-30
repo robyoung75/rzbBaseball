@@ -5,9 +5,9 @@ function About() {
   return (
     <div className="about">
       <div className="about__content">
-        <h1>About RZBBaseball </h1>
+        <h1>About RZB Baseball </h1>
         <p>
-          Razorback Baseball (RZBB) is a competitive Club based in Riverton, UT.
+          Razorback Baseball (RZB) is a competitive Club based in Riverton, UT.
           Following our Mission Statement of “Providing a Foundational
           Experience for Baseball and Life,” our Club prepares its players for
           High School and College Baseball. Although we strive to win every game
@@ -18,11 +18,10 @@ function About() {
           that enjoy each other on and off the field. Many of our coaches have
           played in Jr. College, College, or Major League Organizations. Each
           coach brings a specific area of focus, a wealth of baseball knowledge
-          and real world experience to our teams. Each player and coach are
-          expected to review and operate under the RZBB Standards, Head Coaches
-          Expectations, and Player contract. We are proud of what Razorback
-          Baseball represents! Tyler Baldwin is the founder of Club Hardball
-          Baseball.
+          and real world experience to our team. Each player and coach are
+          expected to review and operate under the RZB Standards, Head Coaches
+          Expectations, and Player contract. We are proud of what RZB
+          Baseball represents! Tyler Baldwin is the founder of RZB Baseball.
         </p>
       </div>
     </div>

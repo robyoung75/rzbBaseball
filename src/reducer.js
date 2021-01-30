@@ -1,4 +1,5 @@
 import { coachesData, teamData, schedule } from "./assets/teamData";
+import { myPlayerData } from "./assets/gcData";
 
 export const initialState = {
   playerData: teamData,
@@ -7,6 +8,7 @@ export const initialState = {
   posts: [],
   userData: [],
   user: null,
+  myPlayerData: myPlayerData
 };
 
 // Create a reducer that takes a state and action.
@@ -62,6 +64,12 @@ const reducer = (state, action) => {
         ...state,
         playerData: action.playerData,
       };
+
+      case "MYTEAM_DATA":
+        return {
+          ...state,
+          myTeamData: action.myTeamData,
+        };
 
     case "COACHES_DATA":
       return {

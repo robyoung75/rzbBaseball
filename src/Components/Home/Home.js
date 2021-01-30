@@ -13,6 +13,7 @@ import PitcherList from "../PitcherList/PitcherList";
 import BatterList from "../BatterList/BatterList";
 import CoachesList from "../CoachesList/CoachesLlist";
 import { useStateValue } from "../../assets/stateProvider";
+import Prac from '../../assets/prac'
 
 function Home() {
   const [{ playerData, coachesData }, dispatch] = useStateValue();
@@ -79,6 +80,7 @@ function Home() {
 
   return (
     <div className="home">
+      {/* <Prac /> */}
       {mobile ? (
         <>
           <div className="home__center">

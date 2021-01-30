@@ -13,8 +13,6 @@ import spencer from "../Images/SpencerWhite.jpg";
 import austin from "../Images/AustinWhite.jpg";
 import razorbackface from "../Images/razorbackLogoFace.jpg";
 
-
-
 let teamData = [
   {
     id: "8",
@@ -250,7 +248,13 @@ let schedule = [
   },
 ];
 
-export { teamData, coachesData, schedule, brighton };
+
+
+
+
+
+
+export { teamData, coachesData, schedule, brighton};
 // export default teamData;
 
 // let razorBacks = {

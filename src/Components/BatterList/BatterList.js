@@ -4,22 +4,22 @@ import Batter from "../Batter/Batter";
 import "./BatterList.css";
 
 function BatterList() {
-  const [{ playerData, coachesData }, dispatch] = useStateValue();
+  const [{ myPlayerData }, dispatch] = useStateValue();
 
   return (
     <div className="batterList">
-      {playerData.map((player) => (
+      {myPlayerData.map((player) => (
         <Batter
-          key={player.id}
-          id={player.id}
+          key={player.number}
+          id={player.number}
           number={player.number}
-          average={player.average}
-          name={player.name}
-          position={player.position}
+          average={player.battingAve}
+          name={player.firstName}
+          // position={player.position}
           era={player.era ? player.era : null}
           gamesPitched={player.gamesPitched ? player.gamesPitched : null}
-          wins={player.wins ? player.wins : null}
-          saves={player.saves ? player.saves : null}
+          gameWins={player.wins ? player.wins : null}
+          gameSaves={player.saves ? player.saves : null}
           image={player.image}
         />
       ))}
