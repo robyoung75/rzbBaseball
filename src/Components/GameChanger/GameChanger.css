@@ -1,14 +1,17 @@
 .gameChanger {
-  
-  
-  
+  /* background-color: green; */
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
 }
 
-.gameChanger > h3 {
-  
-}
-
-.gameChanger__iFrame {
-    
-    /* background-color: mediumvioletred; */
+@media (min-width: 1024px) {
+  .gameChanger {
+    /* background-color: green; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+  }
 }
