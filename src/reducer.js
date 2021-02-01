@@ -5,8 +5,7 @@ export const initialState = {
   coachesData: coachesData,
   schedule: schedule,
   posts: [],
-  userData: [],
-  user: null,
+  userData: [],  
   myPlayerData: myPlayerData,
 };
 
@@ -54,7 +53,7 @@ const reducer = (state, action) => {
         ...state,
 
         userData: action.user,
-        user: action.userData,
+        // user: action.userData,
       };
 
     case "MYTEAM_DATA":

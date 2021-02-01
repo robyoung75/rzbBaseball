@@ -10,7 +10,7 @@ function GameChanger() {
           width="728"
           height="90"
           scrolling="no"
-          frameborder="0"
+          frameBorder="0"
         ></iframe>
       </div>
     </div>

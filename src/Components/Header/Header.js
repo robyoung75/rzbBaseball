@@ -8,11 +8,11 @@ import { useStateValue } from "../../assets/stateProvider";
 import { auth } from "../../assets/firebase";
 
 export default function Header() {
-  const [{ user }, dispatch] = useStateValue();
-  const [isActive, setActive] = useState(true)
+  const [{ userData }, dispatch] = useStateValue();
+  const [isActive, setActive] = useState(true);
 
   const handleAuthentication = (e) => {
-    if (user) {
+    if (userData) {
       auth
         .signOut()
         .then(() => {
@@ -27,9 +27,8 @@ export default function Header() {
         });
     }
   };
-
+  // console.log(userData.map(user => user.displayName))
   return (
-    
     <div className="header">
       <div className="header__top">
         <Link className="header__links" to="/">
@@ -43,17 +42,17 @@ export default function Header() {
           <p className="header__p">CONTACT</p>
         </Link>
         <div>
-        
           <Link to="/Login" className="header__links">
             <p className="header__p">RZB Nation</p>
           </Link>
-          <Link to={!user ? "/login" : "/"} className="header__links">
+          <Link to={!userData ? "/login" : "/"} className="header__links">
             <div onClick={handleAuthentication} className="header__option">
               <p className="header__optionLineOne">
-                Hello, {!user ? "Guest" : user}
+                Hello,{" "}
+                {!userData ? "Guest" : userData.map((user) => user.displayName)}
               </p>
               <p className="header__optionLineTwo">
-                {!user ? "Sign In" : "Sign Out"}
+                {!userData ? "Sign In" : "Sign Out"}
               </p>
             </div>
           </Link>

@@ -3,16 +3,17 @@ import { Avatar } from "@material-ui/core";
 import "./PostInputMobile.css";
 import React, { useState } from "react";
 import { useStateValue } from "../../assets/stateProvider";
-import { db, storage } from "../../assets/firebase";
+import { db, storage, updateProfilePic } from "../../assets/firebase";
 import firebase from "firebase";
 
 import imageCompression from "browser-image-compression";
 
 function PostInput() {
-  const [{ user, userData }, dispatch] = useStateValue();
+  const [{ userData }, dispatch] = useStateValue();
   const [input, setInput] = useState("");
   const [imageURL, setImageURL] = useState(null);
   const [newImage, setNewImage] = useState(null);
+  const [profilePic, setProfilePic] = useState({});
 
   let userProfilePic;
   let userEmail;
@@ -84,10 +85,28 @@ function PostInput() {
     setNewImage(null);
   };
 
+  const handleProfileUpdate = (e) => {
+    e.preventDefault();
+    if (!userData) {
+      alert("you must log in")
+    } else if (e.target.value.length && userData) {
+      const imageFile = e.target.files[0];      
+      updateProfilePic(imageFile);
+    }    
+  };
+
   return (
     <div className="postInput">
       <div className="postInput__left">
-        <Avatar src={userProfilePic ? userProfilePic : ""} />
+        <label htmlFor="profilePic_update">
+          <Avatar src={userProfilePic ? userProfilePic : ""} />
+        </label>
+        <input
+          type="file"
+          id="profilePic_update"
+          onChange={handleProfileUpdate}
+          style={{ display: "none" }}
+        />
       </div>
 
       <form id="postInput">
@@ -96,7 +115,7 @@ function PostInput() {
           onChange={(e) => setInput(e.target.value)}
           className="postInput__centerMessageInput"
           placeholder={
-            user ? `What's up ${userDisplayName}?` : "LOGIN REQUIRED"
+            userData ? `What's up ${userDisplayName}?` : "LOGIN REQUIRED"
           }
           type="text"
           id="postInput"

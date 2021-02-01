@@ -29,11 +29,9 @@ function App() {
         dispatch({
           type: "SET_USER",
           user: authUser.providerData,
-          userData: authUser.email,
+          
         });
-        // updateProfilePic(brightonURL)
-
-        // updateDisplayName('BYoung#8');
+        
       } else {
         dispatch({
           type: "SET_USER",
