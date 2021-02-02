@@ -4,7 +4,7 @@ import firebase from "firebase";
 import "firebase/storage";
 
 import firebaseConfig from "../API/api";
-
+import imageCompression from "browser-image-compression";
 // initialize the firebase database
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 
@@ -30,13 +30,68 @@ const updateDisplayName = (newDisplayName) => {
     });
 };
 
+// delete current profile picture
+// update with a new picture
 const updateProfilePic = async (imageFile) => {
-  const user = firebase.auth().currentUser;
-  const storageRef = storage.ref("profilePics/" + imageFile.name);
-  await storageRef.put(imageFile);
-  let url = await storageRef.getDownloadURL()
+  const user = auth.currentUser;
 
-  user
+  let userName;
+  let email;
+  let photoUrl;
+  let emailVerified;
+  let uid;
+
+  if (user !== null) {
+    userName = user.displayName;
+    email = user.email;
+    photoUrl = user.photoURL;
+    emailVerified = user.emailVerified;
+    uid = user.uid;
+  }
+
+  const options = {
+    maxSizeMB: 6,
+    maxWidthOrHeight: 1920,
+    useWebWorker: true,
+    initialQuality: 0.5,
+  };
+
+  const storageRefUser = storage.ref(
+    `/profilePics/${user ? user.displayName : null}/`
+  );
+  const storageRef = storage.ref(`profilePics/${userName}/${imageFile.name}`);
+  if (storageRefUser) {
+    await storageRefUser
+      .listAll()
+      .then((dir) => {
+        dir.items.forEach((fileRef) => {
+          let dirRef = storage.ref(fileRef.fullPath);
+          console.log("dirRef", dirRef);
+          dirRef.getDownloadURL().then(function (url) {
+            let imgRef = storage.refFromURL(url);
+            console.log("imageRef", imgRef);
+            imgRef
+              .delete()
+              .then(function () {
+                alert("file deleted");
+              })
+              .catch(function (error) {
+                alert(error);
+              });
+          });
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  
+
+  await storageRef.put(imageFile);
+  let url = await storageRef.getDownloadURL();
+
+  await user
     .updateProfile({
       photoURL: url,
     })

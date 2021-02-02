@@ -3,7 +3,7 @@ import { Avatar } from "@material-ui/core";
 import "./PostInputMobile.css";
 import React, { useState } from "react";
 import { useStateValue } from "../../assets/stateProvider";
-import { db, storage, updateProfilePic } from "../../assets/firebase";
+import { db, storage, updateProfilePic, auth } from "../../assets/firebase";
 import firebase from "firebase";
 
 import imageCompression from "browser-image-compression";
@@ -14,6 +14,11 @@ function PostInput() {
   const [imageURL, setImageURL] = useState(null);
   const [newImage, setNewImage] = useState(null);
   const [profilePic, setProfilePic] = useState({});
+
+  // let test = auth.currentUser;
+  // if (test !== null) {
+  //   console.log(test.displayName, test.photoURL);
+  // }
 
   let userProfilePic;
   let userEmail;
@@ -88,11 +93,11 @@ function PostInput() {
   const handleProfileUpdate = (e) => {
     e.preventDefault();
     if (!userData) {
-      alert("you must log in")
+      alert("You must be signed in to change profile image");
     } else if (e.target.value.length && userData) {
-      const imageFile = e.target.files[0];      
+      const imageFile = e.target.files[0];
       updateProfilePic(imageFile);
-    }    
+    }
   };
 
   return (
