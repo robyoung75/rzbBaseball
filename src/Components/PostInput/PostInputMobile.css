@@ -46,7 +46,7 @@ input[id="image_uploads"] {
 .postInput__centerPreview {
   font-size: 0.7rem;
   color: #a1aaad;
-  display: none;
+  /* display: none; */
 }
 
 button {

@@ -3,7 +3,7 @@ import { Avatar } from "@material-ui/core";
 import "./PostInputMobile.css";
 import React, { useState } from "react";
 import { useStateValue } from "../../assets/stateProvider";
-import { db, storage, updateProfilePic, auth } from "../../assets/firebase";
+import { db, storage, updateProfilePic, auth, userPicUpdate } from "../../assets/firebase";
 import firebase from "firebase";
 
 import imageCompression from "browser-image-compression";
@@ -13,7 +13,7 @@ function PostInput() {
   const [input, setInput] = useState("");
   const [imageURL, setImageURL] = useState(null);
   const [newImage, setNewImage] = useState(null);
-  const [profilePic, setProfilePic] = useState({});
+  const [profilePic, setProfilePic] = useState(null);
 
   // let test = auth.currentUser;
   // if (test !== null) {
@@ -66,10 +66,10 @@ function PostInput() {
         .add({
           message: input,
           image: imageURL,
-          email: userEmail,
-          uid: userUID,
-          displayName: userDisplayName,
-          photoURL: userProfilePic,
+          email: userData[0].email,
+          uid: userData[0].uid,
+          displayName: userData[0].displayName,
+          photoURL: userData[0].photoURL,
           timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         })
         .catch((error) => console.log(error));
@@ -90,13 +90,22 @@ function PostInput() {
     setNewImage(null);
   };
 
-  const handleProfileUpdate = (e) => {
+  const handleProfileUpdate = async (e) => {
     e.preventDefault();
     if (!userData) {
       alert("You must be signed in to change profile image");
     } else if (e.target.value.length && userData) {
       const imageFile = e.target.files[0];
-      updateProfilePic(imageFile);
+      setProfilePic(imageFile)
+      await userPicUpdate(imageFile, userData[0].photoURL, userData[0].displayName);
+      
+      auth.onAuthStateChanged((user) => {
+        dispatch({
+          type: "SET_USER", 
+          user: user.providerData
+        })
+      })
+
     }
   };
 
@@ -104,7 +113,7 @@ function PostInput() {
     <div className="postInput">
       <div className="postInput__left">
         <label htmlFor="profilePic_update">
-          <Avatar src={userProfilePic ? userProfilePic : ""} />
+          <Avatar src={userProfilePic} />
         </label>
         <input
           type="file"
@@ -120,7 +129,7 @@ function PostInput() {
           onChange={(e) => setInput(e.target.value)}
           className="postInput__centerMessageInput"
           placeholder={
-            userData ? `What's up ${userDisplayName}?` : "LOGIN REQUIRED"
+            userData? `What's up ${userDisplayName}?` : "LOGIN REQUIRED"
           }
           type="text"
           id="postInput"

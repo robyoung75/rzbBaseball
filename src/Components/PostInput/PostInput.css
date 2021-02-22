@@ -3,7 +3,7 @@
   justify-content: space-between; 
   align-items: center;
   height: 60px; 
-  background-color: #c62033;
+  /* background-color: #c62033; */
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
   box-shadow: 0px 5px 7px -7px rgba(0, 0, 0.75);
@@ -11,7 +11,7 @@
 
 .postInput__left {
   display: flex;
-  /* background-color: limegreen; */
+  background-color: limegreen;
   align-items: center;
   justify-content: center;
   width: 3rem;
@@ -21,7 +21,7 @@
 
 .postInput__center {
   display: flex;
-  /* background-color: limegreen; */
+  background-color: limegreen;
   padding: 0.5rem 1rem;
   margin: 0.5rem;
   
