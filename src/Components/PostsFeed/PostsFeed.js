@@ -24,15 +24,17 @@ function PostsFeed() {
 
   return (
     <div className="postsFeed">
-      {posts.map((post) => (
-        <div key={post.postId}>
-          <Post
-            message={post.postData.message}
-            timestamp={post.postData.timestamp}
-            image={post.postData.image}
-          />
-        </div>
-      ))}
+     
+        {posts.map((post) => (
+          <div key={post.postId}>
+            <Post
+              message={post.postData.message}
+              timestamp={post.postData.timestamp}
+              image={post.postData.image}
+            />
+          </div>
+        ))}
+  
     </div>
   );
 }

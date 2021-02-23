@@ -11,8 +11,8 @@ function StoryReel({mobile}) {
       <div className="storyReel__story">     
       
         <Story />
-        <Story />
-        <Story />
+        {/* <Story />
+        <Story /> */}
       </div>
       <GameChanger/>
     </div>

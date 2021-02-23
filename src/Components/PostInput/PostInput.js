@@ -3,7 +3,7 @@ import { Avatar } from "@material-ui/core";
 import "./PostInputMobile.css";
 import React, { useState } from "react";
 import { useStateValue } from "../../assets/stateProvider";
-import { db, storage, updateProfilePic, auth, userPicUpdate } from "../../assets/firebase";
+import { db, storage, auth, firebaseUserPicUpdate } from "../../assets/firebase";
 import firebase from "firebase";
 
 import imageCompression from "browser-image-compression";
@@ -34,7 +34,7 @@ function PostInput() {
     });
   }
 
-  const handleInputChange = async (e) => {
+  const handleNewImageChange = async (e) => {
     e.preventDefault();
     const imageFile = e.target.files[0];
     const options = {
@@ -46,7 +46,7 @@ function PostInput() {
     await imageCompression(imageFile, options)
       .then(async function (compressedFile) {
         // firebase storage bucket setup
-        const storageRef = storage.ref();
+        const storageRef = storage.ref("/messageBoard");
         const fileRef = storageRef.child(compressedFile.name);
 
         setNewImage(compressedFile);
@@ -97,7 +97,7 @@ function PostInput() {
     } else if (e.target.value.length && userData) {
       const imageFile = e.target.files[0];
       setProfilePic(imageFile)
-      await userPicUpdate(imageFile, userData[0].photoURL, userData[0].displayName);
+      await firebaseUserPicUpdate(imageFile, userData[0].photoURL, userData[0].displayName);
       
       auth.onAuthStateChanged((user) => {
         dispatch({
@@ -149,7 +149,7 @@ function PostInput() {
           accept=".jpg, .jpeg, .png"
           multiple
           // value={imageURL}
-          onChange={handleInputChange}
+          onChange={handleNewImageChange}
         />
 
         <p className="postInput__centerPreview">

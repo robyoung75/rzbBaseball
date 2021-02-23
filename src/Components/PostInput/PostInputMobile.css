@@ -70,6 +70,7 @@ label > p {
 .postInput__submit {
   font-size: 10px;
   margin-left: 10px;
+  cursor: pointer;
 }
 
 @media (min-width: 1024px) {

@@ -2,7 +2,6 @@
   "name": "razorbacks",
   "version": "0.1.0",
   "private": true,
-  
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-brands-svg-icons": "^5.15.1",
@@ -13,10 +12,12 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "bootstrap": "^4.6.0",
     "browser-image-compression": "^1.0.13",
     "compress.js": "^1.1.2",
     "firebase": "^7.24.0",
     "react": "^17.0.0",
+    "react-bootstrap": "^1.5.0",
     "react-dom": "^17.0.0",
     "react-image-file-resizer": "^0.3.8",
     "react-responsive": "^8.2.0",

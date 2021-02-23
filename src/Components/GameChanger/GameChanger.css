@@ -1,17 +1,17 @@
 .gameChanger {
   /* background-color: green; */
   display: none;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 15px;
+  
 }
 
 @media (min-width: 1024px) {
   .gameChanger {
-    /* background-color: green; */
     display: flex;
+    /* background-color: #c62033; */
     justify-content: center;
-    align-items: center;
+    align-content: center;
     margin-bottom: 15px;
+   padding: 10px 0;
+    border-radius: 5px;
   }
 }

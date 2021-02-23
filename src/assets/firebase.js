@@ -13,7 +13,6 @@ const db = firebaseApp.firestore();
 const auth = firebase.auth();
 const storage = firebaseApp.storage();
 
-// let bYoungProfilePic = "https://firebasestorage.googleapis.com/v0/b/rzbbaseball-ddb27.appspot.com/o/players%2FbrightonWhite.jpg?alt=media"
 
 const updateDisplayName = (newDisplayName) => {
   let user = auth.currentUser;
@@ -30,10 +29,6 @@ const updateDisplayName = (newDisplayName) => {
     });
 };
 
-// delete current profile picture
-// update with a new picture
-
-//updateProfilePic(bYoungProfilePic);
 
 const firebaseStorageDelete = async (url) => {
   try {
@@ -47,7 +42,9 @@ const firebaseStorageDelete = async (url) => {
   }
 };
 
-const userPicUpdate = async (imageFile, imgUrl, userName) => {
+// delete current profile picture
+// update with a new picture
+const firebaseUserPicUpdate = async (imageFile, imgUrl, userName) => {
   try {
     const storageRefProfilePic = storage.ref(
       `profilePics/${userName}/${imageFile.name}`
@@ -78,8 +75,10 @@ const userPicUpdate = async (imageFile, imgUrl, userName) => {
     }
     return URL;
   } catch (error) {
-    console.log(error);
+    let errorCode = error.code;
+    let errorMessage = error.message;
+    console.log("ERROR_CODE/MESSAGE >>>", errorCode, errorMessage);
   }
 };
 
-export { updateDisplayName, db, auth, storage, userPicUpdate };
+export { updateDisplayName, db, auth, storage, firebaseUserPicUpdate };
