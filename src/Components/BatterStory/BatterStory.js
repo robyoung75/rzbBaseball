@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import "./Story.css";
+import "./BatterStory.css";
 import { Col, Image, Row } from "react-bootstrap";
 import Logo from "../../Images/razorbackLogoFace.png";
 import Brighton from "../../Images/BrightonAction.jpg";
 import { useStateValue } from "../../assets/stateProvider";
-function Story() {
+
+function BatterStory() {
   const [{ myPlayerData }, dispatch] = useStateValue(null);
 
   const [batAve, setBatAve] = useState([]);
@@ -38,29 +39,33 @@ function Story() {
   }, []);
 
   return (
-    <div className="story">
-      <figure className="story__card">
-        <img src={Logo} alt="razorback hog" className="story__cardLogo" />
-        <img src={Brighton} alt="player" className="story__cardPlayer" />
+    <div className="batterStory">
+      <figure className="batterStory__card">
+        <img src={Logo} alt="razorback hog" className="batterStory__cardLogo" />
+        <img src={Brighton} alt="player" className="batterStory__cardPlayer" />
+
         <figcaption>
-          <Row>
-            <Col>
-              {" "}
-              <p style={{color: "black"}}>#{batAve[0] ? batAve[0].number : null}</p>
-            </Col>
-            <Col>
-              {" "}
-              <p style={{color: "black"}}>{batAve[0] ? batAve[0].firstName : null}</p>
-              
-            </Col>
-            <Col>
-              <p style={{color: "black"}}>{batAve[0] ? batAve[0].lastName : null}</p>
-            </Col>
-          </Row>
+          <div className="batterStory__figcaptionCol">
+            <p style={{ color: "black", padding: 0, margin: 0 }}>
+              #{batAve[0] ? batAve[0].number : null}
+            </p>
+            <p style={{ color: "black", padding: 0, margin: 0 }}>
+              {batAve[0] ? batAve[0].firstName : null}{" "}
+              {batAve[0] ? batAve[0].lastName : null}
+            </p>
+          </div>
+
+          <div className="batterStory__figcaptionCol">
+            {" "}
+            <p style={{ color: "black", padding: 0, margin: 0 }}>Season Ave</p>
+            <p style={{ color: "black", padding: 0, margin: 0 }}>
+              {batAve[0] ? batAve[0].battingAve : null}
+            </p>
+          </div>
         </figcaption>
       </figure>
     </div>
   );
 }
 
-export default Story;
+export default BatterStory;

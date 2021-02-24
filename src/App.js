@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
@@ -12,8 +12,8 @@ import Login from "./Components/Login/Login";
 import "./App.css";
 import Footer from "./Components/Footer/Footer";
 import Dropdown from "./Components/Dropdown/Dropdown";
-import { auth, db } from "../src/assets/firebase";
-import { updateProfilePic, updateDisplayName } from "./assets/firebase";
+import { auth } from "../src/assets/firebase";
+
 import { useStateValue } from "./assets/stateProvider";
 
 function App() {
@@ -65,7 +65,7 @@ function App() {
 
           {/* Note: default root always located at the bottom */}
           <Route path="/">
-            <Dropdown />
+            {/* <Dropdown /> */}
             <Header />
             <Home />
             <Footer />
