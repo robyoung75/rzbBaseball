@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./BatterStory.css";
-import { Col, Image, Row } from "react-bootstrap";
+
 import Logo from "../../Images/razorbackLogoFace.png";
 import Brighton from "../../Images/BrightonAction.jpg";
 import { useStateValue } from "../../assets/stateProvider";

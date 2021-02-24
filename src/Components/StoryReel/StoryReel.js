@@ -1,7 +1,9 @@
 import React from "react";
 import BatterStory from "../BatterStory/BatterStory";
+import PitcherStory from '../PitcherStory/PitcherStory'
 import "./StoryReel.css";
 import GameChanger from '../GameChanger/GameChanger'
+import OverAllPlayerStory from "../OverAllPlayerStory/OverAllPlayerStory";
 
 function StoryReel({mobile}) {
   return (
@@ -10,9 +12,9 @@ function StoryReel({mobile}) {
       <h3>Players of the Week</h3>
       <div className="storyReel__story">     
       
-        <BatterStory />
+        <PitcherStory />
          <BatterStory />
-        <BatterStory /> 
+        <OverAllPlayerStory /> 
       </div>
       <GameChanger/>
     </div>
