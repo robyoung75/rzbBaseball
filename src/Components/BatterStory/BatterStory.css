@@ -8,6 +8,10 @@
   margin-right: 5px;
 }
 
+.batterStory > h3 {
+  color: #a1aaad;
+}
+
 .batterStory__card {
   display: flex;
   /* flex-direction: column; */
@@ -75,5 +79,7 @@ figcaption > p {
 }
 
 @media (min-width: 1024px) {
-
+  .batterStory {
+flex-direction: column;
+  }
 } 

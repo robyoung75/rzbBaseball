@@ -42,6 +42,7 @@ function PitcherStory() {
 
   return (
     <div className="pitcherStory">
+      <h3>Pitcher</h3>
       <figure className="pitcherStory__card">
         <img src={Logo} alt="razorback hog" className="pitcherStory__cardLogo" />
         <img src={Brighton} alt="player" className="pitcherStory__cardPlayer" />

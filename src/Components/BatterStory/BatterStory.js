@@ -4,42 +4,22 @@ import "./BatterStory.css";
 import Logo from "../../Images/razorbackLogoFace.png";
 import Brighton from "../../Images/BrightonAction.jpg";
 import { useStateValue } from "../../assets/stateProvider";
+import {battingAverages} from '../../assets/functions'
 
 function BatterStory() {
   const [{ myPlayerData }, dispatch] = useStateValue(null);
 
   const [batAve, setBatAve] = useState([]);
 
-  let topBatters = [];
-  let selectedBatter = [];
 
-  let batAveSort = myPlayerData.sort(function (a, b) {
-    const aBatAve = a.battingAve;
-    const bBatAve = b.battingAve;
-    return bBatAve - aBatAve;
-  });
-
-  batAveSort.map((batter) => {
-    if (batAveSort[0].battingAve === batter.battingAve) {
-      return topBatters.push(batter);
-    } else {
-      return topBatters.push(batAveSort[0]);
-    }
-  });
-
-  if (topBatters.length > 1) {
-    let randomNumber = Math.floor(Math.random() * topBatters.length);
-    selectedBatter.push(topBatters[randomNumber]);
-  } else {
-    selectedBatter.push(topBatters);
-  }
 
   useEffect(() => {
-    setBatAve(selectedBatter);
+    setBatAve(battingAverages(myPlayerData))
   }, []);
 
   return (
     <div className="batterStory">
+      <h3>Batter</h3>
       <figure className="batterStory__card">
         <img src={Logo} alt="razorback hog" className="batterStory__cardLogo" />
         <img src={Brighton} alt="player" className="batterStory__cardPlayer" />

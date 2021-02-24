@@ -8,6 +8,10 @@
   margin-right: 5px;
 }
 
+.pitcherStory > h3 {
+  color: #a1aaad;
+}
+
 .pitcherStory__card {
   display: flex;
   /* flex-direction: column; */
@@ -74,4 +78,8 @@ figcaption > p {
 }
 
 @media (min-width: 1024px) {
+
+  .pitcherStory {
+    flex-direction: column;
+  }
 }
