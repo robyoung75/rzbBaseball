@@ -5,7 +5,7 @@ export const initialState = {
   coachesData: coachesData,
   schedule: schedule,
   posts: [],
-  userData: [],  
+  userData: [],
   myPlayerData: myPlayerData,
 };
 
@@ -32,16 +32,12 @@ const reducer = (state, action) => {
 
     case "PITCHING_ERA":
       let eraSort = state.myPlayerData.sort(function (a, b) {
-        const aEra = parseInt(a.era);
-        const bEra = parseInt(b.era);
-        let eraComparison = 0;
+        if ((a.era !== null) & (b.era !== null)) {
+          const aEra = a.era;
+          const bEra = b.era;
 
-        if (aEra > bEra) {
-          eraComparison = 1;
-        } else if (aEra < bEra) {
-          eraComparison = -1;
+          return aEra - bEra;
         }
-        return eraComparison;
       });
 
       console.log("ERA_SORT >>>> ", eraSort);

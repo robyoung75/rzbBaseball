@@ -53,4 +53,31 @@ const getOverallPlayer = (state) => {
   return evalSort;
 };
 
-export { battingAverages, getOverallPlayer };
+const getPitcher = (state) => {
+  let eraSort = [];
+  let lowEra = [];
+
+  let eras = state.sort(function (a, b) {
+    const aEra = parseFloat(a.era);
+    const bEra = parseFloat(b.era);
+    return aEra - bEra;
+  });
+
+  console.log(eras[0]);
+
+  eras.map((pitcher) => {
+    if (eras[0] === pitcher.era) {
+      eraSort.push(pitcher);
+      if (eraSort.length > 1) {
+        let randomNumber = Math.floor(Math.random() * eraSort.length);
+        lowEra.push(pitcher[randomNumber]);
+      }
+    } else {
+      lowEra.push(eras[0]);
+    }
+  });
+
+  return lowEra;
+};
+
+export { battingAverages, getOverallPlayer, getPitcher };

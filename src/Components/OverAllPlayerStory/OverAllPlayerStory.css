@@ -1,6 +1,7 @@
 .overAllPlayerStory {
 
   display: flex;
+  flex-direction: column;
   /* background-color: green; */
   justify-content: center;
   align-items: center;
@@ -83,6 +84,6 @@ figcaption > p {
 
   .overAllPlayerStory {
 
-    flex-direction: column;
+    /* flex-direction: column; */
   }
 }

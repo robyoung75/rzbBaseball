@@ -2,49 +2,27 @@ import React, { useEffect, useState } from "react";
 import Logo from "../../Images/razorbackLogoFace.png";
 import Brighton from "../../Images/BrightonAction.jpg";
 import { useStateValue } from "../../assets/stateProvider";
-import './PitcherStory.css'
+import "./PitcherStory.css";
+import { getPitcher } from "../../assets/functions";
 
 function PitcherStory() {
   const [{ myPlayerData }, dispatch] = useStateValue(null);
 
   const [era, setEra] = useState([]);
 
-  let pitchers = [];
-  let selectedPitcher = [];
-
-  let eraSort = myPlayerData.sort(function (a, b) {
-    const aEra = a.era;
-    const bEra = b.era;
-    if (aEra !== null & bEra !== null) {
-        return aEra - bEra;
-    }
-   
-  });
-
-  eraSort.map((pitcher) => {
-    if (eraSort[0].era === pitcher.era) {
-      return pitchers.push(pitcher);
-    } else {
-      return pitchers.push(eraSort[0]);
-    }
-  });
-
-  if (pitchers.length > 1) {
-    let randomNumber = Math.floor(Math.random() * selectedPitcher.length);
-    selectedPitcher.push(pitchers[randomNumber]);
-  } else {
-    selectedPitcher.push(pitchers);
-  }
-
   useEffect(() => {
-    setEra(selectedPitcher);
+    setEra(getPitcher(myPlayerData))
   }, []);
 
   return (
     <div className="pitcherStory">
       <h3>Pitching Champ</h3>
       <figure className="pitcherStory__card">
-        <img src={Logo} alt="razorback hog" className="pitcherStory__cardLogo" />
+        <img
+          src={Logo}
+          alt="razorback hog"
+          className="pitcherStory__cardLogo"
+        />
         <img src={Brighton} alt="player" className="pitcherStory__cardPlayer" />
 
         <figcaption>
@@ -62,7 +40,7 @@ function PitcherStory() {
             {" "}
             <p style={{ color: "black", padding: 0, margin: 0 }}>Season ERA</p>
             <p style={{ color: "black", padding: 0, margin: 0 }}>
-              {era[0] ? era[0].era : null}
+              {era[0] ? parseFloat(era[0].era).toFixed(2) : null}
             </p>
           </div>
         </figcaption>
