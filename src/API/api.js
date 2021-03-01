@@ -2,14 +2,13 @@
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCTIRxekk03MDct1b7o2kyFB9a0j4ywyso",
-    authDomain: "rzbbaseball-ddb27.firebaseapp.com",
-    databaseURL: "https://rzbbaseball-ddb27.firebaseio.com",
-    projectId: "rzbbaseball-ddb27",
-    storageBucket: "rzbbaseball-ddb27.appspot.com",
-    messagingSenderId: "951021161441",
-    appId: "1:951021161441:web:b43cf02e90c9d5cf8420a0",
-    measurementId: "G-X9WYBT8EZZ"
+    apiKey: "AIzaSyBW2SeHlM8OhLCsJoJxuolVdGX0mulGsoU",
+    authDomain: "rzbbaseball-e5cd1.firebaseapp.com",
+    projectId: "rzbbaseball-e5cd1",
+    storageBucket: "rzbbaseball-e5cd1.appspot.com",
+    messagingSenderId: "262990790889",
+    appId: "1:262990790889:web:4529ed0452f1166eba7078",
+    measurementId: "G-920TK7LEC2"
 };
 
 

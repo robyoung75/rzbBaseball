@@ -129,7 +129,7 @@ function PostInput() {
           onChange={(e) => setInput(e.target.value)}
           className="postInput__centerMessageInput"
           placeholder={
-            userData? `What's up ${userDisplayName}?` : "LOGIN REQUIRED"
+            userData? `What's up ${userUID}?` : "LOGIN REQUIRED"
           }
           type="text"
           id="postInput"
