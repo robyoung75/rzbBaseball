@@ -19,7 +19,7 @@ function BatterStory() {
 
   return (
     <div className="batterStory">
-      <h3>Batter</h3>
+      <h3>Batting Champ</h3>
       <figure className="batterStory__card">
         <img src={Logo} alt="razorback hog" className="batterStory__cardLogo" />
         <img src={Brighton} alt="player" className="batterStory__cardPlayer" />

@@ -15,7 +15,7 @@ function OverAllPlayerStory() {
 
   return (
     <div className="overAllPlayerStory">
-        <h3>Overall</h3>
+        <h3>Player of the Week</h3>
       <figure className="overAllPlayerStory__card">
         <img
           src={Logo}

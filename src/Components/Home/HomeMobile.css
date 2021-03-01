@@ -27,6 +27,7 @@
 .home__center {
   display: flex;
   flex-direction: column;
+  
   /* width: 100%; */
   /* background-color: greenyellow; */
 }
@@ -53,7 +54,7 @@
   }
 
   .home__center {
-    
+    /* margin: 0 10px; */
         /* background-color: greenyellow; */
   }
 }
