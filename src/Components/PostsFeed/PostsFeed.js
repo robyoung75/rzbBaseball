@@ -31,6 +31,9 @@ function PostsFeed() {
               message={post.postData.message}
               timestamp={post.postData.timestamp}
               image={post.postData.image}
+              photoURL={post.postData.photoURL}
+              displayName={post.postData.displayName}
+              
             />
           </div>
         ))}
