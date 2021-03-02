@@ -32,12 +32,12 @@ const reducer = (state, action) => {
 
     case "PITCHING_ERA":
       let eraSort = state.myPlayerData.sort(function (a, b) {
-        if ((a.era !== null) & (b.era !== null)) {
+     
           const aEra = a.era;
           const bEra = b.era;
 
           return aEra - bEra;
-        }
+     
       });
 
       console.log("ERA_SORT >>>> ", eraSort);

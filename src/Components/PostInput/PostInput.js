@@ -121,9 +121,7 @@ function PostInput() {
           onChange={handleProfileUpdate}
           style={{ display: "none" }}
         />
-      </div>
-
-      <form id="postInput">
+        <form id="postInput">
         <input
           value={input}
           onChange={(e) => setInput(e.target.value)}
@@ -134,6 +132,11 @@ function PostInput() {
           type="text"
           id="postInput"
         />
+        </form>
+      </div>
+
+      <form id="postInput">
+       
         <label htmlFor="image_uploads" className="postInput__centerTopLabel">
           {!newImage ? (
             <p>Upload Image</p>
@@ -155,7 +158,7 @@ function PostInput() {
         <p className="postInput__centerPreview">
           {!newImage
             ? null
-            : `upload file NAME: ${newImage.name}__TYPE${newImage.type}__SIZE${(
+            : `upload file NAME: ${newImage.name}__TYPE ${newImage.type}__SIZE ${(
                 newImage.size / 1024
               ).toFixed()} kb`}
         </p>

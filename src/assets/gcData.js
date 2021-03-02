@@ -2533,7 +2533,7 @@ for (let i = 0; i < gameChangerData.length; i++) {
         runsAllowed: gameChangerData[i].FIELD64,
         walksAllowed: gameChangerData[i].FIELD66,
         ks: gameChangerData[i].FIELD67,
-        era: gameChangerData[i].FIELD69 !== ".000" ? gameChangerData[i].FIELD69 : null,
+        era: gameChangerData[i].FIELD69 != ".000" ? gameChangerData[i].FIELD69 : null,
         position: localTeamData[j].position,
         id: localTeamData[j].id,
         image: localTeamData[j].image,
