@@ -1,16 +1,11 @@
-
 import React from "react";
 import "./Player.css";
 
-
-
-function Player({image, name, id, position, average}) {
-  
-
+function Player({ image, name, id, position, average }) {
   return (
     <div className="player" key={id}>
       <img src={image} alt="player image"></img>
-      
+
       <div className="player__info">
         <p>Batting Average</p>
         <h4>{name}</h4>

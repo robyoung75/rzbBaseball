@@ -1,10 +1,7 @@
-import React, { useEffect} from "react";
-
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
-
 import Header from "./Components/Header/Header";
-
 import About from "./Components/About/About";
 import Home from "./Components/Home/Home";
 import Contact from "./Components/Contact/Contact";
@@ -13,7 +10,6 @@ import "./App.css";
 import Footer from "./Components/Footer/Footer";
 import Dropdown from "./Components/Dropdown/Dropdown";
 import { auth } from "../src/assets/firebase";
-
 import { useStateValue } from "./assets/stateProvider";
 
 function App() {
@@ -29,9 +25,7 @@ function App() {
         dispatch({
           type: "SET_USER",
           user: authUser.providerData,
-          
         });
-        
       } else {
         dispatch({
           type: "SET_USER",

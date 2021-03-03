@@ -2,13 +2,6 @@ import React from "react";
 import "./ScheduleMobile.css";
 import { useStateValue } from "../../assets/stateProvider";
 
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
-import Paper from "@material-ui/core/Paper";
 import { Avatar, makeStyles } from "@material-ui/core";
 import { deepOrange, deepPurple, red, grey } from "@material-ui/core/colors";
 
@@ -48,7 +41,6 @@ export default function Schedule() {
       {newLocal}
       <div className="schedule__table">
         <table>
-        
           <thead>
             <tr>
               <th>Game</th>
@@ -59,7 +51,6 @@ export default function Schedule() {
             </tr>
           </thead>
           <tbody>
-         
             {schedule.map((row) => (
               <tr key={row.id}>
                 <td>

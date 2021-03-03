@@ -1,14 +1,11 @@
 import React from "react";
 import "./Pitcher.css";
 
-
 function Pitcher({ id, image, gamesPitched, name, wins, saves, era }) {
- 
-
   return (
     <div className="pitcher" key={id}>
       <img src={image} alt="player image"></img>
-      
+
       <div className="pitcher__info">
         <p>Games Pitched {gamesPitched}</p>
         <h4>{name}</h4>

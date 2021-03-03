@@ -1,17 +1,21 @@
 .batterStory {
   display: flex;
-  flex-direction:  column;
+  flex-direction: column;
   /* background-color: green; */
   justify-content: center;
-  align-items: center;  
+  align-items: center;
   margin-bottom: 20px;
   margin-left: 5px;
   margin-right: 5px;
 }
 
 .batterStory > h3 {
-  color: #a1aaad;
   padding-bottom: 10px;
+
+  background: -webkit-linear-gradient(#a1aaad, #c62033);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .batterStory__card {
@@ -25,7 +29,7 @@
   border: 18px#c62033 solid;
   /* bottom: -1px; */
   padding: 2px;
-  background-color:#a1aaad;
+  background-color: #a1aaad;
   border-radius: 5px;
   box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.19),
     0 0.15rem 0.15rem rgba(0, 0, 0, 0.23);
@@ -76,12 +80,11 @@ figcaption {
 }
 
 figcaption > p {
-  
   color: #000000;
 }
 
 @media (min-width: 1024px) {
   .batterStory {
-/* flex-direction: column; */
+    /* flex-direction: column; */
   }
-} 
+}

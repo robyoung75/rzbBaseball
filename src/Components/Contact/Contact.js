@@ -66,48 +66,71 @@ const Contact = ({ data }) => {
 
   return (
     <div className="contact">
-      
-        <h2>Razorback Contact</h2>
-        <form id="contact">
-          <div className="contact__input">
-            <label id="contact__label" htmlFor="firstName"><span role="img" aria-label="baseball">⚾</span> <p>First Name</p></label>
-            <input
-              type="text"
-              id="contact"
-              name="firstname"
-              placeholder="Your first name.."
-            ></input>
-          </div>
-          <div className="contact__input">
-            <label id="contact__label" htmlFor="lastName"><span role="img" aria-label="baseball">⚾</span> <p>Last Name</p></label>
-            <input
-              type="text"
-              id="contact"
-              name="lastname"
-              placeholder="Your last name.."
-            ></input>
-          </div>
-          <div className="contact__input">
-            <label  id="contact__label" htmlFor="country"><span role="img" aria-label="baseball">⚾</span> <p>Email</p></label>
-            <input
-              type="text"
-              id="contact"
-              name="email"
-              placeholder="Your email address.."
-            ></input>
-          </div>
-          <div className="contact__input">
-            <label id="contact__label" htmlFor="subject"><span role="img" aria-label="baseball">⚾</span> <p>Subject</p></label>
-            <textarea
-              id="subject"
-              name="subject"
-              placeholder="Write something.."
-            ></textarea>
-          </div>
+      <h2>Razorback Contact</h2>
+      <form id="contact">
+        <div className="contact__input">
+          <label id="contact__label" htmlFor="firstName">
+            <span role="img" aria-label="baseball">
+              ⚾
+            </span>{" "}
+            <p>First Name</p>
+          </label>
+          <input
+            type="text"
+            id="contact"
+            name="firstname"
+            placeholder="Your first name.."
+          ></input>
+        </div>
+        <div className="contact__input">
+          <label id="contact__label" htmlFor="lastName">
+            <span role="img" aria-label="baseball">
+              ⚾
+            </span>{" "}
+            <p>Last Name</p>
+          </label>
+          <input
+            type="text"
+            id="contact"
+            name="lastname"
+            placeholder="Your last name.."
+          ></input>
+        </div>
+        <div className="contact__input">
+          <label id="contact__label" htmlFor="country">
+            <span role="img" aria-label="baseball">
+              ⚾
+            </span>{" "}
+            <p>Email</p>
+          </label>
+          <input
+            type="text"
+            id="contact"
+            name="email"
+            placeholder="Your email address.."
+          ></input>
+        </div>
+        <div className="contact__input">
+          <label id="contact__label" htmlFor="subject">
+            <span role="img" aria-label="baseball">
+              ⚾
+            </span>{" "}
+            <p>Subject</p>
+          </label>
+          <textarea
+            id="subject"
+            name="subject"
+            placeholder="Write something.."
+          ></textarea>
+        </div>
 
-          <input id="contact_submit" type="submit" value="Submit" className="contact__submit"></input>
-        </form>
-     
+        <input
+          id="contact_submit"
+          type="submit"
+          value="Submit"
+          className="contact__submit"
+        ></input>
+      </form>
     </div>
   );
 };

@@ -24,6 +24,7 @@ const battingAverages = (state) => {
   return highBatAve;
 };
 
+// Overall player function for StoryReel
 const getOverallPlayer = (state) => {
   let evalStats = [];
   let evalSort;
@@ -54,7 +55,7 @@ const getOverallPlayer = (state) => {
   return evalSort;
 };
 
-
+// Pitcher of the week function for storyReel
 const pitcherOfTheWeek = (state) => {
   let pitchersSort = [];
   let evalStats = [];
@@ -75,29 +76,25 @@ const pitcherOfTheWeek = (state) => {
       evalScore:
         parseFloat(pitcher.era) +
         parseFloat(pitcher.inningsPitched) +
-        (parseFloat(pitcher.gameSaves) * 5) + 
-        (parseFloat(pitcher.ks) * 2) +
-        (parseFloat(pitcher.gameWins) * 10) -
+        parseFloat(pitcher.gameSaves) * 5 +
+        parseFloat(pitcher.ks) * 2 +
+        parseFloat(pitcher.gameWins) * 10 -
         parseFloat(pitcher.hitsAllowed) -
         parseFloat(pitcher.runsAllowed) -
-        (parseFloat(pitcher.walksAllowed) * 2)  
-       
+        parseFloat(pitcher.walksAllowed) * 2,
     });
   });
 
   let sortByEval = evalStats.sort((a, b) => {
-    return b.evalScore - a.evalScore
-  })
+    return b.evalScore - a.evalScore;
+  });
 
-  evalSort.push(sortByEval[0])
-  
+  evalSort.push(sortByEval[0]);
 
   console.log(pitchersSort);
   console.log(evalStats);
-  console.log(evalSort)
-  return evalSort
-
-
+  console.log(evalSort);
+  return evalSort;
 };
 
 export { battingAverages, getOverallPlayer, pitcherOfTheWeek };

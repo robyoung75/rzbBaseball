@@ -20,8 +20,8 @@ function About() {
           coach brings a specific area of focus, a wealth of baseball knowledge
           and real world experience to our team. Each player and coach are
           expected to review and operate under the RZB Standards, Head Coaches
-          Expectations, and Player contract. We are proud of what RZB
-          Baseball represents! Tyler Baldwin is the founder of RZB Baseball.
+          Expectations, and Player contract. We are proud of what RZB Baseball
+          represents! Tyler Baldwin is the founder of RZB Baseball.
         </p>
       </div>
     </div>

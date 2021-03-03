@@ -10,8 +10,12 @@
 }
 
 .pitcherStory > h3 {
-  color: #a1aaad;
-  margin-bottom: 10px;
+  padding-bottom: 10px;
+
+  background: -webkit-linear-gradient(#a1aaad, #c62033);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .pitcherStory__card {

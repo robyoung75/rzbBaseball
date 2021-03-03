@@ -4,17 +4,15 @@ import "./BatterStory.css";
 import Logo from "../../Images/razorbackLogoFace.png";
 import Brighton from "../../Images/BrightonAction.jpg";
 import { useStateValue } from "../../assets/stateProvider";
-import {battingAverages} from '../../assets/functions'
+import { battingAverages } from "../../assets/functions";
 
 function BatterStory() {
   const [{ myPlayerData }, dispatch] = useStateValue(null);
 
   const [batAve, setBatAve] = useState([]);
 
-
-
   useEffect(() => {
-    setBatAve(battingAverages(myPlayerData))
+    setBatAve(battingAverages(myPlayerData));
   }, []);
 
   return (

@@ -9,11 +9,9 @@ function PitcherStory() {
   const [{ myPlayerData }, dispatch] = useStateValue(null);
 
   const [era, setEra] = useState([]);
-  const [ass, setAss] = useState([])
-  
+
   useEffect(() => {
-    setEra(pitcherOfTheWeek(myPlayerData))
-    setAss(pitcherOfTheWeek(myPlayerData))
+    setEra(pitcherOfTheWeek(myPlayerData));
   }, []);
 
   return (
@@ -40,7 +38,9 @@ function PitcherStory() {
 
           <div className="pitcherStory__figcaptionCol">
             {" "}
-            <p style={{ color: "black", padding: 0, margin: 0 }}>Overall Score</p>
+            <p style={{ color: "black", padding: 0, margin: 0 }}>
+              Overall Score
+            </p>
             <p style={{ color: "black", padding: 0, margin: 0 }}>
               {era[0] ? parseFloat(era[0].evalScore).toFixed(2) : null}
             </p>

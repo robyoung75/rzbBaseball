@@ -248,13 +248,7 @@ let schedule = [
   },
 ];
 
-
-
-
-
-
-
-export { teamData, coachesData, schedule, brighton};
+export { teamData, coachesData, schedule, brighton };
 // export default teamData;
 
 // let razorBacks = {

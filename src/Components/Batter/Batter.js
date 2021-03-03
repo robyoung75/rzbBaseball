@@ -1,14 +1,11 @@
 import React from "react";
 import "./Batter.css";
 
-
 function Batter({ id, image, name, position, average }) {
-
-
   return (
     <div className="batter" key={id}>
-      <img src={image} alt="player image" ></img>
-   
+      <img src={image} alt="player image"></img>
+
       <div className="batter__info">
         <p>Batting Average</p>
         <h4>{name}</h4>

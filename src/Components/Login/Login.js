@@ -69,7 +69,9 @@ function Login() {
         ></input>
       </form>
 
-      <p className="login__terms">By signing-in you agree to RZBB Conditions of Use & Sale.</p>
+      <p className="login__terms">
+        By signing-in you agree to RZBB Conditions of Use & Sale.
+      </p>
     </div>
   );
 }

@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import PostInput from "../PostInput/PostInput";
 import Post from "../Post/Post";
 import { db } from "../../assets/firebase";
 import { useStateValue } from "../../assets/stateProvider";
@@ -24,20 +23,17 @@ function PostsFeed() {
 
   return (
     <div className="postsFeed">
-     
-        {posts.map((post) => (
-          <div key={post.postId}>
-            <Post
-              message={post.postData.message}
-              timestamp={post.postData.timestamp}
-              image={post.postData.image}
-              photoURL={post.postData.photoURL}
-              displayName={post.postData.displayName}
-              
-            />
-          </div>
-        ))}
-  
+      {posts.map((post) => (
+        <div key={post.postId}>
+          <Post
+            message={post.postData.message}
+            timestamp={post.postData.timestamp}
+            image={post.postData.image}
+            photoURL={post.postData.photoURL}
+            displayName={post.postData.displayName}
+          />
+        </div>
+      ))}
     </div>
   );
 }

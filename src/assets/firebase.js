@@ -2,7 +2,6 @@
 
 import firebase from "firebase";
 import "firebase/storage";
-
 import firebaseConfig from "../API/api";
 import imageCompression from "browser-image-compression";
 // initialize the firebase database
@@ -12,7 +11,6 @@ const firebaseApp = firebase.initializeApp(firebaseConfig);
 const db = firebaseApp.firestore();
 const auth = firebase.auth();
 const storage = firebaseApp.storage();
-
 
 const updateDisplayName = (newDisplayName) => {
   let user = auth.currentUser;
@@ -28,7 +26,6 @@ const updateDisplayName = (newDisplayName) => {
       console.log(error);
     });
 };
-
 
 const firebaseStorageDelete = async (url) => {
   try {
