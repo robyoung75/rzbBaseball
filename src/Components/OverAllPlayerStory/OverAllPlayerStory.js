@@ -42,7 +42,7 @@ function OverAllPlayerStory() {
           <div className="overAllPlayerStory__figcaptionCol">
             {" "}
             <p style={{ color: "black", padding: 0, margin: 0 }}>
-              Player Score
+              Overall Score
             </p>
             <p style={{ color: "black", padding: 0, margin: 0 }}>
               {allAroundPlayer ? allAroundPlayer.evalScore : null}

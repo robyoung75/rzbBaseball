@@ -33,6 +33,7 @@ const getOverallPlayer = (state) => {
       firstName: player.firstName,
       lastName: player.lastName,
       number: player.number,
+      battingAve: player.battingAve,
 
       evalScore:
         parseFloat(player.hits) +
@@ -53,31 +54,50 @@ const getOverallPlayer = (state) => {
   return evalSort;
 };
 
-const getPitcher = (state) => {
-  let eraSort = [];
-  let lowEra = [];
 
-  let eras = state.sort(function (a, b) {
-    const aEra = parseFloat(a.era);
-    const bEra = parseFloat(b.era);
-    return aEra - bEra;
-  });
+const pitcherOfTheWeek = (state) => {
+  let pitchersSort = [];
+  let evalStats = [];
+  let evalSort = [];
 
-  console.log(eras[0]);
-
-  eras.map((pitcher) => {
-    if (eras[0] === pitcher.era) {
-      eraSort.push(pitcher);
-      if (eraSort.length > 1) {
-        let randomNumber = Math.floor(Math.random() * eraSort.length);
-        lowEra.push(pitcher[randomNumber]);
-      }
-    } else {
-      lowEra.push(eras[0]);
+  state.forEach((player) => {
+    if (player.era) {
+      pitchersSort.push(player);
     }
   });
 
-  return lowEra;
+  pitchersSort.forEach((pitcher) => {
+    evalStats.push({
+      firstName: pitcher.firstName,
+      lastName: pitcher.lastName,
+      number: pitcher.number,
+      era: pitcher.era,
+      evalScore:
+        parseFloat(pitcher.era) +
+        parseFloat(pitcher.inningsPitched) +
+        (parseFloat(pitcher.gameSaves) * 5) + 
+        (parseFloat(pitcher.ks) * 2) +
+        (parseFloat(pitcher.gameWins) * 10) -
+        parseFloat(pitcher.hitsAllowed) -
+        parseFloat(pitcher.runsAllowed) -
+        (parseFloat(pitcher.walksAllowed) * 2)  
+       
+    });
+  });
+
+  let sortByEval = evalStats.sort((a, b) => {
+    return b.evalScore - a.evalScore
+  })
+
+  evalSort.push(sortByEval[0])
+  
+
+  console.log(pitchersSort);
+  console.log(evalStats);
+  console.log(evalSort)
+  return evalSort
+
+
 };
 
-export { battingAverages, getOverallPlayer, getPitcher };
+export { battingAverages, getOverallPlayer, pitcherOfTheWeek };

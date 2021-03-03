@@ -3,15 +3,17 @@ import Logo from "../../Images/razorbackLogoFace.png";
 import Brighton from "../../Images/BrightonAction.jpg";
 import { useStateValue } from "../../assets/stateProvider";
 import "./PitcherStory.css";
-import { getPitcher } from "../../assets/functions";
+import { pitcherOfTheWeek } from "../../assets/functions";
 
 function PitcherStory() {
   const [{ myPlayerData }, dispatch] = useStateValue(null);
 
   const [era, setEra] = useState([]);
-
+  const [ass, setAss] = useState([])
+  
   useEffect(() => {
-    setEra(getPitcher(myPlayerData))
+    setEra(pitcherOfTheWeek(myPlayerData))
+    setAss(pitcherOfTheWeek(myPlayerData))
   }, []);
 
   return (
@@ -38,9 +40,12 @@ function PitcherStory() {
 
           <div className="pitcherStory__figcaptionCol">
             {" "}
-            <p style={{ color: "black", padding: 0, margin: 0 }}>Season ERA</p>
+            <p style={{ color: "black", padding: 0, margin: 0 }}>Overall Score</p>
             <p style={{ color: "black", padding: 0, margin: 0 }}>
-              {era[0] ? parseFloat(era[0].era).toFixed(2) : null}
+              {era[0] ? parseFloat(era[0].evalScore).toFixed(2) : null}
+            </p>
+            <p style={{ color: "black", padding: 0, margin: 0 }}>
+              ERA: {era[0] ? parseFloat(era[0].era).toFixed(2) : null}
             </p>
           </div>
         </figcaption>
